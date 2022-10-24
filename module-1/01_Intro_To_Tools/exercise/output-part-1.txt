@@ -1,0 +1,33 @@
+
+---- VERIFYING PART 1 ---- 
+
+✅ 1. /c/Users/Student/playground exists
+✅ 2. /c/Users/Student/playground/usa exists
+✅ 3. /c/Users/Student/playground/canada exists
+✅ 4. /c/Users/Student/playground/usa/ohio exists
+✅ 5. /c/Users/Student/playground/usa/pennsylvania exists
+✅ 6. /c/Users/Student/playground/usa/michigan exists
+✅ 7. /c/Users/Student/playground/canada/quebec exists
+✅ 8. /c/Users/Student/playground/canada/british-columbia exists
+✅ 9. /c/Users/Student/playground/usa/ohio/cuyahoga exists
+✅ 10. /c/Users/Student/playground/usa/ohio/hamilton exists
+✅ 11. /c/Users/Student/playground/usa/ohio/franklin exists
+✅ 12. /c/Users/Student/playground/usa/pennsylvania/allegheny exists
+✅ 13. /c/Users/Student/playground/usa/michigan/wayne exists
+✅ 14. /c/Users/Student/playground/usa/ohio/cuyahoga/cleveland.txt exists
+✅ 15. /c/Users/Student/playground/usa/ohio/hamilton/cincinnati.txt exists
+✅ 16. /c/Users/Student/playground/usa/ohio/franklin/columbus.txt exists
+✅ 17. /c/Users/Student/playground/usa/pennsylvania/allegheny/pittsburgh.txt exists
+✅ 18. /c/Users/Student/playground/usa/michigan/wayne/detroit.txt exists
+✅ 19. /c/Users/Student/playground/canada/quebec/montreal.txt exists
+✅ 20. /c/Users/Student/playground/canada/quebec/quebec-city.txt exists
+✅ 21. /c/Users/Student/playground/canada/british-columbia/vancouver.txt exists
+✅ 22. /c/Users/Student/playground/canada/british-columbia/prince-george.txt exists
+
+Total tests: 22
+Tests passed: 22
+Errors: 0
+
+Congratulations! All tests in Part 1 are passing.
+Continue on to Part 2 in the README.
+
