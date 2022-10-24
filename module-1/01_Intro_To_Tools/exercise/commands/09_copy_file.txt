@@ -1,0 +1,1 @@
+# How do you create a copy of "foo.txt" named "baz.txt"?
