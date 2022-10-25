@@ -46,7 +46,7 @@ public class Tutorial {
         int numberOfCookies = 9;
         int numberOfCookiesPerGuest = numberOfCookies / numberOfGuests;
         int leftoverPieces = numberOfCookies % numberOfGuests;
-        System.out.println("Each guest can eat " + numberOfCookiesPerGuest + " cookies, with " + leftoverPieces + " left over.")
+        System.out.println("Each guest can eat " + numberOfCookiesPerGuest + " cookies, with " + leftoverPieces + " left over.");
 
 
 
