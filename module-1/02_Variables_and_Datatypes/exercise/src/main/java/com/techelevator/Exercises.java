@@ -374,61 +374,119 @@ public class Exercises {
         31. Joy will see her grandma in two days. How many hours until she sees
         her?
         */
+		int numberOfDaysLeftToWait = 2;
+		int numberOfHoursPerDay = 24;
+		int numberOfHoursLeftToWait = numberOfDaysLeftToWait * numberOfHoursPerDay;
+
+		System.out.println("31. Number of hours until Joy sees her grandma = " + numberOfHoursLeftToWait);
+		System.out.println();
 
 
         /* Exercise 32
         32. Kim has 4 cousins. She wants to give each one 5 pieces of gum. How
         much gum will she need?
         */
+		int numberOfCousins = 4;
+		int piecesOfGumPerCousin = 5;
+		int totalAmountOfGumNeeded = numberOfCousins * piecesOfGumPerCousin;
+
+		System.out.println("32. Amount of gum needed (in pieces) = " + totalAmountOfGumNeeded);
+		System.out.println();
 
 
         /* Exercise 33
         33. Dan has $3.00. He bought a candy bar for $1.00. How much money is
         left?
         */
+		double amountDanHasAtStart = 3.00;
+		double amountDanSpentOnCandy = 1.00;
+		double amountDanHasLeft = amountDanHasAtStart - amountDanSpentOnCandy;
+
+		System.out.println("33. Amount of money Dan has left = " + amountDanHasLeft);
+		System.out.println();
 
 
         /* Exercise 34
         34. 5 boats are in the lake. Each boat has 3 people. How many people are
         on boats in the lake?
         */
+		int numberOfBoatsOnLake = 5;
+		int numberOfPeoplePerBoat = 3;
+		int numberOfPeopleOnLake = numberOfBoatsOnLake * numberOfPeoplePerBoat;
+
+		System.out.println("34. Number of people on the lake in boats = " + numberOfPeopleOnLake);
+		System.out.println();
 
 
         /* Exercise 35
         35. Ellen had 380 legos, but she lost 57 of them. How many legos does she
         have now?
         */
+		int numberOfLegosAtStart = 380;
+		int numberOfLegosLost = 57;
+		int numberOfLegosLeftAtEnd = numberOfLegosAtStart - numberOfLegosLost;
+
+		System.out.println("35. Number of legos Ellen has left = " + numberOfLegosLeftAtEnd);
+		System.out.println();
 
 
         /* Exercise 36
         36. Arthur baked 35 muffins. How many more muffins does Arthur have to
         bake to have 83 muffins?
         */
+		int numberOfMuffinsAlreadyBaked = 35;
+		int totalNumberOfMuffinsNeeded = 83;
+		int numberOfMuffinsLeftToBake = totalNumberOfMuffinsNeeded - numberOfMuffinsAlreadyBaked;
+
+		System.out.println("36. Number of muffins Arthur still needs to bake = " + numberOfMuffinsLeftToBake);
+		System.out.println();
 
 
         /* Exercise 37
         37. Willy has 1400 crayons. Lucy has 290 crayons. How many more
         crayons does Willy have then Lucy?
         */
+		int numberOfCrayonsWillyHas = 1400;
+		int numberOfCrayonsLucyHas = 290;
+		int differenceBetweenAmountOfCrayons = numberOfCrayonsWillyHas - numberOfCrayonsLucyHas;
+
+		System.out.println("37. Number of crayons Willy has more than Lucy = " + differenceBetweenAmountOfCrayons);
+		System.out.println();
 
 
         /* Exercise 38
         38. There are 10 stickers on a page. If you have 22 pages of stickers, how
         many stickers do you have?
         */
+		int numberOfStickersPerPage = 10;
+		int numberOfStickerPages = 22;
+		int totalNumberOfStickers = numberOfStickersPerPage * numberOfStickerPages;
 
+		System.out.println("38. Total number of stickers = " + totalNumberOfStickers);
+		System.out.println();
 
         /* Exercise 39
         39. There are 100 cupcakes for 8 children to share. How much will each
         person get if they share the cupcakes equally?
         */
+		int numberOfCupcakesAvailable = 100;
+		int numberOfChildren = 8;
+		double numberOfCupcakesPerChild = (double)numberOfCupcakesAvailable/(double)numberOfChildren;
 
+		System.out.println("39. Number of cupcakes per child = " + numberOfCupcakesPerChild);
+		System.out.println();
 
         /* Exercise 40
         40. She made 47 gingerbread cookies which she will distribute equally in
         tiny glass jars. If each jar is to contain six cookies, how many
         cookies will not be placed in a jar?
         */
+		int numberOfGingerbreadCookies = 47;
+		int numberOfCookiesPerJar = 6;
+		int numberOfCookiesLeftOver = numberOfGingerbreadCookies % numberOfCookiesPerJar;
+
+		System.out.println("40. Number of leftover cookies = " + numberOfCookiesLeftOver);
+		System.out.println();
 
 
         /* Exercise 41
