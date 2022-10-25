@@ -26,48 +26,97 @@ public class Exercises {
         3. 3 raccoons are playing in the woods. 2 go home to eat dinner. How
         many raccoons are left in the woods?
         */
+		int numberOfRacoonsPlayingAtStart = 3;
+		int numberOfRacoonsStoppedPlaying = 2;
+		int numberOfRacoonsStillPlaying = numberOfRacoonsPlayingAtStart - numberOfRacoonsStoppedPlaying;
+
+		System.out.println("3. Number of racoons left playing in woods after some leave = " + numberOfRacoonsStillPlaying);
+		System.out.println();
 
 
         /* Exercise 4
         4. There are 5 flowers and 3 bees. How many less bees than flowers?
         */
+		int numberOfFlowers = 5;
+		int numberOfBees = 3;
+		int howManyLessBeesThanFlowers = numberOfFlowers - numberOfBees;
 
+		System.out.println("4. How many less bees than flowers = " + howManyLessBeesThanFlowers);
+		System.out.println();
 
         /* Exercise 5
         5. 1 lonely pigeon was eating breadcrumbs. Another pigeon came to eat
         breadcrumbs, too. How many pigeons are eating breadcrumbs now?
         */
+		int numberOfPigeonsAtStart = 1;
+		int numberOfPigeonsJoined = 1;
+		int totalNumberOfPigeons = numberOfPigeonsAtStart + numberOfPigeonsJoined;
+
+		System.out.println("5. Total number of pigeons eating breadcrumbs = " + totalNumberOfPigeons);
+		System.out.println();
 
 
         /* Exercise 6
         6. 3 owls were sitting on the fence. 2 more owls joined them. How many
         owls are on the fence now?
         */
+		int numberOfOwlsAtStart = 3;
+		int numberOfOwlsJoined = 2;
+		int totalNumberOfOwls = numberOfOwlsAtStart + numberOfOwlsJoined;
+
+		System.out.println("6. Total number of owls on fence = " + totalNumberOfOwls);
+		System.out.println();
 
 
         /* Exercise 7
         7. 2 beavers were working on their home. 1 went for a swim. How many
         beavers are still working on their home?
         */
+		int numberOfBeaversWorking = 2;
+		int numberOfBeaversGoneToSwim = 1;
+		int totalNumberOfBeaversLeftWorking = numberOfBeaversWorking - numberOfBeaversGoneToSwim;
+
+		System.out.println("7. Total number of beavers left working = " + totalNumberOfBeaversLeftWorking);
+		System.out.println();
 
 
         /* Exercise 8
         8. 2 toucans are sitting on a tree limb. 1 more toucan joins them. How
         many toucans in all?
         */
+		int numberOfToucansSitting = 2;
+		int numberOfToucansJoined = 1;
+		int newNumberOfToucansSitting = numberOfToucansSitting + numberOfToucansJoined;
+
+		System.out.println("8. Total number of toucans sitting on a tree branch = " + newNumberOfToucansSitting);
+		System.out.println();
 
 
         /* Exercise 9
         9. There are 4 squirrels in a tree with 2 nuts. How many more squirrels
         are there than nuts?
         */
+		int numberOfSquirrels = 4;
+		int numberOfNuts = 2;
+		int howManyMoreSquirrelsThanNuts = numberOfSquirrels - numberOfNuts;
 
+		System.out.println("9. How many more squirrels than nuts = " + howManyMoreSquirrelsThanNuts);
+		System.out.println();
 
         /* Exercise 10
         10. Mrs. Hilt found a quarter, 1 dime, and 2 nickels. How much money did
         she find?
         */
+		int numberOfQuartersFound = 1;
+		int numberOfDimesFound = 1;
+		int numberOfNickelsFound = 2;
+		double valueOfQuartersFound = numberOfQuartersFound * 0.25;
+		double valueOfDimesFound = numberOfDimesFound * 0.10;
+		double valueOfNickelsFound = numberOfNickelsFound * 0.05;
+		double totalValueOfMoneyFound = valueOfQuartersFound + valueOfDimesFound+ valueOfNickelsFound;
 
+		System.out.println("10. Value of money Mrs. Hilt found = " + totalValueOfMoneyFound);
+		System.out.println();
 
         /* Exercise 11
         11. Mrs. Hilt's favorite first grade classes are baking muffins. Mrs. Brier's
