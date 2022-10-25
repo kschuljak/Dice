@@ -494,6 +494,12 @@ public class Exercises {
         neighbors. If each neighbor received an equal number of croissants,
         how many will be left with Marian?
         */
+		int numberOfCroissants = 59;
+		int numberOfNeighbors = 8;
+		int numberOfCroissantsLeftOver = numberOfCroissants % numberOfNeighbors;
+
+		System.out.println("41. Number of leftover croissants = ");
+		System.out.println();
 
 
         /* Exercise 42
@@ -501,6 +507,12 @@ public class Exercises {
         place 12 cookies on a tray at a time, how many trays will she need to
         prepare 276 oatmeal cookies at a time?
         */
+		int numberOfCookiesPerTray = 12;
+		int numberOfCookiesPerBake = 276;
+		int numberOfTraysNeeded = numberOfCookiesPerBake/numberOfCookiesPerTray;
+
+		System.out.println("42. Number of trays needed = " + numberOfTraysNeeded);
+		System.out.println();
 
 
         /* Exercise 43
@@ -508,6 +520,12 @@ public class Exercises {
         bite-sized pretzels. If one serving is equal to 12 pretzels, how many
         servings of bite-sized pretzels was Marian able to prepare?
         */
+		int totalNumberOfPretzels = 480;
+		int numberOfPretzelsPerServing = 12;
+		int numberOfServings = totalNumberOfPretzels/numberOfPretzelsPerServing;
+
+		System.out.println("43. Number of servings of pretzels = " + numberOfServings);
+		System.out.println();
 
 
         /* Exercise 44
@@ -515,6 +533,14 @@ public class Exercises {
         orphanage. If two lemon cupcakes were left at home, how many
         boxes with 3 lemon cupcakes each were given away?
         */
+		int numberOfLemonCupcakesBaked = 53;
+		int numberOfLeftoverCupcakes = 2;
+		int totalNumberOfCupcakesGivenAway = numberOfLemonCupcakesBaked - numberOfLeftoverCupcakes;
+		int numberOfCupcakesPerBox = 3;
+		int totalNumberOfBoxes = totalNumberOfCupcakesGivenAway/numberOfCupcakesPerBox;
+
+		System.out.println("44. Number of cupcake boxes given away = " + totalNumberOfBoxes);
+		System.out.println();
 
 
         /* Exercise 45
@@ -522,6 +548,12 @@ public class Exercises {
         were served equally to 12 people, how many carrot sticks were left
         uneaten?
         */
+		int numberOfCarrotSticks = 74;
+		int numberOfPeopleEating = 12;
+		int numberOfCarrotSticksLeftOver = numberOfCarrotSticks % numberOfPeopleEating;
+
+		System.out.println("45. Number of leftover carrot sticks = " + numberOfCarrotSticksLeftOver);
+		System.out.println();
 
 
         /* Exercise 46
@@ -529,6 +561,12 @@ public class Exercises {
         them on the shelves in their bedroom. If every shelf can carry a
         maximum of 7 teddy bears, how many shelves will be filled?
         */
+		int numberOfTeddyBears = 98;
+		int maxNumberOfTeddyBearsPerShelf = 7;
+		int numberOfFullShelves = numberOfTeddyBears/maxNumberOfTeddyBearsPerShelf;
+
+		System.out.println("46. Number of full teddy bear shelves = " + numberOfFullShelves);
+		System.out.println();
 
 
         /* Exercise 47
@@ -536,6 +574,12 @@ public class Exercises {
         them in an album. If an album can contain 20 pictures, how many
         albums will she need if there are 480 pictures?
         */
+		int numberOfPhotosPerAlbum = 20;
+		int totalNumberOfFamilyPhotos = 480;
+		int numberOfPhotoAlbumsNeeded = totalNumberOfFamilyPhotos/numberOfPhotosPerAlbum;
+
+		System.out.println("47. Total number of photo albums needed = " + numberOfPhotoAlbumsNeeded);
+		System.out.println();
 
 
         /* Exercise 48
@@ -544,6 +588,14 @@ public class Exercises {
         cards, how many boxes were filled and how many cards are there in
         the unfilled box?
         */
+		int totalNumberOfTradingCards = 94;
+		int numberOfTradingCardsPerBox = 8;
+		int numberOfFullBoxes = totalNumberOfTradingCards/numberOfTradingCardsPerBox;
+		int numberOfCardInUnfilledBox = totalNumberOfTradingCards % numberOfTradingCardsPerBox;
+
+		System.out.println("48. Number of full boxes of trading cards = " + numberOfFullBoxes);
+		System.out.println("48. Number of cards in unfilled box = " + numberOfCardInUnfilledBox);
+		System.out.println();
 
 
         /* Exercise 49
@@ -551,12 +603,24 @@ public class Exercises {
         210 books to be distributed equally on the 10 shelves he repaired,
         how many books will each shelf contain?
         */
+		int totalNumberOfBooks = 210;
+		int numberOfBookshelvesAvailable = 10;
+		int numberOfBooksPerShelf = totalNumberOfBooks/numberOfBookshelvesAvailable;
+
+		System.out.println("49. Number of books per shelf = " + numberOfBooksPerShelf);
+		System.out.println();
 
 
         /* Exercise 50
         50. Cristina baked 17 croissants. If she planned to serve this equally to
         her seven guests, how many will each have?
         */
+		int totalNumberOfCroissants = 17;
+		int totalNumberOfGuests = 7;
+		double numberOfCroissantsPerGuest = (double)totalNumberOfCroissants/totalNumberOfGuests;
+
+		System.out.println("50. Number of croissants per guest = " + numberOfCroissantsPerGuest);
+		System.out.println();
 
 
 	    /* Exercise 51
@@ -565,7 +629,19 @@ public class Exercises {
 	    Hint: Calculate the rate at which each painter can complete a room (rooms / hour), combine those rates, 
 	    and then divide the total number of rooms to be painted by the combined rate.
 	    */
-     
+		double billPaintingHoursPerRoom = 2.15;
+ 		double jillPaintingHoursPerRoom = 1.90;
+		int numberOfRoomsToPaint = 5;
+		double billRateOfPaintingRoomsPerHour = 1/billPaintingHoursPerRoom;
+		double jillRateOfPaintingRoomsPerHour = 1/jillPaintingHoursPerRoom;
+		double totalRateOfPaintingRoomsPerHour = billRateOfPaintingRoomsPerHour + jillRateOfPaintingRoomsPerHour;
+		double timeNeededToPaintAllRooms = numberOfRoomsToPaint/totalRateOfPaintingRoomsPerHour;
+
+		System.out.println("51. Bill rate of painting (rooms/ hour) = " + billRateOfPaintingRoomsPerHour);
+		System.out.println("51. Jill rate of painting (rooms/ hour) = " + jillRateOfPaintingRoomsPerHour);
+		System.out.println("51. total rate of painting (rooms/ hour) = " + totalRateOfPaintingRoomsPerHour);
+		System.out.println("51. time needed to paint all rooms (in hours) = " + timeNeededToPaintAllRooms);
+		System.out.println();
 
 	    /* Exercise 52
 	    52. Create and assign variables to hold a first name, last name, and middle initial. Using concatenation,
@@ -574,13 +650,25 @@ public class Exercises {
 		with a period. Use "Grace", "Hopper, and "B" for the first name, last name, and middle initial.
 		Example: "John", "Smith, "D" —> "Smith, John D."
 	    */
+		String firstName = "Grace";
+		String middleInitial = "B";
+		String lastName = "Hopper";
+		String fullName = lastName + ", " + firstName + " " + middleInitial + ".";
+
+		System.out.println("52. full name = " + fullName);
+		System.out.println();
 
 
 	    /* Exercise 53
 	    53. The distance between New York and Chicago is 800 miles, and the train has already travelled 537 miles.
 	    What percentage of the trip as a whole number has been completed?
 	    */
+		int totalDistanceBetweenNewYorkAndChicagoInMiles = 800;
+		int distanceTrainHasAlreadyTravelledInMiles = 537;
+		int percentageOfTheTripAlreadyCompleted = (int)(((double)distanceTrainHasAlreadyTravelledInMiles/(double)totalDistanceBetweenNewYorkAndChicagoInMiles) * 100);
 
+		System.out.println("53. Percentage of trip already completed = " + percentageOfTheTripAlreadyCompleted);
+		System.out.println();
 	}
 
 }
