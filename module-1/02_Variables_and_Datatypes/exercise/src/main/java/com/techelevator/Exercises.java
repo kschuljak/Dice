@@ -13,6 +13,9 @@ public class Exercises {
 		int birdsThatFlyAway = 1;
 		int birdsRemaining = birdsOnABranch - birdsThatFlyAway;
 
+		System.out.println("1. Number of birds remaining = " + birdsRemaining);
+		System.out.println();
+
         /* Exercise 2
         2. There are 6 birds and 3 nests. How many more birds are there than
         nests?
@@ -21,6 +24,9 @@ public class Exercises {
 		int numberOfBirds = 6;
 		int numberOfNests = 3;
 		int numberOfExtraBirds = numberOfBirds - numberOfNests;
+
+		System.out.println("2. Number of extra birds = " + numberOfExtraBirds);
+		System.out.println();
 
         /* Exercise 3
         3. 3 raccoons are playing in the woods. 2 go home to eat dinner. How
@@ -124,12 +130,24 @@ public class Exercises {
         Mrs. Flannery's class bakes 17 muffins. How many muffins does first
         grade bake in all?
         */
+		int numberOfMuffinsFromBriersClass = 18;
+		int numberOfMuffinsFromMacAdamsClass = 20;
+		int numberOfMuffinsFromFlannerysClass = 17;
+		int totalNumberOfMuffinsFromFirstGradeClasses = numberOfMuffinsFromBriersClass + numberOfMuffinsFromMacAdamsClass + numberOfMuffinsFromFlannerysClass;
 
+		System.out.println("11. Total number of muffins baked by first grade classes = " + totalNumberOfMuffinsFromFirstGradeClasses);
+		System.out.println();
 
         /* Exercise 12
         12. Mrs. Hilt bought a yoyo for 24 cents and a whistle for 14 cents. How
         much did she spend in all for the two toys?
         */
+		double priceOfYoyo = 0.24;
+		double priceOfWhistle = 0.14;
+		double totalPriceOfToys = priceOfYoyo + priceOfWhistle;
+
+		System.out.println("12. Total amount Mrs. Hilt spent on toys = " + totalPriceOfToys);
+		System.out.println();
 
 
         /* Exercise 13
@@ -137,19 +155,37 @@ public class Exercises {
         and 10 mini marshmallows.How many marshmallows did she use
         altogether?
         */
+		int numberOfLargeMarshmallowsUsed= 8;
+		int numberOfMiniMarshmallowsUsed= 10;
+		int totalNumberOfMarshmallowsUsed = numberOfLargeMarshmallowsUsed + numberOfMiniMarshmallowsUsed;
 
+		System.out.println("13. Total number of marshmallows used in baking = " + totalNumberOfMarshmallowsUsed);
+		System.out.println();
 
         /* Exercise 14
         14. At Mrs. Hilt's house, there was 29 inches of snow, and Brecknock
         Elementary School received 17 inches of snow. How much more snow
         did Mrs. Hilt's house have?
         */
+		int inchesOfSnowAtHiltsHouse = 29;
+		int inchesOfSnowAtBrecknockElementary = 17;
+		int totalInchesOfSnowDifference = inchesOfSnowAtHiltsHouse - inchesOfSnowAtBrecknockElementary;
+
+		System.out.println("14. The difference of snowfall between Mrs. Hilt's house and Brecknock Elementary School (in inches) = " + totalInchesOfSnowDifference);
+		System.out.println();
 
 
         /* Exercise 15
         15. Mrs. Hilt has $10. She spends $3 on a toy truck and $2 on a pencil
         case. How much money does she have left?
         */
+		double moneyAtStart = 10.00;
+		double moneySpentOnToyTruck = 3.00;
+		double moneySpentOnPencilCase = 2.00;
+		double moneyLeftAfterShopping = moneyAtStart - moneySpentOnToyTruck - moneySpentOnPencilCase;
+
+		System.out.println("15. Amount of money Mrs. Hilt has left after shopping = " + moneyLeftAfterShopping);
+		System.out.println();
 
 
         /* Exercise 16
@@ -157,28 +193,58 @@ public class Exercises {
         marbles does he have now?
         */
 
+		int numberOfMarblesInCollectionAtStart = 16;
+		int numberOfMarblesLost = 7;
+		int numberOfMarblesLeftInCollection = numberOfMarblesInCollectionAtStart - numberOfMarblesLost;
+
+		System.out.println("16. Number of marbles left in Josh's collection = " + numberOfMarblesLeftInCollection);
+		System.out.println();
+
 
         /* Exercise 17
         17. Megan has 19 seashells. How many more seashells does she need to
         find to have 25 seashells in her collection?
         */
+		int numberOfSeashellsInMegansCollection = 19;
+		int numberOfSeashellsThatMeganWants = 25;
+		int numberOfSeashellsToFind = numberOfSeashellsThatMeganWants - numberOfSeashellsInMegansCollection;
 
+		System.out.println("17. Number of seashells left to find = " + numberOfSeashellsToFind);
+		System.out.println();
 
         /* Exercise 18
         18. Brad has 17 balloons. 8 balloons are red and the rest are green. How
         many green balloons does Brad have?
         */
+		int totalNumberOfBalloons = 17;
+		int numberOfRedBalloons = 8;
+		int numberOfGreenBalloons = totalNumberOfBalloons - numberOfRedBalloons;
+
+		System.out.println("18. Number of green balloons = " + numberOfGreenBalloons);
+		System.out.println();
 
 
         /* Exercise 19
         19. There are 38 books on the shelf. Marta put 10 more books on the shelf.
         How many books are on the shelf now?
         */
+		int numberOfBooksOnShelfAtStart = 38;
+		int numberOfBooksAddedToShelf = 10;
+		int numberOfBooksOnShelfAtEnd = numberOfBooksOnShelfAtStart + numberOfBooksAddedToShelf;
+
+		System.out.println("19. Number of books on shelf = " + numberOfBooksOnShelfAtEnd);
+		System.out.println();
 
 
         /* Exercise 20
         20. A bee has 6 legs. How many legs do 8 bees have?
         */
+		int numberOfLegsOnABee = 6;
+		int numberOfBeesWithLegs = 8;
+		int totalNumberOfBeeLegs = numberOfLegsOnABee * numberOfBeesWithLegs;
+
+		System.out.println("20. Total number of bee legs = " + totalNumberOfBeeLegs);
+		System.out.println();
 
 
         /* Exercise 21
