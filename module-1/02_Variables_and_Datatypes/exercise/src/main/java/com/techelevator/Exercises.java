@@ -251,6 +251,12 @@ public class Exercises {
         21. Mrs. Hilt bought an ice cream cone for 99 cents. How much would 2 ice
         cream cones cost?
         */
+		double costOfIceCreamCone = 0.99;
+		int numberOfCones = 2;
+		double totalCostOfIceCreamCones = costOfIceCreamCone * numberOfCones;
+
+		System.out.println("21. Total cost of ice cream cones = " + totalCostOfIceCreamCones);
+		System.out.println();
 
 
         /* Exercise 22
@@ -258,18 +264,36 @@ public class Exercises {
         rocks to complete the border. She has 64 rocks. How many more rocks
         does she need to complete the border?
         */
+		int totalNumberOfRocksNeededForBorder = 125;
+		int currentNumberOfRocks = 64;
+		int numberOfRocksNeededToCompleteProject = totalNumberOfRocksNeededForBorder - currentNumberOfRocks;
+
+		System.out.println("22. Number of rocks needed to complete garden border = " + numberOfRocksNeededToCompleteProject);
+		System.out.println();
 
 
         /* Exercise 23
         23. Mrs. Hilt had 38 marbles. She lost 15 of them. How many marbles does
         she have left?
         */
+		int numberOfMarblesMrsHiltHadAtStart = 38;
+		int numberOfMarblesMrsHiltLost = 15;
+		int numberOfMarblesMrsHillHasAtEnd = numberOfMarblesMrsHiltHadAtStart - numberOfMarblesMrsHiltLost;
+
+		System.out.println("23. Number of marbles Mrs. Hilt has left = " + numberOfMarblesMrsHillHasAtEnd);
+		System.out.println();
 
 
         /* Exercise 24
         24. Mrs. Hilt and her sister drove to a concert 78 miles away. They drove 32
         miles and then stopped for gas. How many miles did they have left to drive?
         */
+		int totalNumberOfMiles = 78;
+		int numberOfMilesDriven = 32;
+		int numberOfMilesLeft = totalNumberOfMiles - numberOfMilesDriven;
+
+		System.out.println("24. Number of miles left to drive = " + numberOfMilesLeft);
+		System.out.println();
 
 
         /* Exercise 25
@@ -277,18 +301,36 @@ public class Exercises {
         morning and 45 minutes shoveling snow on Saturday afternoon. How
         much total time (in minutes) did she spend shoveling snow?
         */
+		int minutesSpentShovelingSnowInMorning = 90;
+		int minutesSpentShovelingSnowInAfternoon = 45;
+		int totalNumberOfMinutesSpentShovelingSnow = minutesSpentShovelingSnowInMorning + minutesSpentShovelingSnowInAfternoon;
+
+		System.out.println("25. Time (in minutes) spent shoveling snow = " + totalNumberOfMinutesSpentShovelingSnow);
+		System.out.println();
 
 
         /* Exercise 26
         26. Mrs. Hilt bought 6 hot dogs. Each hot dog cost 50 cents. How much
         money did she pay for all of the hot dogs?
         */
+		int totalNumberOfHotDogs = 6;
+		double costPerHotDog = 0.50;
+		double totalCostOfHotDogs = totalNumberOfHotDogs * costPerHotDog;
+
+		System.out.println("26. Total cost of hot dogs = " + totalCostOfHotDogs);
+		System.out.println();
 
 
         /* Exercise 27
         27. Mrs. Hilt has 50 cents. A pencil costs 7 cents. How many pencils can
         she buy with the money she has?
         */
+		double totalAmountAvailable = 0.50;
+		double costPerPencil = 0.07;
+		int numberOfPencilsPurchasable = (int)(totalAmountAvailable/costPerPencil);
+
+		System.out.println("27. Total number of pencils Mrs. Hilt can buy = " + numberOfPencilsPurchasable);
+		System.out.println();
 
 
         /* Exercise 28
@@ -296,18 +338,36 @@ public class Exercises {
         were orange. If 20 of the butterflies were orange, how many of them
         were red?
         */
+		int totalNumberOfButterflies = 33;
+		int numberOfOrangeButterflies = 20;
+		int numberOfRedButterflies = totalNumberOfButterflies - numberOfOrangeButterflies;
+
+		System.out.println("28. Number of red butterflies = " + numberOfRedButterflies);
+		System.out.println();
 
 
         /* Exercise 29
         29. Kate gave the clerk $1.00. Her candy cost 54 cents. How much change
         should Kate get back?
         */
+		double moneyPaid = 1.00;
+		double costOfCandyPurchase = 0.54;
+		double changeOwed = moneyPaid - costOfCandyPurchase;
+
+		System.out.println("How much change is owed = " + changeOwed);
+		System.out.println();
 
 
         /* Exercise 30
         30. Mark has 13 trees in his backyard. If he plants 12 more, how many trees
         will he have?
         */
+		int numberOfTreesInBackyard = 13;
+		int numberOfTreesToPlant = 12;
+		int numberOfTreesInBackyardAfterPlanting = numberOfTreesInBackyard + numberOfTreesToPlant;
+
+		System.out.println("30. New number of trees in backyard after planting = " + numberOfTreesInBackyardAfterPlanting);
+		System.out.println();
 
 
         /* Exercise 31
