@@ -24,7 +24,14 @@ public class Exercise06_ElectricBill {
     calculateElectricBill(110) ➔ 22.5
      */
     public double calculateElectricBill(double unitsUsed) {
-        return 0;
+        if (unitsUsed <= BASIC_SERVICE_LIMIT) {
+            return unitsUsed * BASIC_SERVICE_RATE;
+        } else {
+            double excessUnits = unitsUsed - BASIC_SERVICE_LIMIT;
+            double basicCost = BASIC_SERVICE_LIMIT * BASIC_SERVICE_RATE;
+            double excessCost = excessUnits * EXCESS_SERVICE_RATE;
+            return (basicCost + excessCost);
+        }
     }
 
     /*
@@ -40,8 +47,14 @@ public class Exercise06_ElectricBill {
     calculateElectricBill(110, true) ➔ 21.375
      */
     public double calculateElectricBill(double unitsUsed, boolean hasRenewableEnergy) {
-        return 0;
+        if (!hasRenewableEnergy) {
+            return calculateElectricBill(unitsUsed);
+        } else {
+            double discount = calculateElectricBill(unitsUsed) * RENEWABLE_ENERGY_DISCOUNT;
+            return calculateElectricBill(unitsUsed) - discount;
+        }
     }
+
 
     /*
     Tech Electric now allows customers with renewable energy to return electricity back into the grid,
@@ -66,6 +79,13 @@ public class Exercise06_ElectricBill {
     calculateElectricBill(110, 120) ➔ -2.0
      */
     public double calculateElectricBill(double unitsUsed, double unitsReturned) {
-        return 0;
+        double netUsage = unitsUsed - unitsReturned;
+        double billAmount = calculateElectricBill(netUsage);
+        if (unitsReturned == 0 || billAmount < 0) {
+            return billAmount;
+        } else {
+            double discount = billAmount * RENEWABLE_ENERGY_DISCOUNT;
+            return (billAmount - discount);
+        }
     }
 }
