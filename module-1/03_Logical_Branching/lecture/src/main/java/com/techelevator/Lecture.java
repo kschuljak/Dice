@@ -114,6 +114,7 @@ public class Lecture {
         } else {
             return "";
         }
+
     }
 
     /*
@@ -165,7 +166,7 @@ public class Lecture {
     public String returnAdultOrMinorOrTeen(int number) {
         if (number >= 18) {
             return "Adult";
-        } else if (number >= 13 && number <= 17) {
+        } else if (number < 18 && number >= 13) {
             return "Teen";
         } else {
             return "Minor";
