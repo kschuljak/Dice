@@ -428,4 +428,5 @@ public class ExercisesTest {
 		assertFalse("isStoreOpen(20, 'W', false) should return false", exercise.isStoreOpen(20, 'W', false));
 		assertFalse("isStoreOpen(20, 'W', true) should return false", exercise.isStoreOpen(20, 'W', true));
 	}
+
 }

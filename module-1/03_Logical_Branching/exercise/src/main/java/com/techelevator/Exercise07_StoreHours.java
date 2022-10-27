@@ -88,16 +88,56 @@ public class Exercise07_StoreHours {
         } else {
             if (currentDay == 'W') {
                 int wednesdayClosingTime = 20;
-                boolean summerHoursWednesday = (currentHour >= regularOpeningTime && currentHour < wednesdayClosingTime);
-                return summerHoursWednesday;
+                return (currentHour >= regularOpeningTime && currentHour < wednesdayClosingTime);
             } else if (currentDay == 'S') {
                 int saturdayOpeningTime = 9;
                 int saturdayClosingTime = 15;
-                boolean summerHoursSaturday = (currentHour >= saturdayOpeningTime && currentHour < saturdayClosingTime);
-                return summerHoursSaturday;
+                return (currentHour >= saturdayOpeningTime && currentHour < saturdayClosingTime);
             } else {
-                return (isOpenToday) ? regularHours : false;
+                return (isOpenToday && regularHours);
             }
         }
+    }
+
+    /*
+    example: re-writing using only one return statement
+     */
+    public boolean isStoreOpen2(int currentHour, char currentDay, boolean isSummer) {
+        boolean isOpenToday = (currentDay == 'M' || currentDay == 'W' || currentDay == 'F');
+        int openingTime = 8;
+        int closingTime = 17;
+        if (isSummer && currentDay == 'W') {
+            closingTime = 20;
+        }
+        if (isSummer && currentDay == 'S') {
+            isOpenToday = true;
+            openingTime = 9;
+            closingTime = 15;
+        }
+        boolean openHours = (currentHour >= openingTime && currentHour < closingTime);
+        return (isOpenToday && openHours);
+    }
+
+    /*
+    example: Gregor's code
+     */
+    public boolean isStoreOpen3(int currentHour, char currentDay, boolean isSummer) {
+        boolean isMonday = currentDay == 'M';
+        boolean isWednesday = currentDay == 'W';
+        boolean isFriday = currentDay == 'F';
+        boolean isSaturday = currentDay == 'S';
+        boolean isWorkDay = isMonday || isWednesday || isFriday;
+        boolean isWorkingHour = currentHour >= 8 && currentHour < 17;
+
+        if (isSummer) {
+            if (isWednesday) {
+                isWorkingHour = currentHour >= 8 && currentHour < 20;
+            }
+            if (isSaturday) {
+                isWorkDay = true;
+                isWorkingHour = currentHour >= 9 && currentHour < 15;
+            }
+        }
+        return (isWorkDay && isWorkingHour);
     }
 }
