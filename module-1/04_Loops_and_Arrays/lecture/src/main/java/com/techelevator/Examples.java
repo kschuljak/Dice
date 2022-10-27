@@ -36,7 +36,7 @@ public class Examples {
 		System.out.println("y == " + y);
 		System.out.println();
 
-		// when the ++ is used as a prefix operator the increment is performed before evalutation
+		// when the ++ is used as a prefix operator the increment is performed before evaluation
 		System.out.println("x = 1");
 		x = 1;
 		System.out.println("y = ++x");
@@ -72,7 +72,7 @@ public class Examples {
 		x += 5;
 		System.out.println("x == " + x);
 
-		// the right hand side of the operator can be an expression
+		// the right-hand side of the operator can be an expression
 		System.out.println("y += x * 2 + 3");
 		y += x * 2 + 3;
 		System.out.println("y == " + y);
