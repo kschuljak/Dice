@@ -15,10 +15,24 @@ public class Review {
         System.out.println("Enter the second word: ");
         String two = input.nextLine(); // test
 
+        // a == b
+        // false
         System.out.println("areEqual2: " + areEqual2(one, two)); // false
+
+        // a.equals(b)
+        // true
         System.out.println("areEqual3: " + areEqual3(one, two)); // true
+
+        // a.equalsIgnoreCase(b)
+        // true
         System.out.println("areEqual4: " + areEqual4(one, two)); // true
+
+        // a.trim() == b.trim()
+        // false
         System.out.println("areEqual5: " + areEqual5(one, two)); // false
+
+        // a.trim().equals(b.trim())
+        // true
         System.out.println("areEqual6: " + areEqual6(one, two)); // true
     }
 

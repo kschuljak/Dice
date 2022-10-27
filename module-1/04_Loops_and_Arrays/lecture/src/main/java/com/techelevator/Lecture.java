@@ -6,8 +6,14 @@ public class Lecture {
     1. Return the created array
     */
     public int[] returnArray() {
+        /*
+        int[] array = new int[3];
+        array[0] = 80;
+        array[1] = 8080;
+        array[2] = 443;
+        */
         int[] array = { 80, 8080, 443 };
-        return null;
+        return array;
     }
 
     /*
@@ -15,7 +21,7 @@ public class Lecture {
     */
     public int returnFirstElement() {
         int[] portNumbers = { 80, 8080, 443 };
-        return 1;
+        return portNumbers[0];
     }
 
     /*
@@ -23,21 +29,22 @@ public class Lecture {
     */
     public int returnLastElement() {
         int[] portNumbers = { 80, 8080, 443 };
-        return 1;
+        // index of the last element of an array = (array.length - 1)
+        return portNumbers[portNumbers.length - 1];
     }
 
     /*
     4. Return the first element of the array from the parameters
     */
     public int returnFirstElementOfParam(int[] passedInArray) {
-        return 1;
+        return passedInArray[0];
     }
 
     /*
     5. Return the last element of the array from the parameters
     */
     public int returnLastElementOfParam(int[] passedInArray) {
-        return 1;
+        return passedInArray[passedInArray.length - 1];
     }
 
     /*
@@ -46,13 +53,14 @@ public class Lecture {
     */
     public int returnVariableFromBlock(int number) {
 
+        int result;
         { // A new block with scoped variables
 
-            int result = number * 5;
+            result = number * 5;
 
         } // the result variable disappears here
 
-        return number; // We want to return result here. How?
+        return result; // We want to return result here. How?
     }
 
     /*
@@ -64,10 +72,10 @@ public class Lecture {
 
         {
             int multiplier = 10;
-            result *= multiplier;
+            result *= multiplier; // result = (result * multiplier)
         }
 
-        return result == 1; // <-- Change the number to match result and make this be true
+        return result == 50; // <-- Change the number to match result and make this be true
     }
 
     /*
@@ -88,7 +96,7 @@ public class Lecture {
             double eight = five + three;
         }
 
-        return 0;
+        return one;
     }
 
     /*
@@ -104,7 +112,7 @@ public class Lecture {
             counter++;
         }
 
-        return counter == 1; // What should the number be to return true?
+        return counter == 4; // What should the number be to return true?
     }
 
     /*
@@ -116,7 +124,7 @@ public class Lecture {
         int counter = 0;
 
         //     Start;       Keep going while         Increment by one;
-        for (int i = 1; i < arrayToLoopThrough.length; i++) {
+        for (int i = 0; i < arrayToLoopThrough.length; i++) {
             counter += 1;
         }
 
@@ -132,7 +140,7 @@ public class Lecture {
         int counter = 0;
 
         //     Start;       Keep going while         Increment by one;
-        for (int i = 0; i <= arrayToLoopThrough.length; i++) {
+        for (int i = 0; i < arrayToLoopThrough.length; i++) {
             counter = counter + 1;
         }
 
@@ -149,7 +157,7 @@ public class Lecture {
         int sum = 0;
 
         //     Start;       Keep going while       Increment by;
-        for (int i = 0; i < arrayToLoopThrough.length; i = i + 1) {
+        for (int i = 0; i < arrayToLoopThrough.length; i = i + 2) {
             sum = sum + arrayToLoopThrough[i];
         }
 
