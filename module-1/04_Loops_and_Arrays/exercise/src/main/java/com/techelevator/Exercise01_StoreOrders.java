@@ -43,7 +43,8 @@ public class Exercise01_StoreOrders {
 	 createOrder() → [10, 40, 31, 41]
      */
     public int[] createOrder() {
-        return new int[] {};
+
+        return new int[] {10, 40, 31, 41};
     }
 
     /*
@@ -58,7 +59,14 @@ public class Exercise01_StoreOrders {
     getCalzoneSales([]) → 0
      */
     public int getCalzoneSales(int[] orders) {
-        return 0;
+
+        int numberOfCalzonesSoldToday = 0;
+        for (int i = 0; i < orders.length; i++) {
+            if (orders[i] == CALZONE) {
+                numberOfCalzonesSoldToday++;
+            }
+        }
+        return numberOfCalzonesSoldToday;
     }
 
     /*
@@ -76,6 +84,24 @@ public class Exercise01_StoreOrders {
     getCheesePizzaRevenue([11, 21]) → 0
      */
     public int getCheesePizzaRevenue(int[] orders) {
-        return 0;
+
+        int totalDailyRevenueOfAllCheesePizzas = 0;
+        final int SMALL_CHEESE_PRICE = 8;
+        final int MEDIUM_CHEESE_PRICE = 11;
+        final int LARGE_CHEESE_PRICE = 14;
+
+        for (int i = 0; i < orders.length; i++) {
+            boolean isCheesePizza = (orders[i] == SMALL_CHEESE || orders[i] == MEDIUM_CHEESE || orders[i] == LARGE_CHEESE);
+            if (isCheesePizza) {
+                if (orders[i] == SMALL_CHEESE) {
+                    totalDailyRevenueOfAllCheesePizzas += SMALL_CHEESE_PRICE;
+                } else if (orders[i] == MEDIUM_CHEESE) {
+                    totalDailyRevenueOfAllCheesePizzas += MEDIUM_CHEESE_PRICE;
+                } else {
+                    totalDailyRevenueOfAllCheesePizzas += LARGE_CHEESE_PRICE;
+                }
+            }
+        }
+        return totalDailyRevenueOfAllCheesePizzas;
     }
 }

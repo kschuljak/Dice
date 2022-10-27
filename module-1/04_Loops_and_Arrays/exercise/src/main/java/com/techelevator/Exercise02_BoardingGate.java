@@ -18,13 +18,25 @@ public class Exercise02_BoardingGate {
 
     Note: The number of seats is guaranteed not to be negative.
 
+
     Examples:
     generateSeatingChart(7) → [true, true, true, true, true, true, true]
     generateSeatingChart(5) → [true, true, true, true, true]
     generateSeatingChart(2) → [true, true]
      */
+
+    private final boolean IS_AVAILABLE = true;
+    private final boolean NOT_AVAILABLE = false;
+
     public boolean[] generateSeatingChart(int numberOfSeats) {
-        return new boolean[] {};
+
+        boolean[] seatingChart = new boolean[numberOfSeats];
+        for (int i = 0; i < seatingChart.length; i++) {
+            seatingChart[i] = IS_AVAILABLE;
+        }
+
+        return seatingChart;
+
     }
 
     /*
@@ -41,7 +53,15 @@ public class Exercise02_BoardingGate {
     getAvailableSeatCount([]) → 0
      */
     public int getAvailableSeatCount(boolean[] seatingChart) {
-        return 0;
+
+        int numberOfSeatsAvailable = 0;
+
+        for (int i = 0; i < seatingChart.length; i++) {
+            if (seatingChart[i] == IS_AVAILABLE){
+                numberOfSeatsAvailable++;
+            }
+        }
+        return numberOfSeatsAvailable;
     }
 
     /*
@@ -57,7 +77,13 @@ public class Exercise02_BoardingGate {
     getNumberOfFullRows([false, true, true, false, true, true]) → 0
      */
     public int getNumberOfFullRows(boolean[] seatingChart) {
-        return 0;
+        int numberOfFullRows = 0;
+        for (int i = 0; i < seatingChart.length; i += 3) {
+            if (seatingChart[i] == NOT_AVAILABLE && seatingChart[i+1] == NOT_AVAILABLE && seatingChart[i+2] == NOT_AVAILABLE) {
+                numberOfFullRows++;
+            }
+        }
+        return numberOfFullRows;
     }
 
 }
