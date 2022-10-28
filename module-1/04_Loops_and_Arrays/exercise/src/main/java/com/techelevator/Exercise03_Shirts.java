@@ -36,17 +36,39 @@ public class Exercise03_Shirts {
     buildBulkOrder(4) → ['S', 'M', 'L', 'S']
     buildBulkOrder(0) → []
      */
+
     public char[] buildBulkOrder(int numberOfShirts) {
 
         char[] order = new char[numberOfShirts];
-        for (int i = 0; i < numberOfShirts; i+=3) {
-            order[i] = 'S';
+
+        for (int i = 0; i < numberOfShirts; i += 3) {
+
+            order[i] = SMALL_TSHIRT;
+
             if (i+1 < numberOfShirts) {
-                order[i + 1] = 'M';
+                order[i + 1] = MEDIUM_TSHIRT;
             }
+
             if (i+2 < numberOfShirts) {
-                order[i + 2] = 'L';
+                order[i + 2] = LARGE_TSHIRT;
             }
+        }
+        return order;
+    }
+
+    // notes from gregor's lecture
+    // using modulus to solve
+    public char[] buildBulkOrder2(int numberOfShirts) {
+
+        char[] order = new char[numberOfShirts];
+
+        for (int i = 0; i < numberOfShirts; i++) {
+
+            int shirtType = i % 3;
+
+            if (shirtType == 0) order[i] = SMALL_TSHIRT;
+            else if (shirtType == 1) order[i] = MEDIUM_TSHIRT;
+            else order[i] = LARGE_TSHIRT;
         }
         return order;
     }

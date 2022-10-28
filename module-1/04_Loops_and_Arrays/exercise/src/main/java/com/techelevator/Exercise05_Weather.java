@@ -95,4 +95,23 @@ public class Exercise05_Weather {
             return temperatures;
         }
     }
+
+    // notes from gregor's lecture - not manipulating given array but returning new array
+    // manipulating array directly can cause unintended bugs
+    // if other code also references the same array, changing the array can cause problems
+    public int[] fixTemperatures2(int[] temperatures) {
+        if(temperatures.length != 0) {
+            int[] newTemperatures = new int[temperatures.length];
+            for (int i = 0; i < temperatures.length; i++) {
+                int temperature= temperatures[i];
+                if (i % 2== 0) {
+                    temperature += 2;
+                }
+                newTemperatures[i] = temperature;
+            }
+            return newTemperatures;
+        }
+        return temperatures;
+    }
 }
+
