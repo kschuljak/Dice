@@ -91,6 +91,7 @@ public class Exercise03_Shirts {
         for (int i = 0; i < order.length; i++) {
             if (order[i] == 'S') {
                 needToOrderSmallShirts = true;
+                break; // lecture notes - added breakpoint
             }
         }
         return needToOrderSmallShirts;
