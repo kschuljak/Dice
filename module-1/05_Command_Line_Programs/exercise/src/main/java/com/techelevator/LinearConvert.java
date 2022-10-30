@@ -10,16 +10,20 @@ public class LinearConvert {
 
 		printHeader();
 
+		// takes user input for length and converts to double
 		System.out.print("Please enter the length: ");
 		String stringLength = inputScanner.nextLine();
 		double length = Double.parseDouble(stringLength);
 
+		// takes user input for unit and converts to character
 		System.out.print("Is the measurement in (m)eters or (f)eet? ");
 		String stringUnit = inputScanner.nextLine();
 		char unit = stringUnit.charAt(0);
 
+		// initializes number to hold result
 		double convertedNumber;
 
+		// performs conversion based on unit, otherwise displays error
 		if (unit == 'f' || unit == 'F') {
 			convertedNumber = feetToMeters(length);
 			System.out.println(length + " feet = " + convertedNumber + " meters ");
@@ -31,15 +35,17 @@ public class LinearConvert {
 		}
 	}
 
+	// function to convert feet to meters
 	public static double feetToMeters(double feet) {
 		return feet * 0.3048;
 	}
 
-
+	// function to convert meters to feet
 	public static double metersToFeet(double meters) {
 		return meters * 3.2808399;
 	}
 
+	// function to print header
 	public static void printHeader() {
 		System.out.println();
 		System.out.println("*******************************");

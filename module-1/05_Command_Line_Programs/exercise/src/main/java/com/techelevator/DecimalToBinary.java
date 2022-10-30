@@ -39,6 +39,7 @@ public class DecimalToBinary {
 			}
 			// split binary string into string array
 			// reverse through string array, convert to integer, and add to int array starting from front
+			// aka reverse the binary so that it displays correctly
 			String[] binaryAsStringArray = binaryString.split(" ");
 			Integer[] binaryAsIntegerArray = new Integer[binaryAsStringArray.length];
 			int startAtFrontIndex = 0;
@@ -49,9 +50,11 @@ public class DecimalToBinary {
 				startAtEndIndex--;
 			}
 			System.out.print(numberToDisplay + " in binary is ");
+			// increment through binary int array to print binary as output
 			for (int k = 0; k < binaryAsIntegerArray.length; k++) {
 				System.out.print(binaryAsIntegerArray[k]);
 			}
+			// reset binary string for the next entered integer
 			binaryString = "";
 			System.out.println();
 		}
