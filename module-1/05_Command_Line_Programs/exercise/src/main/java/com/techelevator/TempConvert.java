@@ -12,22 +12,36 @@ public class TempConvert {
 
 		System.out.print("Please enter the temperature: ");
 		String enteredTempAsString = inputScanner.nextLine();
-		int enteredTemperature = Integer.parseInt(enteredTempAsString);
+		double enteredTemperature = Double.parseDouble(enteredTempAsString);
 
 		System.out.print("Is the temperature in (C)elsius, or (F)ahrenheit? ");
 		String enteredUnitAsString = inputScanner.nextLine();
 		char enteredUnit = enteredUnitAsString.charAt(0);
 
+		double convertedTemperature;
+		char outputUnit;
+		if (enteredUnit == 'C' || enteredUnit == 'c'){
+			convertedTemperature = convertCelsiusToFahrenheit(enteredTemperature);
+			outputUnit = 'F';
+		} else if (enteredUnit == 'F' || enteredUnit == 'f') {
+			convertedTemperature = convertFahrenheitToCelsius(enteredTemperature);
+			outputUnit = 'C';
+		} else {
+			System.out.println("Error - entered unit must be 'F' or 'C' ");
+			return;
+		}
+
+		int convertedTempAsInt = (int)(convertedTemperature);
+
+		System.out.print(enteredTempAsString + enteredUnit + " is " + convertedTempAsInt + outputUnit);
 	}
 
-	public static int convertFahrenheitToCelsius(int enteredTemperature) {
-		double convertedTempTemperature = (enteredTemperature - 32)/1.8;
-		return (int)(convertedTempTemperature);
+	public static double convertFahrenheitToCelsius(double enteredTemperature) {
+		return (enteredTemperature - 32)/1.8;
 	}
 
-	public static int convertCelsiusToFahrenheit(int enteredTemperature) {
-		double convertedTempTemperature = enteredTemperature * 1.8 + 32;
-		return (int)(convertedTempTemperature);
+	public static double convertCelsiusToFahrenheit(double enteredTemperature) {
+		return enteredTemperature * 1.8 + 32;
 	}
 
 	public static void printHeader() {

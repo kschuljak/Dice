@@ -8,9 +8,11 @@ public class DecimalToBinary {
 
 		Scanner scannerInput = new Scanner(System.in);
 
-		System.out.print("Convert Decimals to Binary");
+		System.out.println("Convert Decimals to Binary");
+		System.out.println("--------------------------");
 		System.out.println();
 		System.out.print("Please enter a series of decimal values, separated by spaces: ");
+
 
 		// take input string and separate into string array
 		String inputString = scannerInput.nextLine();
