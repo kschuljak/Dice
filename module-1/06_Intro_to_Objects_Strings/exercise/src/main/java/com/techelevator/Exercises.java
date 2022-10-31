@@ -323,7 +323,18 @@ public class Exercises {
 	 frontTimes("Abc", 3) → "AbcAbcAbc"
 	 */
 	public String frontTimes(String str, int n) {
-		return null;
+		String substringToRepeat;
+		String copiesOfSubstring = "";
+		if (str.length() <= 3) {
+			substringToRepeat = str;
+		} else {
+			substringToRepeat = str.substring(0, 3);
+		}
+		while (n > 0) {
+			copiesOfSubstring += substringToRepeat;
+			n--;
+		}
+		return copiesOfSubstring;
 	}
 
 	/*
@@ -333,7 +344,13 @@ public class Exercises {
 	 countXX("xxxx") →
 	 */
 	public int countXX(String str) {
-		return 0;
+		int countOfXX = 0;
+		while (str.contains("xx")) {
+			countOfXX++;
+			int xxIndex = str.indexOf("xx");
+			str = str.substring(xxIndex + 1);
+		}
+		return countOfXX;
 	}
 
 	/*
@@ -343,6 +360,14 @@ public class Exercises {
 	 doubleX("xxxxx") → true
 	 */
 	public boolean doubleX(String str) {
+		if (str.contains("xx")) {
+			int xIndex = str.indexOf("x");
+			if (str.charAt(xIndex + 1) == 'x') {
+				return true;
+			} else {
+				return false;
+			}
+		}
 		return false;
 	}
 
@@ -353,7 +378,11 @@ public class Exercises {
 	 stringBits("Heeololeo") → "Hello"
 	 */
 	public String stringBits(String str) {
-		return null;
+		String everyOther = "";
+		for (int i = 0; i < str.length(); i+=2) {
+			everyOther += str.charAt(i);
+		}
+		return everyOther;
 	}
 
 	/*
@@ -363,7 +392,11 @@ public class Exercises {
 	 stringSplosion("ab") → "aab"
 	 */
 	public String stringSplosion(String str) {
-		return null;
+		String returnString = "";
+		for (int i = 1; i <= str.length(); i++) {
+			returnString += str.substring(0, i);
+		}
+		return returnString;
 	}
 
 	/*
@@ -374,7 +407,16 @@ public class Exercises {
 	 last2("axxxaaxx") → 2
 	 */
 	public int last2(String str) {
-		return 0;
+		if (str.length() < 2) return 0;
+		String lastTwo = str.substring(str.length() - 2);
+		String compareAgainst = str.substring(0, str.length() - 1);
+		int numberOfTimes = 0;
+		while (compareAgainst.contains(lastTwo)) {
+			int indexOfNext = compareAgainst.indexOf(lastTwo);
+			compareAgainst = compareAgainst.substring(indexOfNext + 1);
+			numberOfTimes++;
+		}
+		return numberOfTimes;
 	}
 
 	/*
@@ -385,7 +427,21 @@ public class Exercises {
 	 stringX("xabxxxcdx") → "xabcdx"
 	 */
 	public String stringX(String str) {
-		return null;
+		boolean startsWithX = str.startsWith("x");
+		boolean endsWithX = str.endsWith("x");
+		String returnString = "";
+		for (int i = 0; i < str.length(); i++) {
+			if (str.charAt(i) != 'x') {
+				returnString += str.charAt(i);
+			}
+		}
+		if (startsWithX) {
+			returnString = "x" + returnString;
+		}
+		if (endsWithX && str.length() > 1) {
+			returnString = returnString + "x";
+		}
+		return returnString;
 	}
 
 	/*
@@ -395,7 +451,19 @@ public class Exercises {
 	 altPairs("CodingHorror") → "Congrr"
 	 */
 	public String altPairs(String str) {
-		return null;
+		int pairStart = 0;
+		int pairEnd = 2;
+		String returnString = "";
+		while (pairStart <= str.length()) {
+			if (pairEnd <= str.length()) {
+				returnString += str.substring(pairStart, pairEnd);
+			} else {
+				returnString += str.substring(pairStart);
+			}
+			pairStart+=4;
+			pairEnd+=4;
+		}
+		return returnString;
 	}
 
 	/*
@@ -406,7 +474,13 @@ public class Exercises {
 	 stringYak("yak123ya") → "123ya"
 	 */
 	public String stringYak(String str) {
-		return null;
+		while (str.contains("yak")) {
+			int yakStart = str.indexOf("yak");
+			String firstBit = str.substring(0, yakStart);
+			String secondBit = str.substring(yakStart + 3);
+			str = firstBit + secondBit;
+		}
+		return str;
 	}
 
 }
