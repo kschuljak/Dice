@@ -37,6 +37,17 @@ public class DecimalToBinary {
 				binaryString += String.valueOf(remainder) + " ";
 				number = newNumber;
 			}
+
+			/*
+			Notes from Gregor's lecture:
+			- concatenate number to front of binary string & then you don't need to reverse it
+			while (number > 0) {
+				int remainder = number % 2;
+				int newNumber = number / 2;
+				binaryString = remainder + binaryString;
+				number = newNumber;
+			*/
+
 			// split binary string into string array
 			// reverse through string array, convert to integer, and add to int array starting from front
 			// aka reverse the binary so that it displays correctly
