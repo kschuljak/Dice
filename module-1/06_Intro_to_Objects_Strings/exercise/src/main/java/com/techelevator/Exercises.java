@@ -232,7 +232,7 @@ public class Exercises {
 	 endsLy("oddy") → false
 	 */
 	public boolean endsLy(String str) {
-		return false;
+		return str.endsWith("ly");
 	}
 
 	/*
@@ -243,19 +243,26 @@ public class Exercises {
 	 nTwice("Chocolate", 1) → "Ce"
 	 */
 	public String nTwice(String str, int n) {
-		return null;
+		String firstPart = str.substring(0, n);
+		String secondPart = str.substring(str.length() - n);
+		return firstPart + secondPart;
 	}
 
 	/*
-	 Given a string and an int n, return a string that starts at n and has a length of 2. Note that n may or may not be a valid
-	 location in the string. If n is too low or too high to define a string of length 2, return the string's first 2 characters.
+	 Given a string and an int n, return a string that starts at n and has a length of 2.
+	 (Note that n may or may not be a valid location in the string.)
+	 If n is too low or too high to define a string of length 2, return the string's first 2 characters.
 	 The string length will be at least 2.
 	 twoChar("java", 0) → "ja"
 	 twoChar("java", 2) → "va"
 	 twoChar("java", 3) → "ja"
 	 */
 	public String twoChar(String str, int n) {
-		return null;
+		if (n < 0 || n+2 > str.length()) {
+			return str.substring(0, 2);
+		} else {
+			return str.substring(n, n+2);
+		}
 	}
 
 	/*
@@ -266,7 +273,8 @@ public class Exercises {
 	 middleThree("solving") → "lvi"
 	 */
 	public String middleThree(String str) {
-		return null;
+		int middle = str.length()/2;
+		return str.substring(middle - 1, middle + 2);
 	}
 
 	/*
@@ -278,7 +286,18 @@ public class Exercises {
 	 hasBad("xxbadxx") → false
 	 */
 	public boolean hasBad(String str) {
-		return false;
+		if (str.length() < 3) {
+			return false;
+		} else if (str.length() == 3) {
+			String firstThree = str.substring(0, 3);
+			String bad = "bad";
+			return firstThree.equals(bad);
+		} else {
+			String firstThree = str.substring(0, 3);
+			String secondThree = str.substring(1, 4);
+			String bad = "bad";
+			return (firstThree.equals(bad) || secondThree.equals(bad));
+		}
 	}
 
 	/*
@@ -288,7 +307,12 @@ public class Exercises {
 	 stringTimes("Hi", 1) → "Hi"
 	 */
 	public String stringTimes(String str, int n) {
-		return null;
+		String returnString = "";
+		while (n > 0) {
+			returnString += str;
+			n--;
+		}
+		return returnString;
 	}
 
 	/*
