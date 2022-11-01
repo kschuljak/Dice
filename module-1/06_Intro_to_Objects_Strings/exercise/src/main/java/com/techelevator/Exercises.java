@@ -419,6 +419,10 @@ public class Exercises {
 		return numberOfTimes;
 	}
 
+	/* notes from gregor's lecture
+	... increment through (length - 2) times (to avoid out-of-bounds error & last pair) and compare each pair to lastTwo
+	 */
+
 	/*
 	 Given a string, return a version where all the "x" have been removed. Except an "x" at the very start or end
 	 should not be removed.
@@ -465,6 +469,31 @@ public class Exercises {
 		}
 		return returnString;
 	}
+
+	/* notes from gregor's lecture
+
+	   - ninja's example
+		... for (int i = 0; i < str.length(); i+=4) (
+				if (str.length() < 1+2) {
+					resultString += str.substring(i);
+					break;
+				}
+				resultString += str.substring(i, i+2)
+	   ...
+
+	   - gregor's example
+	   ... for (int i = 0; i < word.length(); i++) {
+	         if (i % 4 <= 1) resultString += str.charAt(i);
+	       }
+	   ...
+	   - gregor's second example
+	   ... for (int i = 0; i < str.length(); i += 4) {
+	     resultString += str.charAt(i);
+	     if (i + 1 < str.length()) {
+	       resultString += str.charAt(i + 1);
+	     }
+	   ...
+    */
 
 	/*
 	 Suppose the string "yak" is unlucky. Given a string, return a version where all the "yak" are removed.
