@@ -132,6 +132,10 @@ public class Exercises {
 
 	HINT: To convert an Integer x to a String, you can use x.toString() in your code. For example, if x = 1, then x.toString() returns "1."
 	 */
+
+	// most specific case first (fizzbuzz)
+	// then less specific (fizz) & (buzz)
+	// finally, least specific (everything else)
 	public List<String> fizzBuzzList(Integer[] integerArray) {
 		List<String> fizzBuzzOutput = new ArrayList<>(integerArray.length);
 		for (Integer value : integerArray) {
@@ -155,8 +159,35 @@ public class Exercises {
 	 list to the new list before returning it.
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
-	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
-		return null;
-	}
 
+	// figure out which list is larger
+	// loop through larger list
+	// if smaller list is not empty
+	// for each item in larger list, add item from smaller list in next position
+	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
+		int sizeOne = listOne.size();
+		int sizeTwo = listTwo.size();
+		int newSize = sizeOne + sizeTwo;
+		int incrementOne = 0;
+		int incrementTwo = 0;
+		List<Integer> interleavedList = new ArrayList<>(newSize);
+		for (int i = 0; i < newSize; i++) {
+			if (incrementOne < sizeOne && incrementTwo < sizeTwo) {
+				interleavedList.add(i, listOne.get(incrementOne));
+				incrementOne++;
+				i++;
+				interleavedList.add(i, listTwo.get(incrementTwo));
+				incrementTwo++;
+			} else if (incrementOne < sizeOne) {
+				interleavedList.add(i, listOne.get(incrementOne));
+				incrementOne++;
+			} else if (incrementTwo < sizeTwo) {
+				interleavedList.add(i, listTwo.get(incrementTwo));
+				incrementTwo++;
+			} else {
+				return interleavedList;
+			}
+		}
+		return interleavedList;
+	}
 }
