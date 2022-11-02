@@ -160,10 +160,17 @@ public class Exercises {
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
 
-	// figure out which list is larger
-	// loop through larger list
-	// if smaller list is not empty
-	// for each item in larger list, add item from smaller list in next position
+	// calculate length of new list
+	// find length of given lists
+	// increment through index of new list
+	// if elements remaining in both lists
+	// -- add element from 1 & increment 1 counter
+	// -- increment index
+	// -- add element from 2 & increment 2 counter
+	// if elements remaining only in list 1
+	// -- add next element from list 1 & increment 1 counter
+	// if elements remaining only in list 2
+	// -- add next element from list 2 & increment 2 counter
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
 		int sizeOne = listOne.size();
 		int sizeTwo = listTwo.size();
@@ -187,6 +194,39 @@ public class Exercises {
 			} else {
 				return interleavedList;
 			}
+		}
+		return interleavedList;
+	}
+
+	// notes from gregor's lecture - 'zipper' problem (as named by daniel)
+
+	/*
+	 vanessa's approach:
+	 - determine which list is larger
+	 - iterate through smallest list
+	 -- add left element
+	 -- add right element
+	 - create another loop to iterate through remaining items in larger list
+	 */
+
+	/*
+	 christina's approach:
+	 one loop with two if statements
+	 -- if i < L add L
+	 -- if i < R add R
+
+	int larger = listOne.size() > listTwo.size() ? listOne.size() : listTwo.size;
+	for (i = 0; i < larger; i++)
+		if (i < listOne.size()) newList.add(listOne.get(i));
+		if (i < listTwo.size()) newList.add(listTwo.get(i));
+	*/
+
+	public List<Integer> interleaveLists2(List<Integer> listOne, List<Integer> listTwo) {
+		List<Integer> interleavedList = new ArrayList<>();
+		int larger = Math.max(listOne.size(), listTwo.size());
+		for (int i = 0; i < larger; i++) {
+			if (i < listOne.size()) interleavedList.add(listOne.get(i));
+			if (i < listTwo.size()) interleavedList.add(listTwo.get(i));
 		}
 		return interleavedList;
 	}
