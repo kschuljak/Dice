@@ -1,16 +1,42 @@
-public class Barbarian {
+public class Barbarian extends DnDClass{
 
-    private int hitDie = 12;
-    private String primaryAbility = "Strength";
-    private String savingThrowProficiency1 = "Strength";
-    private String savingThrowProficiency2 = "Constitution";
-    private String[] armorAndWeaponProficiencies = new String[] {
-            "Light Armor", "Medium Armor", "Shields", "Simple Weapons", "Martial Weapons"
+
+
+    public void main(String[] args) {
+
+        DnDClass Barbarian = new DnDClass();
+        setHitDie("barbarian");
+        System.out.println("hit die = " + hitDie);
+
+        setPrimaryAbility("strength");
+        setSavingThrowProficiency1("strength");
+        setSavingThrowProficiency2("constitution");
+        setArmorAndWeaponProficiencies(barbarianWeaponsArmorProficiencies);
+
+
+    }
+
+    public String[] barbarianSubclass = new String[] {
+            "berserker", "totem warrior"
     };
 
-    public int level;
+    public String[] barbarianWeaponsArmorProficiencies = new String[] {
+            "light armor", "medium armor", "shields", "simple weapons", "martial weapons"
+    };
 
-    public void setLevel(int level) {
-        this.level = level;
-    }
+
+
+
+
+
+
+//    private int hitDie = 12;
+//    private String primaryAbility = "Strength";
+//    private String savingThrowProficiency1 = "Strength";
+//    private String savingThrowProficiency2 = "Constitution";
+//    private String[] armorAndWeaponProficiencies = new String[] {
+//            "Light Armor", "Medium Armor", "Shields", "Simple Weapons", "Martial Weapons"
+//    };
+
+
 }
