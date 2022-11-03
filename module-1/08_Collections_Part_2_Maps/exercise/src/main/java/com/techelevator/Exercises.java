@@ -53,6 +53,8 @@ public class Exercises {
 		if (animalName == null) return "unknown";
 
 		// format input
+		// -- note from gregor's lecture:
+		// -- if you don't handle null case above, trying to call .toLowerCase() on 'animalName = null' will return null exception
 		String searchKey = animalName.toLowerCase().strip();
 
 		// return value of key or default

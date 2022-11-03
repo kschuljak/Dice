@@ -1,18 +1,20 @@
+package DnDClasses;
+
 import java.util.Map;
 import java.util.HashMap;
 
 public class DnDClass {
 
+    // instance variables
+    private int level;
+    private String subclass;
+    private int hitDie;
+    private String primaryAbility;
+    private String savingThrowProficiency1;
+    private String savingThrowProficiency2;
+    private String[] armorAndWeaponProficiencies = new String[]{};
 
-    public int level;
-    public String subclass;
-    public int hitDie;
-    public String primaryAbility;
-    public String savingThrowProficiency1;
-    public String savingThrowProficiency2;
-    public String[] armorAndWeaponProficiencies = new String[]{};
-
-
+    // setters
     public void setLevel(int level) {
         this.level = level;
     }
@@ -37,10 +39,9 @@ public class DnDClass {
         this.armorAndWeaponProficiencies = armorAndWeaponProficiencies;
     }
 
-
     public void setHitDie(String classDnD){
 
-        Map<String, Integer> hitDiceByClass = new HashMap<>();
+        Map<String, Integer> hitDiceByClass = new HashMap<>(13);
         // (key = DnD class, value = die type )
         hitDiceByClass.put("barbarian", 12);
         hitDiceByClass.put("fighter", 10);
@@ -61,8 +62,36 @@ public class DnDClass {
                 hitDie = row.getValue();
             }
         }
-
     }
 
+    // getters
+    public int getLevel() {
+        return this.level;
+    }
+
+    public String getSubclass() {
+        return this.subclass;
+    }
+
+    public int getHitDie() {
+        return this.hitDie;
+    }
+
+    public String getPrimaryAbility() {
+        return this.primaryAbility;
+    }
+
+    public String getSavingThrowProficiency1() {
+        return this.savingThrowProficiency1;
+    }
+
+    public String getSavingThrowProficiency2() {
+        return this.savingThrowProficiency2;
+    }
+
+    public String[] getArmorAndWeaponProficiencies() {
+        return this.armorAndWeaponProficiencies;
+    }
 
 }
+

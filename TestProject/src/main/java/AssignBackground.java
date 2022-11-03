@@ -8,8 +8,8 @@ public class AssignBackground {
 
 
         String[] classOptions = new String[] {
-                "Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk",
-                "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"
+                "DnDClasses.Barbarian", "DnDClasses.Bard", "DnDClasses.Cleric", "DnDClasses.Druid", "DnDClasses.Fighter", "DnDClasses.Monk",
+                "DnDClasses.Paladin", "DnDClasses.Ranger", "DnDClasses.Rogue", "DnDClasses.Sorcerer", "DnDClasses.Warlock", "DnDClasses.Wizard"
         };
 
 
