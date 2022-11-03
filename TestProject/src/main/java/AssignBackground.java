@@ -8,9 +8,12 @@ public class AssignBackground {
 
 
         String[] classOptions = new String[] {
-                "DnDClasses.Barbarian", "DnDClasses.Bard", "DnDClasses.Cleric", "DnDClasses.Druid", "DnDClasses.Fighter", "DnDClasses.Monk",
-                "DnDClasses.Paladin", "DnDClasses.Ranger", "DnDClasses.Rogue", "DnDClasses.Sorcerer", "DnDClasses.Warlock", "DnDClasses.Wizard"
+                "Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk",
+                "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"
         };
+        System.out.println();
+        String classSelected = randomArrayElement(classOptions);
+        System.out.println(classSelected);
 
 
         String[] raceOptions = new String[] {
@@ -18,6 +21,9 @@ public class AssignBackground {
                 "Dark Elf", "Halfling", "Lightfoot Halfling", "Stout Halfling", "Human", "Dragonborn",
                 "Gnome", "Forest Gnome", "Rock Gnome", "Half-Elf", "Half-Orc", "Tiefling"
         };
+        System.out.println();
+        String raceSelected = randomArrayElement(raceOptions);
+        System.out.println(raceSelected);
 
 
 
