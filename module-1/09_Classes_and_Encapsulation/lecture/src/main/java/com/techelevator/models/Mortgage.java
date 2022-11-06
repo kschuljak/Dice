@@ -39,6 +39,7 @@ public class Mortgage {
         return (getMonthlyPayment() * getNumberOfPayments()) - principal;
     }
 
+    // methods (makes changes, doesn't just return a calculated value)
     public void pay(double amount) {
 
         double interest = balance * getMir();
