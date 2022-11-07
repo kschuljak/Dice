@@ -5,7 +5,7 @@ public class BankAccount {
     // instance variables
     private String accountHolderName;
     private String accountNumber;
-    protected int balance = 0;
+    private int balance = 0;
 
     // getters
     public String getAccountHolderName() {
