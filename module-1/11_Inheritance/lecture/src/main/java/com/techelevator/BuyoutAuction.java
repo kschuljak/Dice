@@ -3,6 +3,7 @@ package com.techelevator;
 public class BuyoutAuction extends Auction {
 
     private int buyNowAmount;
+    private boolean isClosed;
 
     public BuyoutAuction(String itemForSale, int buyNowAmount) {
         // call parent constructor - REQUIRED
@@ -19,5 +20,6 @@ public class BuyoutAuction extends Auction {
             }
             return super.placeBid(offeredBid);
         }
+        return false;
     }
 }
