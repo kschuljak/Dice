@@ -8,7 +8,6 @@ public class SavingsAccount extends BankAccount{
     }
     public SavingsAccount(String accountHolderName, String accountNumber) {
         super(accountHolderName, accountNumber);
-        this.balance = balance;
     }
 
     // override method
@@ -18,10 +17,10 @@ public class SavingsAccount extends BankAccount{
             int serviceCharge = 2;
             newBalance -= serviceCharge;
             if (newBalance >= 0) {
-                balance = newBalance;
-                return balance;
+                amountToWithdraw += serviceCharge;
+                return super.withdraw(amountToWithdraw);
             } else {
-                return balance;
+                return super.getBalance();
             }
         }
         return super.withdraw(amountToWithdraw);
