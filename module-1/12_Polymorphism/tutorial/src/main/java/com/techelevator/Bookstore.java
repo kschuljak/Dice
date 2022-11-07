@@ -32,6 +32,12 @@ public class Bookstore {
         Movie airplane = new Movie("Airplane!", "PG", 88, 14.99);
         shoppingCart.add(airplane);
 
+        // Have a cuppa jo!
+        Coffee myCoffee = new Coffee("Extra-large", "Dark Roast", new String[] {"Creme"}, 3.99);
+        Coffee myFriendsCoffee = new Coffee("Medium", "House Blend", new String[]{"Soy milk", "Sugar"}, 2.79);
+        shoppingCart.add(myCoffee);
+        shoppingCart.add(myFriendsCoffee);
+        
         System.out.println(shoppingCart.receipt());
     }
 }

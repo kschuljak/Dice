@@ -8,15 +8,15 @@ import java.util.List;
  */
 public class ShoppingCart {
 
-	private List<MediaItem> itemsToBuy = new ArrayList<>();
+	private List<Purchasable> itemsToBuy = new ArrayList<>();
 
-	public void add(MediaItem itemToAdd) {
+	public void add(Purchasable itemToAdd) {
 	    itemsToBuy.add(itemToAdd);
 	}
 
 	public double getTotalPrice() {
 	    double total = 0.0;
-	    for (MediaItem item : itemsToBuy) {
+	    for (Purchasable item : itemsToBuy) {
 	        total += item.getPrice();
 	    }
 	    return total;
@@ -24,7 +24,7 @@ public class ShoppingCart {
 
 	public String receipt() {
 	    String receipt = "\nReceipt\n";
-	    for (MediaItem item : itemsToBuy) {
+	    for (Purchasable item : itemsToBuy) {
 	        receipt += item;
 	        receipt += "\n";
 	    }
