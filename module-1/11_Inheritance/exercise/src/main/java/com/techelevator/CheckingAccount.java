@@ -5,6 +5,8 @@ public class CheckingAccount extends BankAccount{
     // constructors
     public CheckingAccount(String accountHolderName, String accountNumber) {
         super(accountHolderName, accountNumber);
+        this.balance = balance;
+
     }
     public CheckingAccount(String accountHolderName, String accountNumber, int balance) {
         super(accountHolderName, accountNumber, balance);

@@ -8,6 +8,7 @@ public class SavingsAccount extends BankAccount{
     }
     public SavingsAccount(String accountHolderName, String accountNumber) {
         super(accountHolderName, accountNumber);
+        this.balance = balance;
     }
 
     // override method
