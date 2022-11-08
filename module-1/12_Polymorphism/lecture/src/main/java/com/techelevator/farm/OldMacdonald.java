@@ -2,6 +2,7 @@ package com.techelevator.farm;
 
 import com.techelevator.farm.models.*;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,16 +11,22 @@ public class OldMacdonald
 {
     // List is an interface of List<E>
     private List<Singable> singableItems;
+    private List<Sellable> sellableItems;
 
     // if animals not instantiated as an array list, it will be null.
     // null will throw an exception at line 37 (null.add)
     public OldMacdonald() {
         singableItems = new ArrayList<>();
-
         singableItems.add(new Cow());
         singableItems.add(new Chicken());
         singableItems.add(new Pig());
         singableItems.add(new Tractor());
+
+        sellableItems = new ArrayList<>();
+        sellableItems.add(new Egg());
+        sellableItems.add(new Cookie("Chocolate Chip Cookie", BigDecimal.ONE));
+        sellableItems.add(new Cookie("Sugar Cookie", BigDecimal.ONE));
+        sellableItems.add(new Pig());
 
     }
     public void run()
@@ -44,7 +51,7 @@ public class OldMacdonald
             int choice = Integer.parseInt(input.nextLine());
 
             if (choice == 1) singSong();
-            else if (choice == 2) System.out.println("go to market");
+            else if (choice == 2) goToMarket();
             else break;
         }
 
@@ -77,6 +84,20 @@ public class OldMacdonald
         System.out.println("With a " + sound + " " + sound + " here");
         System.out.println("And a " + sound + " " + sound + " there");
         System.out.println("Here a " + sound + " there a " + sound + " everywhere a " + sound + " " + sound);
+        System.out.println();
+    }
+
+    public void goToMarket() {
+
+        System.out.println();
+        System.out.println("Hear ye, Hear ye");
+        System.out.println("The market is open");
+        System.out.println();
+
+        System.out.println("Come and get your food: ");
+        for (Sellable item : sellableItems) {
+            System.out.print("[" + item.getName() + " - $" + item.getPrice() + "] ");
+        }
         System.out.println();
     }
 
