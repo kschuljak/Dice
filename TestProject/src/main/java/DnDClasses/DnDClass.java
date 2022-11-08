@@ -2,6 +2,8 @@ package DnDClasses;
 
 import java.util.Map;
 import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
 
 public class DnDClass {
 
@@ -9,6 +11,7 @@ public class DnDClass {
     private String dndClassName;
     private int level;
     private String subclass;
+    private String[] subclassOptions = new String[]{};
     private int hitDie;
     private String primaryAbility;
     private String savingThrowProficiency1;
@@ -35,6 +38,12 @@ public class DnDClass {
     }
     public void setSubclass(String subclass) {
         this.subclass = subclass;
+    }
+
+    // subclass options - getter and setter
+    public String[] getSubclassOptions() { return subclassOptions; }
+    public void setSubclassOptions(String[] subclassOptions){
+        this.subclassOptions = subclassOptions;
     }
 
     // primary ability - getter and setter
@@ -81,13 +90,12 @@ public class DnDClass {
     public DnDClass() {
     }
 
-    public DnDClass(String dndClassName, int hitDie, String primaryAbility, String savingThrowProficiency1, String savingThrowProficiency2, String[] armorAndWeaponProficiencies) {
+    public DnDClass(String dndClassName, int hitDie, String primaryAbility, String savingThrowProficiency1, String savingThrowProficiency2) {
         this.dndClassName = dndClassName;
         this.hitDie = hitDie;
         this.primaryAbility = primaryAbility;
         this.savingThrowProficiency1 = savingThrowProficiency1;
         this.savingThrowProficiency2 = savingThrowProficiency2;
-        this.armorAndWeaponProficiencies = armorAndWeaponProficiencies;
     }
 }
 
