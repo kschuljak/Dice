@@ -9,7 +9,6 @@ public class BankCustomer {
     private String address;
     private String phoneNumber;
     private List<Accountable> accounts;
-    private boolean isVip = false;
 
     public String getName() {
         return name;
@@ -37,11 +36,11 @@ public class BankCustomer {
     }
 
     public boolean isVip(){
-        final int VIP = 25000;
+        int isVIPMin = 25000;
         int total = 0;
         for (Accountable account : accounts) {
             total += account.getBalance();
         }
-        return (total >= VIP);
+        return (total >= isVIPMin);
     }
 }
