@@ -37,7 +37,7 @@ public class Bookstore {
         Coffee myFriendsCoffee = new Coffee("Medium", "House Blend", new String[]{"Soy milk", "Sugar"}, 2.79);
         shoppingCart.add(myCoffee);
         shoppingCart.add(myFriendsCoffee);
-        
+
         System.out.println(shoppingCart.receipt());
     }
 }
