@@ -4,7 +4,7 @@ public class CreditCardAccount implements Accountable{
 
     private String accountHolder;
     private String accountNumber;
-    private int debt = 0; // debt is negative
+    private int debt = 0;
 
     public CreditCardAccount(String accountHolder, String accountNumber) {
         this.accountHolder = accountHolder;
@@ -36,6 +36,6 @@ public class CreditCardAccount implements Accountable{
 
     @Override
     public int getBalance() {
-        return debt * -1;
+        return this.getDebt() * -1;
     }
 }

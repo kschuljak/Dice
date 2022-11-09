@@ -6,17 +6,17 @@ public class BankAccount implements Accountable{
     private String accountNumber;
     private int balance;
 
+    public BankAccount(String accountHolder, String accountNumber, int balance) {
+        this.accountHolderName = accountHolder;
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
     public BankAccount(String accountHolder, String accountNumber) {
         this.accountHolderName = accountHolder;
         this.accountNumber = accountNumber;
         this.balance = 0;
     }
 
-    public BankAccount(String accountHolder, String accountNumber, int balance) {
-        this.accountHolderName = accountHolder;
-        this.accountNumber = accountNumber;
-        this.balance = balance;
-    }
 
     public String getAccountHolderName() {
         return accountHolderName;
