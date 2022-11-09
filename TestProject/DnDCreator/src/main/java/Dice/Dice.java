@@ -1,4 +1,4 @@
-package DnDClasses.Dice;
+package Dice;
 
 import java.util.ArrayList;
 import java.util.List;
