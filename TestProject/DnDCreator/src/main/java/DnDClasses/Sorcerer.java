@@ -6,7 +6,7 @@ public class Sorcerer extends DnDClass {
 
         super("Sorcerer", 6, "Charisma", "Constitution", "Charisma");
 
-        setArmorAndWeaponProficiencies(new String[] {"Daggers", "Darts", "Slings", "Quarterstaffs", "Light Crossbows"});
+        setArmorAndWeaponProficiencies(new String[]{"Daggers", "Darts", "Slings", "Quarterstaffs", "Light Crossbows"});
 
     }
 

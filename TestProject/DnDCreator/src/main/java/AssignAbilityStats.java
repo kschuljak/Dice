@@ -78,7 +78,7 @@ public class AssignAbilityStats {
     }
 
     public static int rollD6() {
-        return (int)(Math.random() * (6 - 1) + 1);
+        return (int) (Math.random() * (6 - 1) + 1);
     }
 
 
@@ -106,10 +106,6 @@ public class AssignAbilityStats {
         System.out.println("********************************************");
         System.out.println("********************************************");
     }
-
-
-
-
 
 
 }

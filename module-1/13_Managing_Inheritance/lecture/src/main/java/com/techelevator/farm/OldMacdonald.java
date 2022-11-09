@@ -19,10 +19,16 @@ public class OldMacdonald
         sellableList = new ArrayList<>();
 
         // add all singables
-        singableList.add(new Cow());
+        singableList.add(new Cow(true));
         singableList.add(new Chicken());
         singableList.add(new Pig());
         singableList.add(new Tractor());
+        // can add any type of farm animal - possible problem (not very strict)
+        // ex: singableList.add(new FarmAnimal("Wolf", "grrr!!!"));
+        // solved by making FarmAnimal an abstract class
+        singableList.add(new Cow(false));
+        singableList.add(new Cow(true));
+
 
         // add all sellables
         sellableList.add(new Egg());
@@ -90,6 +96,10 @@ public class OldMacdonald
         {
             singVerse(singable);
         }
+
+        // this is called covariance (you can treat a Chicken as a Singable)
+        // (treating a Singable as a Chicken is called contravariance)
+        singVerse(new Chicken());  // a Chicken IS-A Singable
     }
 
     public void singVerse(Singable singable)
@@ -101,6 +111,15 @@ public class OldMacdonald
         System.out.println("With a " + sound + " " + sound + " here");
         System.out.println("And a " + sound + " " + sound + " there");
         System.out.println("Here a " + sound + " there a " + sound + " everywhere a " + sound + " " + sound);
+
+        /*
+        // if this is a chicken - sing about its ability to lay an egg
+        if (singable.getClass().isInstance(new Chicken())) {
+        // replaces: if (singable.getName().equalsIgnoreCase("chicken")) {
+            Chicken chicken = (Chicken) singable;
+            chicken.layEgg();
+        }
+         */
         System.out.println();
     }
 

@@ -2,7 +2,7 @@ package DnDRaces;
 
 import java.util.*;
 
-public class DnDRace {
+public abstract class DnDRace {
 
     protected String dndRaceName;
     protected int ageOfAdulthood;
@@ -14,9 +14,18 @@ public class DnDRace {
     protected Map<String, Integer> raceAbilityScoreModifiers = new HashMap<>();
     protected List<String> raceTraits = new ArrayList<>();
 
+    public DnDRace(String dndRaceName, int ageOfAdulthood, int averageLifespan, String characterSize, int characterSpeed) {
+        this.dndRaceName = dndRaceName;
+        this.ageOfAdulthood = ageOfAdulthood;
+        this.averageLifespan = averageLifespan;
+        this.characterSize = characterSize;
+        this.characterSpeed = characterSpeed;
+    }
+
     public String getDndRaceName() {
         return dndRaceName;
     }
+
     public void setDndRaceName(String dndRaceName) {
         this.dndRaceName = dndRaceName;
     }
@@ -24,6 +33,7 @@ public class DnDRace {
     public int getAgeOfAdulthood() {
         return ageOfAdulthood;
     }
+
     public void setAgeOfAdulthood(int ageOfAdulthood) {
         this.ageOfAdulthood = ageOfAdulthood;
     }
@@ -31,6 +41,7 @@ public class DnDRace {
     public int getAverageLifespan() {
         return averageLifespan;
     }
+
     public void setAverageLifespan(int averageLifespan) {
         this.averageLifespan = averageLifespan;
     }
@@ -38,6 +49,7 @@ public class DnDRace {
     public String getCharacterSize() {
         return characterSize;
     }
+
     public void setCharacterSize(String characterSize) {
         this.characterSize = characterSize;
     }
@@ -45,6 +57,7 @@ public class DnDRace {
     public int getCharacterSpeed() {
         return characterSpeed;
     }
+
     public void setCharacterSpeed(int characterSpeed) {
         this.characterSpeed = characterSpeed;
     }
@@ -52,6 +65,7 @@ public class DnDRace {
     public String[] getRaceLanguages() {
         return raceLanguages.toArray(new String[0]);
     }
+
     public void setRaceLanguages(String[] raceLanguages) {
         List<String> raceLanguagesList = new ArrayList<>();
         Collections.addAll(raceLanguagesList, raceLanguages);
@@ -61,6 +75,7 @@ public class DnDRace {
     public String[] getDndSubraceOptions() {
         return dndSubraceOptions.toArray(new String[0]);
     }
+
     public void setDndSubraceOptions(String[] dndSubraceOptions) {
         List<String> dndSubraceOptionsList = new ArrayList<>();
         Collections.addAll(dndSubraceOptionsList, dndSubraceOptions);
@@ -70,6 +85,7 @@ public class DnDRace {
     public Map<String, Integer> getRaceAbilityScoreModifiers() {
         return raceAbilityScoreModifiers;
     }
+
     public void setRaceAbilityScoreModifiers(String ability, int abilityScoreModifier) {
         Map<String, Integer> raceAbilityScoreModifiersMap = getRaceAbilityScoreModifiers();
         raceAbilityScoreModifiersMap.put(ability, (Integer) abilityScoreModifier);
@@ -79,23 +95,17 @@ public class DnDRace {
     public String[] getRaceTraits() {
         return raceTraits.toArray(new String[0]);
     }
+
     public void setRaceTraits(String[] raceTraits) {
         List<String> raceTraitsList = new ArrayList<>();
         Collections.addAll(raceTraitsList, raceTraits);
         this.raceTraits = raceTraitsList;
     }
+
     public void addRaceTrait(String raceTrait) {
         String[] raceTraitsArray = this.getRaceTraits();
         List<String> raceTraitsList = Arrays.asList(raceTraitsArray);
         raceTraitsList.add(raceTrait);
         this.raceTraits = raceTraitsList;
-    }
-
-    public DnDRace(String dndRaceName, int ageOfAdulthood, int averageLifespan, String characterSize, int characterSpeed) {
-        this.dndRaceName = dndRaceName;
-        this.ageOfAdulthood = ageOfAdulthood;
-        this.averageLifespan = averageLifespan;
-        this.characterSize = characterSize;
-        this.characterSpeed = characterSpeed;
     }
 }

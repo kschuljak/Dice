@@ -1,6 +1,6 @@
 package DnDRaces;
 
-public class Drow extends Elf{
+public class Drow extends Elf {
 
     public Drow() {
         super("Drow", 100, 750, "medium", 30);

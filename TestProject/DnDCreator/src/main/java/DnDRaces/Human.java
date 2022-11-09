@@ -1,6 +1,6 @@
 package DnDRaces;
 
-public class Human extends DnDRace{
+public class Human extends DnDRace {
 
     public Human() {
         super("Human", 18, 80, "medium", 30);
@@ -10,8 +10,8 @@ public class Human extends DnDRace{
         setRaceAbilityScoreModifiers("Charisma", 1);
         setRaceAbilityScoreModifiers("Intelligence", 1);
         setRaceAbilityScoreModifiers("Wisdom", 1);
-        setRaceLanguages(new String[] {"Common"});
-        setRaceTraits(new String[] {"Extra Language"});
+        setRaceLanguages(new String[]{"Common"});
+        setRaceTraits(new String[]{"Extra Language"});
 
     }
 }

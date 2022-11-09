@@ -1,6 +1,6 @@
 package DnDRaces;
 
-public class ForestGnome extends Gnome{
+public class ForestGnome extends Gnome {
 
     public ForestGnome() {
         super("Forest Gnome", 40, 450, "small", 25);

@@ -6,7 +6,7 @@ public class Cleric extends DnDClass {
 
         super("Cleric", 8, "Wisdom", "Wisdom", "Charisma");
 
-        setArmorAndWeaponProficiencies(new String[] {"Light Armor", "Medium Armor", "Shields", "Simple Weapons"});
+        setArmorAndWeaponProficiencies(new String[]{"Light Armor", "Medium Armor", "Shields", "Simple Weapons"});
 
     }
 

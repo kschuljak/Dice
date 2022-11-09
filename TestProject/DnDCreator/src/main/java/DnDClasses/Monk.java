@@ -6,7 +6,7 @@ public class Monk extends DnDClass {
 
         super("Monk", 8, "Dexterity and Wisdom", "Strength", "Dexterity");
 
-        setArmorAndWeaponProficiencies(new String[] {"Simple Weapons", "Shortswords"});
+        setArmorAndWeaponProficiencies(new String[]{"Simple Weapons", "Shortswords"});
 
     }
 

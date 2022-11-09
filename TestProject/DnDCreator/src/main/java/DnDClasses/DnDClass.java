@@ -1,11 +1,6 @@
 package DnDClasses;
 
-import java.util.Map;
-import java.util.HashMap;
-import java.util.List;
-import java.util.ArrayList;
-
-public class DnDClass {
+public abstract class DnDClass {
 
     // instance variables
     private String dndClassName;
@@ -18,74 +13,6 @@ public class DnDClass {
     private String savingThrowProficiency2;
     private String[] armorAndWeaponProficiencies = new String[]{};
 
-    // dnd class name - getter and setter
-    public String getDndClassName() { return dndClassName; }
-    public void setDndClassName(String dndClassName) {
-        this.dndClassName = dndClassName;
-    }
-
-    // level - getter and setter
-    public int getLevel() {
-        return level;
-    }
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
-    // subclass - getter and setter
-    public String getSubclass() {
-        return subclass;
-    }
-    public void setSubclass(String subclass) {
-        this.subclass = subclass;
-    }
-
-    // subclass options - getter and setter
-    public String[] getSubclassOptions() { return subclassOptions; }
-    public void setSubclassOptions(String[] subclassOptions){
-        this.subclassOptions = subclassOptions;
-    }
-
-    // primary ability - getter and setter
-    public String getPrimaryAbility() {
-        return primaryAbility;
-    }
-    public void setPrimaryAbility(String primaryAbility){
-        this.primaryAbility = primaryAbility;
-    }
-
-    // saving throw proficiency 1 - getter and setter
-    public String getSavingThrowProficiency1() {
-        return savingThrowProficiency1;
-    }
-    public void setSavingThrowProficiency1(String savingThrowProficiency1){
-        this.savingThrowProficiency1 = savingThrowProficiency1;
-    }
-
-    // saving throw proficiency 2 - getter and setter
-    public String getSavingThrowProficiency2() {
-        return savingThrowProficiency2;
-    }
-    public void setSavingThrowProficiency2(String savingThrowProficiency2){
-        this.savingThrowProficiency2 = savingThrowProficiency2;
-    }
-
-    // armor and weapon proficiencies - getter and setter
-    public String[] getArmorAndWeaponProficiencies() {
-        return armorAndWeaponProficiencies;
-    }
-    public void setArmorAndWeaponProficiencies(String[] armorAndWeaponProficiencies){
-        this.armorAndWeaponProficiencies = armorAndWeaponProficiencies;
-    }
-
-    // hit die - getter and setter
-    public int getHitDie() {
-        return hitDie;
-    }
-    public void setHitDie(int hitDie) {
-        this.hitDie = hitDie;
-    }
-
     // constructor
     public DnDClass() {
     }
@@ -96,6 +23,87 @@ public class DnDClass {
         this.primaryAbility = primaryAbility;
         this.savingThrowProficiency1 = savingThrowProficiency1;
         this.savingThrowProficiency2 = savingThrowProficiency2;
+    }
+
+    // dnd class name - getter and setter
+    public String getDndClassName() {
+        return dndClassName;
+    }
+
+    public void setDndClassName(String dndClassName) {
+        this.dndClassName = dndClassName;
+    }
+
+    // level - getter and setter
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    // subclass - getter and setter
+    public String getSubclass() {
+        return subclass;
+    }
+
+    public void setSubclass(String subclass) {
+        this.subclass = subclass;
+    }
+
+    // subclass options - getter and setter
+    public String[] getSubclassOptions() {
+        return subclassOptions;
+    }
+
+    public void setSubclassOptions(String[] subclassOptions) {
+        this.subclassOptions = subclassOptions;
+    }
+
+    // primary ability - getter and setter
+    public String getPrimaryAbility() {
+        return primaryAbility;
+    }
+
+    public void setPrimaryAbility(String primaryAbility) {
+        this.primaryAbility = primaryAbility;
+    }
+
+    // saving throw proficiency 1 - getter and setter
+    public String getSavingThrowProficiency1() {
+        return savingThrowProficiency1;
+    }
+
+    public void setSavingThrowProficiency1(String savingThrowProficiency1) {
+        this.savingThrowProficiency1 = savingThrowProficiency1;
+    }
+
+    // saving throw proficiency 2 - getter and setter
+    public String getSavingThrowProficiency2() {
+        return savingThrowProficiency2;
+    }
+
+    public void setSavingThrowProficiency2(String savingThrowProficiency2) {
+        this.savingThrowProficiency2 = savingThrowProficiency2;
+    }
+
+    // armor and weapon proficiencies - getter and setter
+    public String[] getArmorAndWeaponProficiencies() {
+        return armorAndWeaponProficiencies;
+    }
+
+    public void setArmorAndWeaponProficiencies(String[] armorAndWeaponProficiencies) {
+        this.armorAndWeaponProficiencies = armorAndWeaponProficiencies;
+    }
+
+    // hit die - getter and setter
+    public int getHitDie() {
+        return hitDie;
+    }
+
+    public void setHitDie(int hitDie) {
+        this.hitDie = hitDie;
     }
 }
 

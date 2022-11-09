@@ -6,7 +6,7 @@ public class Fighter extends DnDClass {
 
         super("Fighter", 10, "Strength or Dexterity", "Strength", "Constitution");
 
-        setArmorAndWeaponProficiencies(new String[] {"Light Armor", "Medium Armor", "Heavy Armor", "Shields", "Simple Weapons", "Martial Weapons"});
+        setArmorAndWeaponProficiencies(new String[]{"Light Armor", "Medium Armor", "Heavy Armor", "Shields", "Simple Weapons", "Martial Weapons"});
 
     }
 

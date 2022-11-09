@@ -1,6 +1,6 @@
 package DnDRaces;
 
-public class WoodElf extends Elf{
+public class WoodElf extends Elf {
 
     public WoodElf() {
         super("Wood Elf", 100, 750, "medium", 35);

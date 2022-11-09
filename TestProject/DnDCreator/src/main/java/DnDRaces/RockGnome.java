@@ -1,6 +1,6 @@
 package DnDRaces;
 
-public class RockGnome extends Gnome{
+public class RockGnome extends Gnome {
 
     public RockGnome() {
         super("Rock Gnome", 40, 450, "small", 25);

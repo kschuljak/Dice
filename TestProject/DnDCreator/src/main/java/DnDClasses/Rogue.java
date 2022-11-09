@@ -6,7 +6,7 @@ public class Rogue extends DnDClass {
 
         super("Rogue", 8, "Dexterity", "Dexterity", "Intelligence");
 
-        setArmorAndWeaponProficiencies(new String[] {"Light Armor", "Simple Weapons", "Hand Crossbows", "Longswords", "Rapiers", "Shortswords"});
+        setArmorAndWeaponProficiencies(new String[]{"Light Armor", "Simple Weapons", "Hand Crossbows", "Longswords", "Rapiers", "Shortswords"});
 
     }
 

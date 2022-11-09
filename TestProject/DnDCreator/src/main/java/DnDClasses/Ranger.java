@@ -6,7 +6,7 @@ public class Ranger extends DnDClass {
 
         super("Ranger", 10, "Dexterity and Wisdom", "Strength", "Dexterity");
 
-        setArmorAndWeaponProficiencies(new String[] {"Light Armor", "Medium Armor", "Shields", "Simple Weapons", "Martial Weapons"});
+        setArmorAndWeaponProficiencies(new String[]{"Light Armor", "Medium Armor", "Shields", "Simple Weapons", "Martial Weapons"});
 
     }
 

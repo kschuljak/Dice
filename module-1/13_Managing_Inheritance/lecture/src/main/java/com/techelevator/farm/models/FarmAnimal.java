@@ -1,6 +1,9 @@
 package com.techelevator.farm.models;
 
-public class FarmAnimal implements Singable
+// abstract class very similar to an interface - we don't have enough information to create an instance of it
+// you can only inherit from an abstract class
+// abstraction - removing everything unnecessary to simplify code
+public abstract class FarmAnimal implements Singable
 {
     private String name;
     private String sound;
@@ -16,9 +19,12 @@ public class FarmAnimal implements Singable
         return name;
     }
 
-    public String getSound()
+    // final - prevents method from being overwritten by child classes
+    public final String getSound()
     {
         return sound;
     }
+
+    public abstract void eat();
 
 }

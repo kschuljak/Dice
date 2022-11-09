@@ -1,8 +1,3 @@
-import com.sun.jdi.connect.Connector;
-
-import java.util.Map;
-import java.util.HashMap;
-
 public class AbilityScoreModifiers {
 
     public int getAbilityScoreModifier(int score) {

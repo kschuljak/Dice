@@ -1,6 +1,6 @@
 package DnDRaces;
 
-public class HighElf extends Elf{
+public class HighElf extends Elf {
 
     public HighElf() {
         super("High Elf", 100, 750, "medium", 30);

@@ -6,7 +6,7 @@ public class Warlock extends DnDClass {
 
         super("Warlock", 8, "Charisma", "Wisdom", "Charisma");
 
-        setArmorAndWeaponProficiencies(new String[] {"Light Armor", "Simple Weapons"});
+        setArmorAndWeaponProficiencies(new String[]{"Light Armor", "Simple Weapons"});
 
     }
 
