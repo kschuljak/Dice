@@ -13,7 +13,7 @@ class PaintCalculator {
     public static void main(String[] args) {
 
         // Step One:
-        //List<Wall> walls = new ArrayList<Wall>();
+        List<Wall> walls = new ArrayList<Wall>();
 
         while (true) {
             System.out.println("[1] Add a wall");
@@ -24,8 +24,8 @@ class PaintCalculator {
             System.out.println();
 
             if (userChoice.equals("1")) {
-                // Step One:
-                // Wall newWall = null;
+
+                Wall newWall = null;
 
                 System.out.println("What's the name of the new wall?");
                 String name = userInput.nextLine();
@@ -46,13 +46,13 @@ class PaintCalculator {
                     int length = Integer.parseInt(userInput.nextLine());
 
                     // Step Two:
-                    //newWall = new RectangleWall(name, color, height, length);
+                    newWall = new RectangleWall(name, color, height, length);
                 } else if (shapeChoice.equals("2")) {
                     System.out.println("Enter wall side length >>> ");
                     int sideLength = Integer.parseInt(userInput.nextLine());
 
                     // Step Three:
-                    //newWall = new SquareWall(name, color, sideLength);
+                    newWall = new SquareWall(name, color, sideLength);
                 } else if (shapeChoice.equals("3")) {
                     System.out.println("Enter wall height >>> ");
                     int height = Integer.parseInt(userInput.nextLine());
@@ -60,29 +60,29 @@ class PaintCalculator {
                     int base = Integer.parseInt(userInput.nextLine());
 
                     // Step Four:
-                    //newWall = new TriangleWall(name, color, height, base);
+                    newWall = new TriangleWall(name, color, height, base);
                 }
 
                 // Step Two:
-                //System.out.println("Added " + newWall + " wall - "
-                //        + newWall.getArea() + " square feet");
-                //walls.add(newWall);
+                System.out.println("Added " + newWall + " wall - "
+                        + newWall.getArea() + " square feet");
+                walls.add(newWall);
             } else if (userChoice.equals("2")) {
 
                 Map<String, Integer> colorChoiceAreas = new TreeMap<>();
 
                 int totalArea = 0;
                 // Step One:
-//                for (int i = 0; i < walls.size(); i++) {
-//                    System.out.println(
-//                            String.format("Wall %d: %s - %d square ft", i + 1,
-//                                    walls.get(i), walls.get(i).getArea()));
-//                    totalArea = totalArea + walls.get(i).getArea();
-//                    colorChoiceAreas.put(walls.get(i).getColor(),
-//                            colorChoiceAreas
-//                                    .getOrDefault(walls.get(i).getColor(), 0)
-//                                    + walls.get(i).getArea());
-//                }
+                for (int i = 0; i < walls.size(); i++) {
+                    System.out.println(
+                            String.format("Wall %d: %s - %d square ft", i + 1,
+                                    walls.get(i), walls.get(i).getArea()));
+                    totalArea = totalArea + walls.get(i).getArea();
+                    colorChoiceAreas.put(walls.get(i).getColor(),
+                            colorChoiceAreas
+                                    .getOrDefault(walls.get(i).getColor(), 0)
+                                    + walls.get(i).getArea());
+                }
 
                 System.out.println("===============================");
                 System.out.println("Total Area: " + totalArea + " square feet");
