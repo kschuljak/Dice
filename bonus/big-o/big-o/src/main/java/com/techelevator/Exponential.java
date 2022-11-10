@@ -1,5 +1,6 @@
 package com.techelevator;
 
+
 public class Exponential
 {
     // O(2^n)
@@ -42,7 +43,8 @@ public class Exponential
 
     }
 
-
+    // calculate fibonacci sequence using recursion
+    // each calculation to get previous 2 numbers calls Thread.sleep 3 times
     private static long fibonacci(long number) throws InterruptedException
     {
         Thread.sleep(10);
@@ -54,7 +56,7 @@ public class Exponential
         return fibonacci(number - 2) + fibonacci(number - 1);
     }
 
-
+    // calculate fibonacci sequence using iteration
     private static long fibonacciLinear(long number) throws InterruptedException
     {
         int prev = 0;
@@ -71,6 +73,7 @@ public class Exponential
         return next;
     }
 
+    // calculate fibonacci sequence using Math & the golden ratio
     private static long fibonacciConstant(long number) throws InterruptedException
     {
         Thread.sleep(10);

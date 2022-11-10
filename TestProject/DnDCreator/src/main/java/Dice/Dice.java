@@ -15,12 +15,30 @@ public class Dice {
     protected final int D100 = 100;
     protected int maximumRoll;
 
-    // get random number between min and max (inclusive)
+
+    // get random number between min and max (inclusive) - NO print
     public static int rollDice(int diceType) {
         return (int) (Math.random() * (diceType - 1) + 1);
     }
 
-    // how many times to roll (for dice type)
+    // how many times to roll (for dice type) and print
+    public static int rollDiceXTimesAndPrint(int diceType, int rollTimes) {
+        int total = 0;
+        int rollCounter = 0;
+        System.out.println("-------------------------------------");
+        for (int i = rollTimes; i > 0; i--) {
+            rollCounter++;
+            int thisRoll = rollDice(diceType);
+            total += thisRoll;
+            System.out.println("Roll " + rollCounter + ":  " + thisRoll);
+        }
+        System.out.println("-------------------------------------");
+        System.out.println("Roll Total: " + total);
+        System.out.println("-------------------------------------");
+        return total;
+    }
+
+    // how many times to roll (for dice type) - NO print
     public static int rollDiceXTimes(int diceType, int rollTimes) {
         int total = 0;
         for (int i = rollTimes; i > 0; i--) {

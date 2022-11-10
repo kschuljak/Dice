@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+// incrementing through an array
 public class Linear
 {
     // O(n)
