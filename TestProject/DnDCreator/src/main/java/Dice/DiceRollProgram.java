@@ -1,3 +1,5 @@
+package Dice;
+
 import Dice.Dice;
 import java.util.Scanner;
 

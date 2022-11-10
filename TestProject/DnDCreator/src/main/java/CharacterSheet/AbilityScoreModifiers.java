@@ -1,3 +1,5 @@
+package CharacterSheet;
+
 public class AbilityScoreModifiers {
 
     public int getAbilityScoreModifier(int score) {

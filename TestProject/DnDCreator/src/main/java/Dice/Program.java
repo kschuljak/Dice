@@ -1,3 +1,7 @@
+package Dice;
+
+import Dice.DiceRollProgram;
+
 public class Program {
 
     public static void main(String[] args)

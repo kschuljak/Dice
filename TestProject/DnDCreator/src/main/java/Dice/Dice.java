@@ -3,18 +3,16 @@ package Dice;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dice {
+public final class Dice {
 
-    protected final int COIN = 2;
-    protected final int D4 = 4;
-    protected final int D6 = 6;
-    protected final int D8 = 8;
-    protected final int D10 = 10;
-    protected final int D12 = 12;
-    protected final int D20 = 20;
-    protected final int D100 = 100;
-    protected int maximumRoll;
-
+    final int COIN = 2;
+    final int D4 = 4;
+    final int D6 = 6;
+    final int D8 = 8;
+    final int D10 = 10;
+    final int D12 = 12;
+    final int D20 = 20;
+    final int D100 = 100;
 
     // get random number between min and max (inclusive) - NO print
     public static int rollDice(int diceType) {
@@ -22,7 +20,7 @@ public class Dice {
     }
 
     // how many times to roll (for dice type) and print
-    public static int rollDiceXTimesAndPrint(int diceType, int rollTimes) {
+    public static void rollDiceXTimesAndPrint(int diceType, int rollTimes) {
         int total = 0;
         int rollCounter = 0;
         System.out.println("-------------------------------------");
@@ -35,7 +33,6 @@ public class Dice {
         System.out.println("-------------------------------------");
         System.out.println("Roll Total: " + total);
         System.out.println("-------------------------------------");
-        return total;
     }
 
     // how many times to roll (for dice type) - NO print

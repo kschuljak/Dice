@@ -4,15 +4,15 @@ import java.util.*;
 
 public abstract class DnDRace {
 
-    protected String dndRaceName;
-    protected int ageOfAdulthood;
-    protected int averageLifespan;
-    protected String characterSize;
-    protected int characterSpeed;
-    protected List<String> raceLanguages = new ArrayList<>();
-    protected List<String> dndSubraceOptions = new ArrayList<>();
-    protected Map<String, Integer> raceAbilityScoreModifiers = new HashMap<>();
-    protected List<String> raceTraits = new ArrayList<>();
+    private String dndRaceName;
+    private int ageOfAdulthood;
+    private int averageLifespan;
+    private String characterSize;
+    private int characterSpeed;
+    private List<String> raceLanguages = new ArrayList<>();
+    private List<String> dndSubraceOptions = new ArrayList<>();
+    private Map<String, Integer> raceAbilityScoreModifiers = new HashMap<>();
+    private List<String> raceTraits = new ArrayList<>();
 
     public DnDRace(String dndRaceName, int ageOfAdulthood, int averageLifespan, String characterSize, int characterSpeed) {
         this.dndRaceName = dndRaceName;
