@@ -95,6 +95,9 @@ public abstract class CharacterSheet {
     boolean isRollingDeathSaves;
     int deathSaveSuccesses;
     int deathSaveFailures;
+    int spellcastingAbility;
+    int spellSaveDC;
+    int spellAttackBonus;
 
     // combat actions and equipment - instance variables
         // map (spell name, spell description)
@@ -113,5 +116,37 @@ public abstract class CharacterSheet {
     int numberElectrumPieces;
     int numberCopperPieces;
     List<String> itemsInBackpack = new ArrayList<>();
+
+    // magic known - instance variables
+        // map (spell name, spell description)
+    Map<String, String> cantripsKnown = new HashMap<>();
+    Map<String, String> levelOneSpellsKnown = new HashMap<>();
+    Map<String, String> levelTwoSpellsKnown = new HashMap<>();
+    Map<String, String> levelThreeSpellsKnown = new HashMap<>();
+    Map<String, String> levelFourSpellsKnown = new HashMap<>();
+    Map<String, String> levelFiveSpellsKnown = new HashMap<>();
+    Map<String, String> levelSixSpellsKnown = new HashMap<>();
+    Map<String, String> levelSevenSpellsKnown = new HashMap<>();
+    Map<String, String> levelEightSpellsKnown = new HashMap<>();
+    Map<String, String> levelNineSpellsKnown = new HashMap<>();
+    int levelOneSpellSlots;
+    int levelOneSpellSlotsUsed;
+    int levelTwoSpellSlots;
+    int levelTwoSpellSlotsUsed;
+    int levelThreeSpellSlots;
+    int levelThreeSpellSlotsUsed;
+    int levelFourSpellSlots;
+    int levelFourSpellSlotsUsed;
+    int levelFiveSpellSlots;
+    int levelFiveSpellSlotsUsed;
+    int levelSixSpellSlots;
+    int levelSixSpellSlotsUsed;
+    int levelSevenSpellSlots;
+    int levelSevenSpellSlotsUsed;
+    int levelEightSpellSlots;
+    int levelEightSpellSlotsUsed;
+    int levelNineSpellSlots;
+    int levelNineSpellSlotsUsed;
+
 
 }
