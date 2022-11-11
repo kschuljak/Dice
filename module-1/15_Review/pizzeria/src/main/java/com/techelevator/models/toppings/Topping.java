@@ -1,4 +1,4 @@
-package com.techelevator.model;
+package com.techelevator.models.toppings;
 
 import java.math.BigDecimal;
 
@@ -20,5 +20,5 @@ public abstract class Topping {
         return price;
     }
 
-    public abstract void eat();
+    //public abstract void eat();
 }

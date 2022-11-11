@@ -15,13 +15,13 @@ public class SameFirstLastTest {
      */
 
     @Test
-    public void isItTheSame_Should_ReturnTrue_ifGiven_ArrayOfInts_FirstElementSameAsLastElement() {
+    public void isItTheSame_Should_ReturnTrue_ifGiven_IntArray_FirstElementSameAsLastElement() {
 
         //arrange
         SameFirstLast sameFirstLast = new SameFirstLast();
         int[] intArray1 = new int[]{1, 2, 3, 4, 1};
         int[] intArray2 = new int[]{6, 3, 19, 6};
-        int[] intArray3 = new int[]{0, 12, -4, 0};
+        int[] intArray3 = new int[]{0, -9, 12, 0, -4, 0};
 
         //act
         boolean actual1 = sameFirstLast.isItTheSame(intArray1);
