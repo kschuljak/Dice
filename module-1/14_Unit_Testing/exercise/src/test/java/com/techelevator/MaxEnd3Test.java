@@ -13,8 +13,8 @@ public class MaxEnd3Test {
      MakeArray([2, 11, 3]) → [3, 3, 3]
      */
 
-    @Test // NOT WORKING
-    public void makeArray_Should_ReturnArrayPopulatedByNumberThatIsLarger_IndexZeroOrLastIndex() {
+    @Test
+    public void makeArray_Should_ReturnArrayPopulatedByNumberThatIsLarger_IndexZeroOrIndexTwo() {
 
         //arrange
         MaxEnd3 maxEnd3 = new MaxEnd3();
@@ -32,8 +32,51 @@ public class MaxEnd3Test {
         int[] actual3 = maxEnd3.makeArray(array3);
 
         //assert
-        //assertEquals("Because returns array repopulated by whatever number is larger, number at first index (i=0) or number at last index (i=length-1)", expected1, actual1);
-        assertEquals("Because returns array repopulated by whatever number is larger, number at first index (i=0) or number at last index (i=length-1)", expected2, actual2);
-        //assertEquals("Because returns array repopulated by whatever number is larger, number at first index (i=0) or number at last index (i=length-1)", expected3, actual3);
+        assertArrayEquals("Because returns array repopulated by whatever number is larger, number at index 0 or number at index 2", expected1, actual1);
+        assertArrayEquals("Because returns array repopulated by whatever number is larger, number at index 0 or number at index 2", expected2, actual2);
+        assertArrayEquals("Because returns array repopulated by whatever number is larger, number at index 0 or number at index 2", expected3, actual3);
     }
+
+    @Test
+    public void makeArray_Should_ReturnArrayOfNumberThatIsLarger_BetweenFirstIndexVsLastIndex(){
+
+        //arrange
+        MaxEnd3 maxEnd3 = new MaxEnd3();
+        int[] array1 = new int[]{1, 5, 7, 18, 121};
+        int[] array2 = new int[]{9, 1};
+        int[] array3 = new int[]{1, 0, 17, 222, 19, 42, 4};
+
+        int[] expected1 = new int[]{121, 121, 121, 121, 121};
+        int[] expected2 = new int[]{9, 9};
+        int[] expected3 = new int[]{4, 4, 4, 4, 4, 4, 4};
+
+        //act
+        int[] actual1 = maxEnd3.makeArray(array1);
+        int[] actual2 = maxEnd3.makeArray(array2);
+        int[] actual3 = maxEnd3.makeArray(array3);
+
+        //assert
+        assertArrayEquals("Because returns array repopulated by whatever number is larger, number at first index (i=0) or number at last index (i=length-1)", expected1, actual1);
+        assertArrayEquals("Because returns array repopulated by whatever number is larger, number at first index (i=0) or number at last index (i=length-1)", expected2, actual2);
+        assertArrayEquals("Because returns array repopulated by whatever number is larger, number at first index (i=0) or number at last index (i=length-1)", expected3, actual3);
+    }
+
+    @Test
+    public void makeArray_Should_ReturnArrayOfOne_GivenArrayOfOne(){
+
+        //arrange
+        MaxEnd3 maxEnd3 = new MaxEnd3();
+        int[] array = new int[]{4};
+        int[] expected = new int[]{4};
+
+        //act
+        int[] actual = maxEnd3.makeArray(array);
+
+        //assert
+        assertArrayEquals("First and last element are the same, so should return array of same one element", expected, actual);
+    }
+
+    // not sure how to write tests for these:
+    // empty array = out of bounds error
+    // null array = null pointer exception
 }
