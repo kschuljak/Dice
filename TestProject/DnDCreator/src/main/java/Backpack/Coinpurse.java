@@ -1,5 +1,7 @@
 package Backpack;
 
+import java.util.Map;
+
 public class Coinpurse{
 
     final int COPPER = 1;
@@ -14,14 +16,27 @@ public class Coinpurse{
     private int numberOfElectrumCoins = 0;
     private int numberOfGoldCoins = 0;
     private int numberOfPlatinumCoins = 0;
-    private boolean useElectrum = true;
+    private boolean useElectrum;
 
     public Coinpurse(int numberOfCopperCoins, int numberOfSilverCoins, int numberOfElectrumCoins, int numberOfGoldCoins, int numberOfPlatinumCoins) {
         this.numberOfCopperCoins = numberOfCopperCoins;
         this.numberOfSilverCoins = numberOfSilverCoins;
+        this.useElectrum = true;
         this.numberOfElectrumCoins = numberOfElectrumCoins;
         this.numberOfGoldCoins = numberOfGoldCoins;
         this.numberOfPlatinumCoins = numberOfPlatinumCoins;
+    }
+
+    public Coinpurse(int numberOfCopperCoins, int numberOfSilverCoins, int numberOfGoldCoins, int numberOfPlatinumCoins){
+        this.numberOfCopperCoins = numberOfCopperCoins;
+        this.numberOfSilverCoins = numberOfSilverCoins;
+        this.useElectrum = false;
+        this.numberOfGoldCoins = numberOfGoldCoins;
+        this.numberOfPlatinumCoins = numberOfPlatinumCoins;
+    }
+
+    public Coinpurse(boolean useElectrum){
+        this.useElectrum = useElectrum;
     }
 
     public Coinpurse() {
@@ -103,14 +118,30 @@ public class Coinpurse{
 
     public int getTotalCoinValueInCopper() {
 
-        int copperValue = numberOfCopperCoins * COPPER;
+        int copperValue = numberOfCopperCoins;
         int silverValue = numberOfSilverCoins * SILVER;
         int electrumValue = numberOfElectrumCoins * ELECTRUM;
         int goldValue = numberOfGoldCoins * GOLD;
         int platinumValue = numberOfPlatinumCoins * PLATINUM;
-
         return copperValue + silverValue + electrumValue + goldValue + platinumValue;
+    }
 
+    public void printTotalValueInCopper() {
+        int totalValueInCopper = getTotalCoinValueInCopper();
+        System.out.println("Total value of your coinpurse (in copper): " + totalValueInCopper);
+    }
+
+    public int getItemCostInCopper(int copper, int silver, int electrum, int gold, int platinum){
+        silver *= SILVER;
+        electrum *= ELECTRUM;
+        gold *= GOLD;
+        platinum *= PLATINUM;
+        return copper + silver + electrum + gold + platinum;
+    }
+
+    public void printItemCostInCopper(int copper, int silver, int electrum, int gold, int platinum){
+        int costInCopper = getItemCostInCopper(copper, silver, electrum, gold, platinum);
+        System.out.println("Total cost of item (in copper): " + costInCopper);
     }
 
     public void spendMoney(int itemCostInCopper){
@@ -118,6 +149,15 @@ public class Coinpurse{
         if (itemCostInCopper < originalMoneyTotal && itemCostInCopper > 0) {
             int newMoneyTotal = originalMoneyTotal - itemCostInCopper;
             condenseCoinage(newMoneyTotal);
+            System.out.println("Sold!");
+            System.out.println("Your coinpurse now contains: ");
+            System.out.println("----------------------------");
+            System.out.println(numberOfPlatinumCoins + " platinum coins");
+            System.out.println(numberOfGoldCoins + " gold coins");
+            if (useElectrum) System.out.println(numberOfElectrumCoins + " electrum coins");
+            System.out.println(numberOfSilverCoins + " silver coins");
+            System.out.println(numberOfCopperCoins + " copper coins");
+            System.out.println();
         } else {
             int coppersShort = originalMoneyTotal - itemCostInCopper;
             System.out.println("You do not have enough money to spend this amount.");
@@ -144,11 +184,12 @@ public class Coinpurse{
         int numberGold = valueAfterPlatinum / GOLD;
         int valueAfterGold = valueAfterPlatinum % GOLD;
         int numberElectrum = 0;
-        int numberSilver = 0;
-        int valueAfterSilver = 0;
+        int valueAfterElectrum;
+        int numberSilver;
+        int valueAfterSilver;
         if (useElectrum) {
             numberElectrum = valueAfterGold / ELECTRUM;
-            int valueAfterElectrum = valueAfterGold % ELECTRUM;
+            valueAfterElectrum = valueAfterGold % ELECTRUM;
             numberSilver = valueAfterElectrum / SILVER;
             valueAfterSilver = valueAfterElectrum % SILVER;
         } else {
@@ -162,5 +203,12 @@ public class Coinpurse{
         if (useElectrum) this.numberOfElectrumCoins = numberElectrum;
         this.numberOfSilverCoins = numberSilver;
         this.numberOfCopperCoins = valueAfterSilver;
+    }
+
+    public void convertCoins(int givenCoin, int coinAmount, int toCoin){
+        int givenValueInCopper = coinAmount * givenCoin;
+        if (givenValueInCopper < toCoin) System.out.println("Cannot convert! (insufficient funds given)");
+        int numberToCoin = givenValueInCopper/toCoin;
+        int remaining = givenValueInCopper%toCoin / givenCoin;
     }
 }
