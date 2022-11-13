@@ -1,5 +1,6 @@
 package com.techelevator;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -8,11 +9,17 @@ public class NonStartTest {
 
     // return string one (less first character) + string two (less first character
 
+    NonStart nonStart = new NonStart();
+
+    @Before
+    public void setUp() throws Exception {
+        nonStart = new NonStart();
+    }
+
     @Test
     public void getPartialString_Should_ReturnTwoStrings_LessFirstCharacter_Concatenated_GivenTwoStrings() {
 
         //arrange
-        NonStart nonStart = new NonStart();
         String a1 = "Hello";
         String b1 = "There";
         String expected1 = "ellohere";
@@ -38,7 +45,6 @@ public class NonStartTest {
     public void getPartialString_Should_ReturnEmptyString_GivenTwoNullStrings() {
 
         //arrange
-        NonStart nonStart = new NonStart();
         String a = null;
         String b = null;
         String expected = "";
@@ -47,14 +53,13 @@ public class NonStartTest {
         String actual = nonStart.getPartialString(a, b);
 
         //assert
-        assertEquals("Because null error handling sets value to empty string", expected, actual);
+        assertEquals("Because method error handling sets return value to empty string if given null", expected, actual);
     }
 
     @Test
     public void getPartialString_Should_ReturnEmptyString_GivenTwoEmptyStrings() {
 
         //arrange
-        NonStart nonStart = new NonStart();
         String a = "";
         String b = "";
         String expected = "";
@@ -70,7 +75,6 @@ public class NonStartTest {
     public void getPartialString_Should_ReturnSubstring_OfStringMinusFirstIndex_GivenOneString_AndOneEmptyString() {
 
         //arrange
-        NonStart nonStart = new NonStart();
         String a = "";
         String b = "Hello World!";
         String expected = "ello World!";

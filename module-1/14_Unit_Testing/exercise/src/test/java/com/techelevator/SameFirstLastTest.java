@@ -1,5 +1,6 @@
 package com.techelevator;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -14,11 +15,17 @@ public class SameFirstLastTest {
      IsItTheSame([1, 2, 1]) → true
      */
 
+    SameFirstLast sameFirstLast = new SameFirstLast();
+
+    @Before
+    public void setUp() {
+        sameFirstLast = new SameFirstLast();
+    }
+
     @Test
     public void isItTheSame_Should_ReturnTrue_ifGiven_IntArray_FirstElementSameAsLastElement() {
 
         //arrange
-        SameFirstLast sameFirstLast = new SameFirstLast();
         int[] intArray1 = new int[]{1, 2, 3, 4, 1};
         int[] intArray2 = new int[]{6, 3, 19, 6};
         int[] intArray3 = new int[]{0, -9, 12, 0, -4, 0};
@@ -35,10 +42,29 @@ public class SameFirstLastTest {
     }
 
     @Test
+    public void isItTheSame_Should_ReturnFalse_ifGiven_IntArray_FirstElementNotSameAsLastElement() {
+
+        //arrange
+        int[] intArray1 = new int[]{1, 2, 3, 4, 3};
+        int[] intArray2 = new int[]{6, 3, 19, 4};
+        int[] intArray3 = new int[]{0, -9, 12, 0, -4, -1};
+
+        //act
+        boolean actual1 = sameFirstLast.isItTheSame(intArray1);
+        boolean actual2 = sameFirstLast.isItTheSame(intArray2);
+        boolean actual3 = sameFirstLast.isItTheSame(intArray3);
+
+        //assert
+        assertFalse("Because first and last elements of int array are not the same number (1 & 3)", actual1);
+        assertFalse("Because first and last elements of int array are not the same number (6 & 4)", actual2);
+        assertFalse("Because first and last elements of int array are not the same number (0 & -2", actual3);
+    }
+
+
+    @Test
     public void isItTheSame_Should_ReturnFalse_ifGiven_NullArray() {
 
         //arrange
-        SameFirstLast sameFirstLast = new SameFirstLast();
         int[] intArray = null;
 
         //act
@@ -52,7 +78,6 @@ public class SameFirstLastTest {
     public void isItTheSame_Should_ReturnTrue_ifGiven_ArrayOfLengthOne() {
 
         //arrange
-        SameFirstLast sameFirstLast = new SameFirstLast();
         int[] intArray = new int[]{7};
 
         //act
@@ -66,7 +91,6 @@ public class SameFirstLastTest {
     public void isItTheSame_Should_ReturnFalse_ifGiven_EmptyArray() {
 
         //arrange
-        SameFirstLast sameFirstLast = new SameFirstLast();
         int[] intArray = new int[]{};
 
         //act

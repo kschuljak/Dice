@@ -1,5 +1,6 @@
 package com.techelevator;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -13,11 +14,17 @@ public class MaxEnd3Test {
      MakeArray([2, 11, 3]) → [3, 3, 3]
      */
 
+    MaxEnd3 maxEnd3 = new MaxEnd3();
+
+    @Before
+    public void setUp() {
+        maxEnd3 = new MaxEnd3();
+    }
+
     @Test
     public void makeArray_Should_ReturnArrayPopulatedByNumberThatIsLarger_IndexZeroOrIndexTwo() {
 
         //arrange
-        MaxEnd3 maxEnd3 = new MaxEnd3();
         int[] array1 = new int[]{1, 5, 3};
         int[] array2 = new int[]{9, 5, 1};
         int[] array3 = new int[]{1, 19, 2};
@@ -41,7 +48,6 @@ public class MaxEnd3Test {
     public void makeArray_Should_ReturnArrayOfNumberThatIsLarger_BetweenFirstIndexVsLastIndex(){
 
         //arrange
-        MaxEnd3 maxEnd3 = new MaxEnd3();
         int[] array1 = new int[]{1, 5, 7, 18, 121};
         int[] array2 = new int[]{9, 1};
         int[] array3 = new int[]{1, 0, 17, 222, 19, 42, 4};
@@ -65,7 +71,6 @@ public class MaxEnd3Test {
     public void makeArray_Should_ReturnArrayOfOne_GivenArrayOfOne(){
 
         //arrange
-        MaxEnd3 maxEnd3 = new MaxEnd3();
         int[] array = new int[]{4};
         int[] expected = new int[]{4};
 

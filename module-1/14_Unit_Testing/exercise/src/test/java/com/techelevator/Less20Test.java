@@ -1,6 +1,7 @@
 package com.techelevator;
 
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -11,11 +12,17 @@ public class Less20Test {
 
     // return true if n is positive & n is 1 or 2 less than a multiple of 20
 
+    Less20 less20 = new Less20();
+
+    @Before
+    public void setUp() {
+        less20 = new Less20();
+    }
+
     @Test
     public void isLessThanMultipleOf20_Should_ReturnTrue_ifGiven_multipleOf20minusTwo() {
 
         //arrange
-        Less20 less20 = new Less20();
         int n1 = 38;
         int n2 = 78;
         int n3 = 3998;
@@ -38,7 +45,6 @@ public class Less20Test {
     public void isLessThanMultipleOf20_Should_ReturnTrue_ifGiven_multipleOf20minusOne() {
 
         //arrange
-        Less20 less20 = new Less20();
         int n1 = 39;
         int n2 = 79;
         int n3 = 3999;
@@ -61,7 +67,6 @@ public class Less20Test {
     public void isLessThanMultipleOf20_Should_ReturnFalse_ifGiven_multipleOf20() {
 
         //arrange
-        Less20 less20 = new Less20();
         int n1 = 40;
         int n2 = 80;
         int n3 = 4000;
@@ -84,7 +89,6 @@ public class Less20Test {
     public void isLessThanMultipleOf20_Should_ReturnFalse_ifGiven_nIsZero() {
 
         //arrange
-        Less20 less20 = new Less20();
         int n = 0;
 
         //act
@@ -99,7 +103,6 @@ public class Less20Test {
     public void isLessThanMultipleOf20_Should_ReturnFalse_ifGiven_nIsNegative19() {
 
         //arrange
-        Less20 less20 = new Less20();
         int n = -19;
 
         //act

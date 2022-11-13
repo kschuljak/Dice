@@ -1,5 +1,6 @@
 package com.techelevator;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -14,11 +15,17 @@ public class DateFashionTest {
        2 = yes (if either >= 8)
      */
 
+    DateFashion dateFashion = new DateFashion();
+
+    @Before
+    public void setUp() {
+        dateFashion = new DateFashion();
+    }
+
     @Test
     public void getATable_Should_Return1_ifGivenStyleValuesBetween3And7() {
 
         //arrange
-        DateFashion dateFashion = new DateFashion();
         int you1 = 5;
         int date1 = 5;
         int you2 = 3;
@@ -38,7 +45,6 @@ public class DateFashionTest {
     public void getATable_Should_Return0_ifGivenStyleValues2And5_or5And2() {
 
         //arrange
-        DateFashion dateFashion = new DateFashion();
         int you = 2;
         int you2 = 5;
         int date = 5;
@@ -58,7 +64,6 @@ public class DateFashionTest {
     public void getATable_Should_Return0_ifGivenStyleValues100And1() {
 
         //arrange
-        DateFashion dateFashion = new DateFashion();
         int you = 100;
         int date = 1;
         int expected = 0;
@@ -75,7 +80,6 @@ public class DateFashionTest {
     public void getATable_Should_Return0_ifGivenStyleValues0And10() {
 
         //arrange
-        DateFashion dateFashion = new DateFashion();
         int you = 0;
         int date = 10;
         int expected = 0;
@@ -92,7 +96,6 @@ public class DateFashionTest {
     public void getATable_Should_Return0_ifGivenStyleValuesNegative10And10() {
 
         //arrange
-        DateFashion dateFashion = new DateFashion();
         int you = -10;
         int date = 10;
         int expected = 0;
@@ -109,7 +112,6 @@ public class DateFashionTest {
     public void getATable_Should_Return2_ifGivenStyleValues15And5() {
 
         //arrange
-        DateFashion dateFashion = new DateFashion();
         int you = 15;
         int date = 5;
         int expected = 2;

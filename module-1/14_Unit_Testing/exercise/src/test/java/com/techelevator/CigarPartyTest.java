@@ -1,5 +1,6 @@
 package com.techelevator;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -11,12 +12,17 @@ public class CigarPartyTest {
      */
     public final boolean WEEKEND = true;
     public final boolean NOT_WEEKEND = false;
+    CigarParty cigarParty = new CigarParty();
+
+    @Before
+    public void setUp() {
+        cigarParty = new CigarParty();
+    }
 
     @Test
     public void haveParty_Should_ReturnTrue_given61CigarsAndWeekend() {
 
         //arrange
-        CigarParty cigarParty = new CigarParty();
         int cigars = 61;
 
         //act
@@ -30,7 +36,6 @@ public class CigarPartyTest {
     public void haveParty_Should_ReturnFalse_given61CigarsAndNotWeekend() {
 
         //arrange
-        CigarParty cigarParty = new CigarParty();
         int cigars = 61;
 
         //act
@@ -44,7 +49,6 @@ public class CigarPartyTest {
     public void haveParty_Should_ReturnFalse_given39CigarsAndWeekend() {
 
         //arrange
-        CigarParty cigarParty = new CigarParty();
         int cigars = 39;
 
         //act
@@ -58,7 +62,6 @@ public class CigarPartyTest {
     public void haveParty_Should_ReturnFalse_given39CigarsAndNotWeekend() {
 
         //arrange
-        CigarParty cigarParty = new CigarParty();
         int cigars = 39;
 
         //act
@@ -72,7 +75,6 @@ public class CigarPartyTest {
     public void haveParty_Should_ReturnTrue_given40CigarsAndWeekend() {
 
         //arrange
-        CigarParty cigarParty = new CigarParty();
         int cigars = 40;
 
         //act
@@ -86,7 +88,6 @@ public class CigarPartyTest {
     public void haveParty_Should_ReturnTrue_given40CigarsAndNotWeekend() {
 
         //arrange
-        CigarParty cigarParty = new CigarParty();
         int cigars = 40;
 
         //act
@@ -100,7 +101,6 @@ public class CigarPartyTest {
     public void haveParty_Should_ReturnTrue_given60CigarsAndNotWeekend() {
 
         //arrange
-        CigarParty cigarParty = new CigarParty();
         int cigars = 60;
 
         //act
@@ -114,7 +114,6 @@ public class CigarPartyTest {
     public void haveParty_Should_ReturnFalse_givenNegative60CigarsAndWeekend() {
 
         //arrange
-        CigarParty cigarParty = new CigarParty();
         int cigars = -60;
 
         //act
@@ -128,11 +127,8 @@ public class CigarPartyTest {
     public void haveParty_Should_ReturnFalse_givenVariableDefaultValuesAtInstantiation() {
 
         //arrange
-        CigarParty cigarParty = new CigarParty();
-
         int intDefault = 0;
         boolean booleanDefault = false;
-
 
         //act
         boolean actual = cigarParty.haveParty(intDefault, booleanDefault);

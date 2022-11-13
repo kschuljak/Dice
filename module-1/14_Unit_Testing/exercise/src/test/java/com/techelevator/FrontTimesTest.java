@@ -14,23 +14,17 @@ public class FrontTimesTest {
 
      */
 
+    FrontTimes frontTimes = new FrontTimes();
 
     @Before
     public void setup(){
-        // trying to instantiate object of class being tested in @Before causing a null pointer exception
+        frontTimes = new FrontTimes();
     }
-
-    @After
-    public void cleanup(){
-
-    }
-
 
     @Test
     public void generateString_Should_Return_substringOfFirstThreeCharacters_concatenated3times_ifGiven_stringAnd3() {
 
         //arrange
-        FrontTimes frontTimes = new FrontTimes();
         String str = "abcde";
         String str2 = "ABCDE";
         String str3 = "!*HELLO43";
@@ -54,7 +48,6 @@ public class FrontTimesTest {
     public void generateString_Should_Return_EmptyString_ifGiven_null() {
 
         //arrange
-        FrontTimes frontTimes = new FrontTimes();
         String str = null;
         int n = 1;
         String expected = "";
@@ -70,7 +63,6 @@ public class FrontTimesTest {
     public void generateString_Should_Return_EmptyString_ifGiven_abcdeAnd0() {
 
         //arrange
-        FrontTimes frontTimes = new FrontTimes();
         String str = "abcde";
         int n = 0;
         String expected = "";
@@ -86,7 +78,6 @@ public class FrontTimesTest {
     public void generateString_Should_Return_EmptyString_ifGiven_EmptyStringAnd3() {
 
         //arrange
-        FrontTimes frontTimes = new FrontTimes();
         String str = "";
         int n = 3;
         String expected = "";
@@ -102,7 +93,6 @@ public class FrontTimesTest {
     public void generateString_Should_Return_aaa_ifGiven_aAnd3() {
 
         //arrange
-        FrontTimes frontTimes = new FrontTimes();
         String str = "a";
         int n = 3;
         String expected = "aaa";

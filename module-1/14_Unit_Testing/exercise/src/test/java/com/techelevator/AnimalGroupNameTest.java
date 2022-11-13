@@ -1,16 +1,23 @@
 package com.techelevator;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class AnimalGroupNameTest{
 
+    AnimalGroupName animalGroupName = new AnimalGroupName();
+
+    @Before
+    public void setUp(){
+        animalGroupName = new AnimalGroupName();
+    }
+
     @Test
     public void getHerd_Should_ReturnMapKey_givenMapValue_FromAnimalsMap() {
 
         // arrange
-        AnimalGroupName animalGroupName = new AnimalGroupName();
         String animalNameDog = "dog";
         String expectedDog = "Pack";
         String animalNameCrow = "crow";
@@ -33,7 +40,6 @@ public class AnimalGroupNameTest{
     public void getHerd_Should_ReturnPack_givenDogAllUpperCase() {
 
         // arrange
-        AnimalGroupName animalGroupName = new AnimalGroupName();
         String animalName = "DOG";
         String expected = "Pack";
 
@@ -48,7 +54,6 @@ public class AnimalGroupNameTest{
     public void getHerd_Should_ReturnPack_givenDogAllLowerCase() {
 
         // arrange
-        AnimalGroupName animalGroupName = new AnimalGroupName();
         String animalName = "dog";
         String expected = "Pack";
 
@@ -63,7 +68,6 @@ public class AnimalGroupNameTest{
     public void getHerd_Should_ReturnUnknown_givenEmptyString() {
 
         // arrange
-        AnimalGroupName animalGroupName = new AnimalGroupName();
         String animalName = "";
         String expected = "unknown";
 
@@ -78,7 +82,6 @@ public class AnimalGroupNameTest{
     public void getHerd_Should_ReturnUnknown_givenNull() {
 
         // arrange
-        AnimalGroupName animalGroupName = new AnimalGroupName();
         String animalName = null;
         String expected = "unknown";
 
@@ -93,7 +96,6 @@ public class AnimalGroupNameTest{
     public void getHerd_Should_ReturnUnknown_givenAnimalNotInMap() {
 
         // arrange
-        AnimalGroupName animalGroupName = new AnimalGroupName();
         String animalName = "monkey";
         String expected = "unknown";
 
@@ -109,7 +111,6 @@ public class AnimalGroupNameTest{
     public void getHerd_Should_ReturnCrash_givenRhino_firstElementAddedToMap() {
 
         // arrange
-        AnimalGroupName animalGroupName = new AnimalGroupName();
         String animalName = "Rhino";
         String expected = "Crash";
 
@@ -124,7 +125,6 @@ public class AnimalGroupNameTest{
     public void getHerd_Should_ReturnFloat_givenCrocodile_lastElementAddedToMap() {
 
         // arrange
-        AnimalGroupName animalGroupName = new AnimalGroupName();
         String animalName = "Crocodile";
         String expected = "Float";
 
