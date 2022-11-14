@@ -1,5 +1,7 @@
 package Backpack;
 
+import Backpack.Coinpurse.Coinpurse;
+
 import static org.junit.Assert.*;
 
 public class CoinpurseTest {

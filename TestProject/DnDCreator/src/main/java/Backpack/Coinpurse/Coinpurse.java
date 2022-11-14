@@ -1,4 +1,4 @@
-package Backpack;
+package Backpack.Coinpurse;
 
 import java.util.Map;
 
@@ -205,12 +205,4 @@ public class Coinpurse{
         this.numberOfCopperCoins = valueAfterSilver;
     }
 
-    public void convertCoins(int givenCoin, int coinAmount, int toCoin){
-        int givenValueInCopper = coinAmount * givenCoin;
-        if (givenValueInCopper < toCoin) System.out.println("Cannot convert! (insufficient funds given)");
-        int numberConverted = givenValueInCopper/toCoin;
-        int remaining = (givenValueInCopper%toCoin)/givenCoin;
-        System.out.println("Number of converted coins: " + numberConverted);
-        System.out.println("Number of original coins remaining: " + remaining);
-    }
 }

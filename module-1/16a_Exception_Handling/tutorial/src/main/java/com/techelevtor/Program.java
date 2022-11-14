@@ -28,7 +28,7 @@ public class Program {
                 cc.validate();
                 break; // No exception thrown, credit card is valid, break out of validation loop
             }
-            catch (Exception ex) { // Step 3: Throw and catch CreditCardValidationException
+            catch (CreditCardValidationException ex) { // Step 3: Throw and catch CreditCardValidationException
                 System.out.println("Card is invalid: " + ex.getMessage() + "\n");
             }
         }
