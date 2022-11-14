@@ -1,6 +1,6 @@
 package Backpack.Gear.Weapons;
 
-import Backpack.Gear.Gear;
+import Backpack.Gear.*;
 
 import java.util.ArrayList;
 import java.util.List;
