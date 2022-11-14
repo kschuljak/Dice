@@ -1,0 +1,20 @@
+<employees>
+    <employee>
+        <id>1001</id>
+        <name>Jordan</name>
+        <hours>25</hours>
+        <rate>15.25</rate>
+    </employee>
+    <employee>
+        <id>1002</id>
+        <name>Kathy</name>
+        <hours>45</hours>
+        <rate>15.25</rate>
+    </employee>
+    <employee>
+        <id>1003</id>
+        <name>Tom</name>
+        <hours>-5</hours>
+        <rate>15.25</rate>
+    </employee>
+</employees>
