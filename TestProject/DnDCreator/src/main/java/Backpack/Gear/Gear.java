@@ -1,6 +1,9 @@
 package Backpack.Gear;
 
-public class Gear {
+import Backpack.Coinpurse.Coinpurse;
+import Backpack.Shop.Shoppable;
+
+public class Gear implements Shoppable {
 
     final int COPPER = 1;
     final int SILVER = 10;
@@ -44,8 +47,21 @@ public class Gear {
         this.weightInPounds = weightInPounds;
     }
 
-    public int getCostInCopper() {
+
+    public int getCostInCopper(Shoppable item) {
         String[] costValues = cost.split(" ");
         return Integer.parseInt(costValues[0]) * Integer.parseInt(costValues[1]);
+    }
+
+    @Override
+    public void buy(Shoppable item, Coinpurse coinpurse) {
+        int itemCost = getCostInCopper(item);
+        coinpurse.spendMoney(itemCost);
+    }
+
+    @Override
+    public void sell(Shoppable item, Coinpurse coinpurse) {
+        int itemCost = getCostInCopper(item);
+        coinpurse.earnMoney(itemCost);
     }
 }

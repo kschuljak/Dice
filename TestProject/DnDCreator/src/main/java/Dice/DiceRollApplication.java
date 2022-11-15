@@ -12,36 +12,46 @@ public class DiceRollApplication {
         printHeader();
 
         while (true) {
-            System.out.println("What would you like to do next? ");
-            System.out.println("1) Roll dice");
-            System.out.println("2) Flip coin");
-            System.out.println("3) Exit ");
-            System.out.println();
-            System.out.print("Select an option: ");
+            printDoNext();
 
             int choice = Integer.parseInt(input.nextLine().strip());
 
-            if (choice == 1) {
+            try {
+                if (choice == 1)
+                {
+                    printDiceSelectionIntro();
+                    int diceSelection = Integer.parseInt(input.nextLine().strip());
 
-                printDiceSelectionIntro();
-                int diceSelection = Integer.parseInt(input.nextLine().strip());
+                    printHowManyTimesToRollSelectionIntro();
+                    int numberOfTimesToRollDice = Integer.parseInt(input.nextLine().strip());
+                    if (numberOfTimesToRollDice == 1) returnDiceRollSingle(diceSelection);
+                    if (numberOfTimesToRollDice > 1) returnDiceRollMultiple(diceSelection, numberOfTimesToRollDice);
+                }
+                else if (choice == 2)
+                {
+                    printHowManyTimesToFlipCoinSelectionIntro();
+                    int coinFlips = Integer.parseInt(input.nextLine().strip());
+                    if (coinFlips == 1) returnFlipCoinSingle();
+                    if (coinFlips > 1) returnFlipCoinMultiple(coinFlips);
+                }
+                else if (choice == 3) break;
 
-                printHowManyTimesToRollSelectionIntro();
-                int numberOfTimesToRollDice = Integer.parseInt(input.nextLine().strip());
-                if (numberOfTimesToRollDice == 1) returnDiceRollSingle(diceSelection);
-                if (numberOfTimesToRollDice > 1) returnDiceRollMultiple(diceSelection, numberOfTimesToRollDice);
+                else throw new RuntimeException("You have not made a valid choice.");
 
-            } else if (choice == 2) {
-
-                printHowManyTimesToFlipCoinSelectionIntro();
-                int coinFlips = Integer.parseInt(input.nextLine().strip());
-                if (coinFlips == 1) returnFlipCoinSingle();
-                if (coinFlips > 1) returnFlipCoinMultiple(coinFlips);
-
-            } else break;
-
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+                System.out.println("Please try again.");
+            }
         }
+    }
 
+    private void printDoNext() {
+        System.out.println("What would you like to do next? ");
+        System.out.println("1) Roll dice");
+        System.out.println("2) Flip coin");
+        System.out.println("3) Exit ");
+        System.out.println();
+        System.out.print("Select an option: ");
     }
 
     private void printHeader() {

@@ -205,4 +205,13 @@ public class Coinpurse{
         this.numberOfCopperCoins = valueAfterSilver;
     }
 
+    public void convertCoins(int givenCoin, int coinAmount, int wantedCoin){
+        int givenValueInCopper = coinAmount * givenCoin;
+        if (givenValueInCopper < wantedCoin) System.out.println("Cannot convert! (insufficient funds given)");
+        int numberConverted = givenValueInCopper/wantedCoin;
+        int remaining = (givenValueInCopper%wantedCoin)/givenCoin;
+        System.out.println("Number of converted coins: " + numberConverted);
+        System.out.println("Number of original coins remaining: " + remaining);
+    }
+
 }
