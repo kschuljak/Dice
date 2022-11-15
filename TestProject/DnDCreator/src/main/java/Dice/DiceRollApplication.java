@@ -1,10 +1,9 @@
 package Dice;
 
-import Dice.*;
 import java.util.Scanner;
 
 
-public class DiceRollProgram {
+public class DiceRollApplication {
 
     public void run() {
 
