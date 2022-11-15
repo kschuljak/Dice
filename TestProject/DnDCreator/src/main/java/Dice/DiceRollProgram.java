@@ -1,7 +1,8 @@
 package Dice;
 
-import Dice.Dice;
+import Dice.*;
 import java.util.Scanner;
+
 
 public class DiceRollProgram {
 
@@ -14,7 +15,9 @@ public class DiceRollProgram {
         while (true) {
             System.out.println("What would you like to do next? ");
             System.out.println("1) Roll dice");
-            System.out.println("2) Exit ");
+            System.out.println("2) Flip coin");
+            System.out.println("3) Exit ");
+            System.out.println();
             System.out.print("Select an option: ");
 
             int choice = Integer.parseInt(input.nextLine().strip());
@@ -24,16 +27,17 @@ public class DiceRollProgram {
                 printDiceSelectionIntro();
                 int diceSelection = Integer.parseInt(input.nextLine().strip());
 
-                printMultipleDiceSelectionIntro();
-                int isMultiple = Integer.parseInt(input.nextLine().strip());
+                printHowManyTimesToRollSelectionIntro();
+                int numberOfTimesToRollDice = Integer.parseInt(input.nextLine().strip());
+                if (numberOfTimesToRollDice == 1) returnDiceRollSingle(diceSelection);
+                if (numberOfTimesToRollDice > 1) returnDiceRollMultiple(diceSelection, numberOfTimesToRollDice);
 
-                int numberOfTimesToRollDice = 1;
-                if (isMultiple == 2) {
-                    printHowManyTimesToRollSelectionIntro();
-                    numberOfTimesToRollDice = Integer.parseInt(input.nextLine().strip());
-                }
+            } else if (choice == 2) {
 
-                returnDiceRoll(diceSelection, numberOfTimesToRollDice);
+                printHowManyTimesToFlipCoinSelectionIntro();
+                int coinFlips = Integer.parseInt(input.nextLine().strip());
+                if (coinFlips == 1) returnFlipCoinSingle();
+                if (coinFlips > 1) returnFlipCoinMultiple(coinFlips);
 
             } else break;
 
@@ -41,7 +45,7 @@ public class DiceRollProgram {
 
     }
 
-    private static void printHeader() {
+    private void printHeader() {
         System.out.println();
         System.out.println("*************************************");
         System.out.println("************  ROLL DICE  ************");
@@ -49,7 +53,7 @@ public class DiceRollProgram {
         System.out.println();
     }
 
-    private static void printDiceSelectionIntro() {
+    private void printDiceSelectionIntro() {
         System.out.println();
         System.out.println("-------------------------------------");
         System.out.println("What type of dice do you want to roll?");
@@ -59,25 +63,46 @@ public class DiceRollProgram {
         System.out.print("Enter option: ");
     }
 
-    private static void printMultipleDiceSelectionIntro() {
-        System.out.println();
-        System.out.println("Would you like to roll multiple dice? ");
-        System.out.println("1) No");
-        System.out.println("2) Yes");
-        System.out.println();
-        System.out.print("Enter option: ");
-    }
-
-    private static void printHowManyTimesToRollSelectionIntro() {
+    private void printHowManyTimesToRollSelectionIntro() {
         System.out.println();
         System.out.println("How many times would you like to roll the dice? ");
         System.out.println("Enter a number between 1 & 20: ");
     }
 
-    private void returnDiceRoll(int diceSelection, int numberOfTimesToRollDice){
+    private void printHowManyTimesToFlipCoinSelectionIntro() {
+        System.out.println();
+        System.out.println("How many times would you like to flip the coin? ");
+        System.out.println("Enter a number between 1 & 20: ");
+    }
+
+    public void returnDiceRollSingle(int diceSelection){
+        System.out.println();
+        System.out.println("-------------------------------------");
+        Dice.rollDiceAndPrint(diceSelection);
+        System.out.println("-------------------------------------");
+        System.out.println();
+    }
+
+    public void returnDiceRollMultiple(int diceSelection, int numberOfTimesToRollDice){
         System.out.println();
         System.out.println("-------------------------------------");
         Dice.rollDiceXTimesAndPrint(diceSelection, numberOfTimesToRollDice);
+        System.out.println("-------------------------------------");
+        System.out.println();
+    }
+
+    public void returnFlipCoinSingle() {
+        System.out.println();
+        System.out.println("-------------------------------------");
+        Dice.flipCoinAndPrint();
+        System.out.println("-------------------------------------");
+        System.out.println();
+    }
+
+    public void returnFlipCoinMultiple(int numberOfTimesToFlipCoin) {
+        System.out.println();
+        System.out.println("-------------------------------------");
+        Dice.flipCoinXTimesAndPrint(numberOfTimesToFlipCoin);
         System.out.println("-------------------------------------");
         System.out.println();
     }

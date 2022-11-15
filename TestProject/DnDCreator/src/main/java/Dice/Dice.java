@@ -1,9 +1,10 @@
 package Dice;
 
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class Dice {
+public class Dice{
 
     final int COIN = 2;
     final int D4 = 4;
@@ -16,27 +17,10 @@ public final class Dice {
 
     // get random number between min and max (inclusive) - NO print
     public static int rollDice(int diceType) {
-        return (int) (Math.random() * (diceType - 1) + 1);
+        return ThreadLocalRandom.current().nextInt(1, diceType + 1);
     }
 
-    // how many times to roll (for dice type) and print
-    public static void rollDiceXTimesAndPrint(int diceType, int rollTimes) {
-        int total = 0;
-        int rollCounter = 0;
-        System.out.println("-------------------------------------");
-        for (int i = rollTimes; i > 0; i--) {
-            rollCounter++;
-            int thisRoll = rollDice(diceType);
-            total += thisRoll;
-            System.out.println("Roll " + rollCounter + ":  " + thisRoll);
-        }
-        System.out.println("-------------------------------------");
-        System.out.println("Roll Total: " + total);
-        System.out.println("-------------------------------------");
-    }
-
-    // how many times to roll (for dice type) - NO print
-    public static int rollDiceXTimes(int diceType, int rollTimes) {
+    public int rollDiceXTimes(int diceType, int rollTimes) {
         int total = 0;
         for (int i = rollTimes; i > 0; i--) {
             total += rollDice(diceType);
@@ -44,18 +28,78 @@ public final class Dice {
         return total;
     }
 
-    public String flipCoin() {
-        int randomNum1Or2 = Dice.rollDice(COIN);
-        return (randomNum1Or2 == 1) ? "heads" : "tails";
+    public static void rollDiceAndPrint(int diceType) {
+        if (diceType == 4 || diceType == 6 || diceType == 8 || diceType == 10 || diceType == 12 || diceType == 20 || diceType == 100) {
+            System.out.println("-------------------------------------");
+            System.out.println("(Rolling D" + diceType + ")");
+            System.out.println(rollDice(diceType));
+            System.out.println("-------------------------------------");
+
+        } else {
+            System.out.println("Invalid dice selection");
+        }
     }
 
-    public List<String> flipCoinXTimes(int flipTimes) {
+    public static void rollDiceXTimesAndPrint(int diceType, int rollTimes) {
+        if (diceType == 4 || diceType == 6 || diceType == 8 || diceType == 10 || diceType == 12 || diceType == 20 || diceType == 100) {
+            int total = 0;
+            int rollCounter = 0;
+            if (rollTimes > 20) {
+                System.out.println("Exceeds maximum allowed number of times to roll dice");
+                return;
+            }
+            System.out.println("-------------------------------------");
+            System.out.println("(Rolling D" + diceType + ")");
+            for (int i = rollTimes; i > 0; i--) {
+                rollCounter++;
+                int thisRoll = rollDice(diceType);
+                total += thisRoll;
+                System.out.println("Roll " + rollCounter + ":  " + thisRoll);
+            }
+            System.out.println("-------------------------------------");
+            System.out.println("Roll Total: " + total);
+        } else System.out.println("Invalid dice selection");
+    }
+
+    public static String flipCoin() {
+        int randomNum = Dice.rollDice(2);
+        return (randomNum == 1) ? "Heads" : "Tails";
+    }
+
+    public static List<String> flipCoinXTimes(int flipTimes) {
         List<String> totalCoinFlipList = new ArrayList<>();
         for (int i = flipTimes; i > 0; i--) {
             String nextCoinFlip = flipCoin();
             totalCoinFlipList.add(nextCoinFlip);
         }
         return totalCoinFlipList;
+    }
+
+    public static void flipCoinAndPrint() {
+        System.out.println("-------------------------------------");
+        System.out.println("(Flipping Coin)");
+        System.out.println(flipCoin());
+        System.out.println("-------------------------------------");
+    }
+
+    public static void flipCoinXTimesAndPrint(int flipTimes) {
+        if (flipTimes > 20) {
+            System.out.println("Exceeds maximum allowed number of times to flip coin");
+            return;
+        }
+        System.out.println("-------------------------------------");
+        System.out.println("(Flipping Coin)");
+        List<String> coinFlips = flipCoinXTimes(flipTimes);
+        int headsTotal = 0;
+        int tailsTotal = 0;
+        for (String flip : coinFlips) {
+            System.out.println(flip);
+            if (flip.equals("Heads")) headsTotal++;
+            if (flip.equals("Tails")) tailsTotal++;
+        }
+        System.out.println("-------------------------------------");
+        System.out.println("Total Heads: " + headsTotal);
+        System.out.println("Total Tails: " + tailsTotal);
     }
 
 }

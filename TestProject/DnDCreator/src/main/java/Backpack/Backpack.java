@@ -1,7 +1,7 @@
 package Backpack;
 
-import Backpack.Coinpurse.Coinpurse;
-import Backpack.Gear.Gear;
+import Backpack.Coinpurse.*;
+import Backpack.Gear.*;
 
 import java.util.ArrayList;
 import java.util.List;
