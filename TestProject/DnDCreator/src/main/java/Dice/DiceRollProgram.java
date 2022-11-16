@@ -1,6 +1,6 @@
 package Dice;
 
-public class Program {
+public class DiceRollProgram {
 
     public static void main(String[] args)
     {
