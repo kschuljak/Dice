@@ -5,7 +5,7 @@ import Backpack.Gear.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Weapons extends Gear{
+public abstract class Weapons extends Gear{
 
     protected String damage = "";
     protected List<String> properties = new ArrayList<>();

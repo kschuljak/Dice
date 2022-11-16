@@ -131,20 +131,22 @@ public class Coinpurse{
         System.out.println("Total value of your coinpurse (in copper): " + totalValueInCopper);
     }
 
-    public int getItemCostInCopper(int copper, int silver, int electrum, int gold, int platinum){
-        silver *= SILVER;
-        electrum *= ELECTRUM;
-        gold *= GOLD;
-        platinum *= PLATINUM;
-        return copper + silver + electrum + gold + platinum;
+    public int getItemCostInCopper(String coinNumber, String coinType){
+        int number = Integer.parseInt(coinNumber);
+        int value = 1;
+        if (coinType.equals("SILVER")) value = 10;
+        if (coinType.equals("ELECTRUM") && useElectrum) value = 50;
+        if (coinType.equals("GOLD")) value = 100;
+        if (coinType.equals("PLATINUM")) value = 1000;
+        return number * value;
     }
 
-    public void printItemCostInCopper(int copper, int silver, int electrum, int gold, int platinum){
-        int costInCopper = getItemCostInCopper(copper, silver, electrum, gold, platinum);
+    public void printItemCostInCopper(String coinNumber, String coinType){
+        int costInCopper = getItemCostInCopper(coinNumber, coinType);
         System.out.println("Total cost of item (in copper): " + costInCopper);
     }
 
-    public void spendMoney(int itemCostInCopper){
+    public boolean spendMoney(int itemCostInCopper){
         int originalMoneyTotal = getTotalCoinValueInCopper();
         if (itemCostInCopper < originalMoneyTotal && itemCostInCopper > 0) {
             int newMoneyTotal = originalMoneyTotal - itemCostInCopper;
@@ -158,10 +160,12 @@ public class Coinpurse{
             System.out.println(numberOfSilverCoins + " silver coins");
             System.out.println(numberOfCopperCoins + " copper coins");
             System.out.println();
+            return true;
         } else {
             int coppersShort = originalMoneyTotal - itemCostInCopper;
             System.out.println("You do not have enough money to spend this amount.");
             System.out.println("You are " + coppersShort + " copper coins short.");
+            return false;
         }
     }
 
@@ -212,6 +216,15 @@ public class Coinpurse{
         int remaining = (givenValueInCopper%wantedCoin)/givenCoin;
         System.out.println("Number of converted coins: " + numberConverted);
         System.out.println("Number of original coins remaining: " + remaining);
+    }
+
+    public void printCoinTotals(){
+        System.out.println("Platinum: " + numberOfPlatinumCoins);
+        System.out.println("Gold:     " + numberOfGoldCoins);
+        if (useElectrum) System.out.println("Electrum: " + numberOfElectrumCoins);
+        System.out.println("Silver:   " + numberOfSilverCoins);
+        System.out.println("Copper:   " + numberOfCopperCoins);
+        System.out.println();
     }
 
 }

@@ -34,6 +34,10 @@ public class Shop {
     public void setGearMap(Map<Integer, Gear> gearMap) {
         this.gearMap = gearMap;
     }
+
+    public void addToShopFunds(int coppers){
+        shopFundsInCopper += coppers;
+    }
 }
 
 /*
