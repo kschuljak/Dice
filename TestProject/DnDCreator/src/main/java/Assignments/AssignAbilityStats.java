@@ -1,6 +1,7 @@
 package Assignments;
-
+import Dice.Dice;
 import java.util.*;
+
 
 public class AssignAbilityStats {
 
@@ -63,7 +64,7 @@ public class AssignAbilityStats {
     public static int rollForStat() {
         List<Integer> fourRolls = new ArrayList<>(4);
         // roll d6 x 4
-        for (int i = 4; i > 0; i--) fourRolls.add(rollD6());
+        for (int i = 4; i > 0; i--) fourRolls.add(Dice.rollDice(6));
         Collections.sort(fourRolls);
         int totalScore = 0;
         for (int i = 1; i < 4; i++) {
@@ -77,10 +78,6 @@ public class AssignAbilityStats {
             int totalRoll = rollForStat();
             System.out.println(standardAbilityStat + ": " + totalRoll);
         }
-    }
-
-    public static int rollD6() {
-        return (int) (Math.random() * (6 - 1) + 1);
     }
 
 

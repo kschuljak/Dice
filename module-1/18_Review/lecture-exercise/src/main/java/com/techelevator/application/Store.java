@@ -1,6 +1,8 @@
 package com.techelevator.application;
 
 import com.techelevator.models.CashRegister;
+import com.techelevator.ui.UserInput;
+import com.techelevator.ui.UserOutput;
 
 /**
  * The store class is the main application.
@@ -23,12 +25,24 @@ import com.techelevator.models.CashRegister;
 public class Store 
 {
     public void run()
+
+            // create basic wireframe in application to check screen navigation/ app flow
+            // store is the container that manages everything
+            // need a place to store inventory - store in Store (private inventory variable - encapsulated in Store)
+
+            // add to cart
+            // 1 - display inventory
+            // 2 - get user selection
+            // 3 - add to cart/ cancel (based on user selection)
     {
+
+        UserOutput.DisplayWelcomeScreen();
 
         while(true)
         {
             // display main menu
-            String option = "";
+            UserOutput.DisplayHomeScreenMenu();
+            String option = UserInput.GetHomeScreenSelection();
 
             if(option.equals("add"))
             {
