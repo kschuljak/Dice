@@ -15,7 +15,8 @@ import java.time.format.DateTimeFormatter;
  *      All log files have the name of the current date (i.e. 2021-01-06) end with a .log extension
  *      The constructor requires the name of a directory which will determine where the log file is created.
  */
-public class Logger 
+public class
+Logger
 {
     private static final String FILE_EXTENSION = ".log";
 

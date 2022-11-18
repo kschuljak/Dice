@@ -1,5 +1,10 @@
 package CharacterSheet;
 
+import Backpack.Backpack;
+import Backpack.Gear.Gear;
+import DnDClasses.DnDClass;
+import DnDRaces.DnDRace;
+
 import java.util.*;
 
 public abstract class CharacterSheet {
@@ -7,146 +12,140 @@ public abstract class CharacterSheet {
     // INSTANCE VARIABLES
 
     // character info - instance variables
-    String characterName;
-    int characterAge;
-    String characterRace = "";
+    protected String characterName;
+    protected int characterAge;
+    protected DnDRace characterRace;
         // map (characterClass, classLevel)
-    Map<String, Integer> characterClassAndLevel = new HashMap<>();
-    String characterBackground = "";
-    String characterAlignment = "";
-    int characterExperiencePoints;
-    List<String> characterPersonalityTraits = new ArrayList<>();
-    List<String> characterIdeals = new ArrayList<>();
-    List<String> characterBonds = new ArrayList<>();
-    List<String> characterFlaws = new ArrayList<>();
+    protected Map<DnDClass, Integer> characterClassAndLevel = new HashMap<>();
+    protected String characterBackground = "";
+    protected String characterAlignment = "";
+    protected int characterExperiencePoints;
+    protected List<String> characterPersonalityTraits = new ArrayList<>();
+    protected List<String> characterIdeals = new ArrayList<>();
+    protected List<String> characterBonds = new ArrayList<>();
+    protected List<String> characterFlaws = new ArrayList<>();
 
     // ability scores - instance variables
-    int strength;
-    int strengthModifier;
-    int dexterity;
-    int dexterityModifier;
-    int constitution;
-    int constitutionModifier;
-    int intelligence;
-    int intelligenceModifier;
-    int wisdom;
-    int wisdomModifier;
-    int charisma;
-    int charismaModifier;
+    protected int strength;
+    protected int strengthModifier;
+    protected int dexterity;
+    protected int dexterityModifier;
+    protected int constitution;
+    protected int constitutionModifier;
+    protected int intelligence;
+    protected int intelligenceModifier;
+    protected int wisdom;
+    protected int wisdomModifier;
+    protected int charisma;
+    protected int charismaModifier;
 
     // bonuses - instance variables
-    boolean hasInspiration = false;
-    int proficiencyBonus = 2;
+    protected boolean hasInspiration = false;
+    protected int proficiencyBonus = 2;
 
     // saving throws - instance variables
         // map (ability, hasProficiency)
-    Map<String, Boolean> savingThrowProficiencies = new HashMap<>();
-    int strengthSavingThrow;
-    int dexteritySavingThrow;
-    int constitutionSavingThrow;
-    int intelligenceSavingThrow;
-    int wisdomSavingThrow;
-    int charismaSavingThrow;
+    protected Map<String, Boolean> savingThrowProficiencies = new HashMap<>();
+    protected int strengthSavingThrow;
+    protected int dexteritySavingThrow;
+    protected int constitutionSavingThrow;
+    protected int intelligenceSavingThrow;
+    protected int wisdomSavingThrow;
+    protected int charismaSavingThrow;
 
     // skills - instance variables
         // map (skill, hasProficiency)
-    Map<String, Boolean> skillProficiencies = new HashMap<>();
+    protected Map<String, Boolean> skillProficiencies = new HashMap<>();
         // strength
-    int athletics;
+    protected int athletics;
         // dexterity
-    int acrobatics;
-    int sleightOfHand;
-    int stealth;
+    protected int acrobatics;
+    protected int sleightOfHand;
+    protected int stealth;
         // constitution - none
         //intelligence
-    int arcana;
-    int history;
-    int investigation;
-    int nature;
-    int religion;
+    protected int arcana;
+    protected int history;
+    protected int investigation;
+    protected int nature;
+    protected int religion;
         // wisdom
-    int animalHandling;
-    int insight;
-    int medicine;
-    int perception;
-    int survival;
+    protected int animalHandling;
+    protected int insight;
+    protected int medicine;
+    protected int perception;
+    protected int survival;
         // charisma
-    int deception;
-    int intimidation;
-    int performance;
-    int persuasion;
+    protected int deception;
+    protected int intimidation;
+    protected int performance;
+    protected int persuasion;
         // passive
-    int passiveWisdomAkaPerception;
+    protected int passiveWisdomAkaPerception;
 
     // other proficiencies, skills, traits - instance variables
-    List<String> languages = new ArrayList<>();
-    List<String> featuresAndTraits = new ArrayList<>();
-    List<String> weaponAndArmorProficiencies = new ArrayList<>();
-    List<String> toolProficiencies = new ArrayList<>();
-    List<String> miscProficiencies = new ArrayList<>();
+    protected List<String> languages = new ArrayList<>();
+    protected List<String> featuresAndTraits = new ArrayList<>();
+    protected List<String> weaponAndArmorProficiencies = new ArrayList<>();
+    protected List<String> toolProficiencies = new ArrayList<>();
+    protected List<String> miscProficiencies = new ArrayList<>();
 
     // combat stats- instance variables
-    int armorClass;
-    int initiative;
-    int speed;
-    int currentHitPoints;
-    int temporaryHitPoints;
-    int hitDice;
-    boolean isRollingDeathSaves;
-    int deathSaveSuccesses;
-    int deathSaveFailures;
-    String spellcastingAbility;
-    int spellSaveDC;
-    int spellAttackBonus;
+    protected int armorClass;
+    protected int initiative;
+    protected int speed;
+    protected int currentHitPoints;
+    protected int temporaryHitPoints;
+    protected int hitDice;
+    protected boolean isRollingDeathSaves;
+    protected int deathSaveSuccesses;
+    protected int deathSaveFailures;
+    protected String spellcastingAbility;
+    protected int spellSaveDC;
+    protected int spellAttackBonus;
 
     // combat actions and equipment - instance variables
         // map (spell name, spell description)
-    Map<String, String> spellsPrepared = new HashMap<>();
+    protected Map<String, String> spellsPrepared = new HashMap<>();
         // map (weapon name, attack description)
-    Map<String, String> weaponsHeld = new HashMap<>();
+    protected List<Gear> weaponsHeld = new ArrayList<>();
         // map (armor name, armor description)
-    Map<String, String> armorWorn = new HashMap<>();
+    protected List<Gear> armorWorn = new ArrayList<>();
 
     // available items (backpack) - instance variables
         // money: (0.2 P) = (1 G) = (2 E) = (10 S) = (100 C)
-    int totalMoneyValue;
-    int numberPlatinumPieces;
-    int numberGoldPieces;
-    int numberSilverPieces;
-    int numberElectrumPieces;
-    int numberCopperPieces;
-    List<String> itemsInBackpack = new ArrayList<>();
+    protected Backpack backpack = new Backpack();
 
     // magic known - instance variables
         // map (spell name, spell description)
-    Map<String, String> cantripsKnown = new HashMap<>();
-    Map<String, String> levelOneSpellsKnown = new HashMap<>();
-    Map<String, String> levelTwoSpellsKnown = new HashMap<>();
-    Map<String, String> levelThreeSpellsKnown = new HashMap<>();
-    Map<String, String> levelFourSpellsKnown = new HashMap<>();
-    Map<String, String> levelFiveSpellsKnown = new HashMap<>();
-    Map<String, String> levelSixSpellsKnown = new HashMap<>();
-    Map<String, String> levelSevenSpellsKnown = new HashMap<>();
-    Map<String, String> levelEightSpellsKnown = new HashMap<>();
-    Map<String, String> levelNineSpellsKnown = new HashMap<>();
-    int levelOneSpellSlots;
-    int levelOneSpellSlotsUsed;
-    int levelTwoSpellSlots;
-    int levelTwoSpellSlotsUsed;
-    int levelThreeSpellSlots;
-    int levelThreeSpellSlotsUsed;
-    int levelFourSpellSlots;
-    int levelFourSpellSlotsUsed;
-    int levelFiveSpellSlots;
-    int levelFiveSpellSlotsUsed;
-    int levelSixSpellSlots;
-    int levelSixSpellSlotsUsed;
-    int levelSevenSpellSlots;
-    int levelSevenSpellSlotsUsed;
-    int levelEightSpellSlots;
-    int levelEightSpellSlotsUsed;
-    int levelNineSpellSlots;
-    int levelNineSpellSlotsUsed;
+    protected Map<String, String> cantripsKnown = new HashMap<>();
+    protected Map<String, String> levelOneSpellsKnown = new HashMap<>();
+    protected Map<String, String> levelTwoSpellsKnown = new HashMap<>();
+    protected Map<String, String> levelThreeSpellsKnown = new HashMap<>();
+    protected Map<String, String> levelFourSpellsKnown = new HashMap<>();
+    protected Map<String, String> levelFiveSpellsKnown = new HashMap<>();
+    protected Map<String, String> levelSixSpellsKnown = new HashMap<>();
+    protected Map<String, String> levelSevenSpellsKnown = new HashMap<>();
+    protected Map<String, String> levelEightSpellsKnown = new HashMap<>();
+    protected Map<String, String> levelNineSpellsKnown = new HashMap<>();
+    protected int levelOneSpellSlots;
+    protected int levelOneSpellSlotsUsed;
+    protected int levelTwoSpellSlots;
+    protected int levelTwoSpellSlotsUsed;
+    protected int levelThreeSpellSlots;
+    protected int levelThreeSpellSlotsUsed;
+    protected int levelFourSpellSlots;
+    protected int levelFourSpellSlotsUsed;
+    protected int levelFiveSpellSlots;
+    protected int levelFiveSpellSlotsUsed;
+    protected int levelSixSpellSlots;
+    protected int levelSixSpellSlotsUsed;
+    protected int levelSevenSpellSlots;
+    protected int levelSevenSpellSlotsUsed;
+    protected int levelEightSpellSlots;
+    protected int levelEightSpellSlotsUsed;
+    protected int levelNineSpellSlots;
+    protected int levelNineSpellSlotsUsed;
 
 
     // constructor
@@ -176,19 +175,19 @@ public abstract class CharacterSheet {
         this.characterAge = characterAge;
     }
 
-    public String getCharacterRace() {
+    public DnDRace getCharacterRace() {
         return characterRace;
     }
 
-    public void setCharacterRace(String characterRace) {
+    public void setCharacterRace(DnDRace characterRace) {
         this.characterRace = characterRace;
     }
 
-    public Map<String, Integer> getCharacterClassAndLevel() {
+    public Map<DnDClass, Integer> getCharacterClassAndLevel() {
         return characterClassAndLevel;
     }
 
-    public void setCharacterClassAndLevel(Map<String, Integer> characterClassAndLevel) {
+    public void setCharacterClassAndLevel(Map<DnDClass, Integer> characterClassAndLevel) {
         this.characterClassAndLevel = characterClassAndLevel;
     }
 
@@ -720,76 +719,28 @@ public abstract class CharacterSheet {
         this.spellsPrepared = spellsPrepared;
     }
 
-    public Map<String, String> getWeaponsHeld() {
+    public List<Gear> getWeaponsHeld() {
         return weaponsHeld;
     }
 
-    public void setWeaponsHeld(Map<String, String> weaponsHeld) {
+    public void setWeaponsHeld(List<Gear> weaponsHeld) {
         this.weaponsHeld = weaponsHeld;
     }
 
-    public Map<String, String> getArmorWorn() {
+    public List<Gear> getArmorWorn() {
         return armorWorn;
     }
 
-    public void setArmorWorn(Map<String, String> armorWorn) {
+    public void setArmorWorn(List<Gear> armorWorn) {
         this.armorWorn = armorWorn;
     }
 
-    public int getTotalMoneyValue() {
-        return totalMoneyValue;
+    public Backpack getBackpack() {
+        return backpack;
     }
 
-    public void setTotalMoneyValue(int totalMoneyValue) {
-        this.totalMoneyValue = totalMoneyValue;
-    }
-
-    public int getNumberPlatinumPieces() {
-        return numberPlatinumPieces;
-    }
-
-    public void setNumberPlatinumPieces(int numberPlatinumPieces) {
-        this.numberPlatinumPieces = numberPlatinumPieces;
-    }
-
-    public int getNumberGoldPieces() {
-        return numberGoldPieces;
-    }
-
-    public void setNumberGoldPieces(int numberGoldPieces) {
-        this.numberGoldPieces = numberGoldPieces;
-    }
-
-    public int getNumberSilverPieces() {
-        return numberSilverPieces;
-    }
-
-    public void setNumberSilverPieces(int numberSilverPieces) {
-        this.numberSilverPieces = numberSilverPieces;
-    }
-
-    public int getNumberElectrumPieces() {
-        return numberElectrumPieces;
-    }
-
-    public void setNumberElectrumPieces(int numberElectrumPieces) {
-        this.numberElectrumPieces = numberElectrumPieces;
-    }
-
-    public int getNumberCopperPieces() {
-        return numberCopperPieces;
-    }
-
-    public void setNumberCopperPieces(int numberCopperPieces) {
-        this.numberCopperPieces = numberCopperPieces;
-    }
-
-    public List<String> getItemsInBackpack() {
-        return itemsInBackpack;
-    }
-
-    public void setItemsInBackpack(List<String> itemsInBackpack) {
-        this.itemsInBackpack = itemsInBackpack;
+    public void setBackpack(Backpack backpack){
+        this.backpack = backpack;
     }
 
     public Map<String, String> getCantripsKnown() {

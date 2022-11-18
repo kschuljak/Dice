@@ -1,5 +1,7 @@
 package CharacterSheet;
 
+import DnDClasses.DnDClass;
+
 import java.util.Map;
 
 public class PrintCharacterSheet {
@@ -69,9 +71,9 @@ public class PrintCharacterSheet {
 
 
 //        [CLASS, LEVEL] [CLASS, LEVEL] ("EXP": EXP)
-        Map<String, Integer> charLevel = character.getCharacterClassAndLevel();
+        Map<DnDClass, Integer> charLevel = character.getCharacterClassAndLevel();
         String line2 = "";
-        for(Map.Entry<String, Integer> level : charLevel.entrySet()){
+        for(Map.Entry<DnDClass, Integer> level : charLevel.entrySet()){
             line2 += "[" + level.getKey() + ", " + level.getValue() + "]  ";
         }
         line2 += "(EXP: " + character.getCharacterExperiencePoints();
