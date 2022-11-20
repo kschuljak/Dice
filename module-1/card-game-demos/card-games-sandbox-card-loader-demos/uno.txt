@@ -1,0 +1,25 @@
+Name          |Face   |Value|Suit
+Red 0         |0      |5    |Red
+Red 1         |1      |1    |Red
+Red 2         |2      |2    |Red
+Red Skip      |Skip   |10   |Red
+Red Reverse   |Reverse|10   |Red
+Yellow 0      |0      |5    |Yellow
+Yellow 1      |1      |1    |Yellow
+Yellow 2      |2      |2    |Yellow
+Yellow Skip   |Skip   |10   |Yellow
+Yellow Reverse|Reverse|10   |Yellow
+Blue 0        |0      |5    |Blue
+Blue 1        |1      |1    |Blue
+Blue 2        |2      |2    |Blue
+Blue Skip     |Skip   |10   |Blue
+Blue Reverse  |Reverse|10   |Blue
+Green 0       |0      |5    |Green
+Green 1       |1      |1    |Green
+Green 2       |2      |2    |Green
+Green Skip    |Skip   |10   |Green
+Green Reverse |Reverse|10   |Green
+Wild          |Wild   |25   |Any
+Wild          |Wild   |25   |Any
+Wild          |Wild   |25   |Any
+Wild          |Wild   |25   |Any
