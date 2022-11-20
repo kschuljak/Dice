@@ -7,7 +7,7 @@ import DnDRaces.DnDRace;
 
 import java.util.*;
 
-public abstract class CharacterSheet {
+public class CharacterSheet {
 
     // INSTANCE VARIABLES
 
