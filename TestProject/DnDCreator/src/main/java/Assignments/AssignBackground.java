@@ -2,7 +2,7 @@ package Assignments;
 
 public class AssignBackground {
 
-    public static void main(String[] args) {
+    public static void assignBackground() {
 
 
         String[] classOptions = new String[]{
