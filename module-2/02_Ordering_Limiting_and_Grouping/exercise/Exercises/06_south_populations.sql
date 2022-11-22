@@ -2,3 +2,6 @@
 -- Expected answer is around 125,000,000
 -- (1 row)
 
+SELECT SUM(population) AS south_population
+FROM state
+WHERE census_region = 'South';

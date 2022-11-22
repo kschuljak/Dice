@@ -2,3 +2,8 @@
 -- Order the results from highest to lowest populations.
 -- (56 rows)
 
+SELECT state_abbreviation
+	, MAX(population) AS city_population
+FROM city
+GROUP BY state_abbreviation
+ORDER BY city_population DESC;
