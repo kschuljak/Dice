@@ -161,3 +161,35 @@ SELECT park_name
 	, date_established
 FROM park
 WHERE date_established < '1990-01-01';
+
+
+--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+-- lecture review
+-- rename titles in output using aliases
+SELECT city_name AS name
+	, population
+FROM city;
+
+SELECT state_name
+	, populatoin
+	, area
+	, population / area AS population_density
+FROM state
+WHERE population / area < 100;
+
+-- FROM selects table
+-- WHERE selects subgroup from table - subset of data
+-- then, SELECT filters through the subset of data previously defined
+
+--XXXXXXXXXXXXXXXXXX
+-- THIS IS THE CORRECT ORDER:
+-- SELECT and FROM are required
+-- the rest are optional
+
+-- SELECT - column/s - selector
+-- FROM - table/s - source
+-- WHERE - row/s - filter
+-- GROUP BY - list of columns - aggregation
+-- HAVING - more filters
+-- ORDER BY - list of columns - sorting
+-- LIMIT - number of rows - limit amount returned
