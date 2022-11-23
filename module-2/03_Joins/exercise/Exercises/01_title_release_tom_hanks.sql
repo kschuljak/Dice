@@ -10,5 +10,5 @@ INNER JOIN movie_actor AS ma
 INNER JOIN person AS p
 	ON p.person_id = ma.actor_id
 WHERE p.person_name = 'Tom Hanks'
-ORDER BY release_date;
+ORDER BY release_date DESC;
 
