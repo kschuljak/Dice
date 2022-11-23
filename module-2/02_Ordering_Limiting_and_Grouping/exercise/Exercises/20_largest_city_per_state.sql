@@ -7,3 +7,5 @@ SELECT state_abbreviation
 FROM city
 GROUP BY state_abbreviation
 ORDER BY city_population DESC;
+
+-- any time you group or aggregate on a column, all columns must be grouped or aggregated
