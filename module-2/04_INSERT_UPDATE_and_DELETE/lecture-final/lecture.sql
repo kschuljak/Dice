@@ -34,7 +34,7 @@ WHERE park_name = 'Disneyland';
 -- area of 38.1 square kilometers) and 
 
 --Cicely, AK (with a 
--- popuation of 839 and an 
+-- population of 839 and an
 -- area of 11.4 square kilometers) to the city table.
 
 INSERT INTO city (city_name, state_abbreviation, population, area)
