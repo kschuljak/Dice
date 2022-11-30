@@ -1,8 +1,12 @@
 package com.techelevator;
 
+import com.techelevator.model.City;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class lecture {
     public static void main(String[] args) {
@@ -16,6 +20,9 @@ public class lecture {
 
         // JdbcTemplate - part of Spring JDBC
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+
+        // list of city objects created while reading data below
+        List<City> cities = new ArrayList<>();
 
         try {
 
@@ -36,8 +43,18 @@ public class lecture {
                 int cityId = row.getInt("city_id");
                 String cityName = row.getString("city_name");
                 String stateAbbreviation = row.getString("state_abbreviation");
-                long population = row.getLong("population");
+                int population = row.getInt("population");
                 double area = row.getDouble("area");
+
+                City city = new City();
+                city.setCityId(cityId);
+                city.setCityName(cityName);
+                city.setStateAbbreviation(stateAbbreviation);
+                city.setPopulation(population);
+                city.setArea(area);
+
+                // add newly created city object to array list of city objects created above
+                cities.add(city);
 
                 System.out.println(cityId + " " + cityName + ", " + stateAbbreviation);
             }
@@ -47,6 +64,11 @@ public class lecture {
 
         } catch(Exception e) {
             System.out.println("An error has occurred: " + e.getMessage());
+        }
+
+        // can now use list of city objects to get information even while disconnected from database
+        for (City city : cities){
+            System.out.println();
         }
     }
 }

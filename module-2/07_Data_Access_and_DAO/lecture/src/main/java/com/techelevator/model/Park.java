@@ -10,6 +10,7 @@ public class Park {
     private double area;
     private boolean hasCamping;
 
+
     public int getParkId() {
         return parkId;
     }

@@ -40,11 +40,22 @@ public class JdbcStateDao implements StateDao {
 
     @Override
     public List<State> getStates() {
+
+        // create container
         List<State> states = new ArrayList<>();
-        SqlRowSet results = jdbcTemplate.queryForRowSet("SELECT state_abbreviation, state_name FROM state;");
+
+        // create query
+        String sql = "SELECT state_abbreviation, " +
+                    "  , state_name " +
+                    " FROM state;";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+
         while (results.next()) {
             states.add(mapRowToState(results));
         }
+
+        // return container
         return states;
     }
 
