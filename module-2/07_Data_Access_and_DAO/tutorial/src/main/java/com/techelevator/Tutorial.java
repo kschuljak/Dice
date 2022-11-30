@@ -19,7 +19,12 @@ public class Tutorial {
     public static void main(String[] args) {
         BasicDataSource dataSource = new BasicDataSource();
         // Step One: Configure the database connection
-        
+
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/PizzaShop");
+        // username & password hardcoded for learning
+        // should use environment variables / configuration files
+        dataSource.setUsername("postgres");
+        dataSource.setPassword("postgres1");
 
 
         Tutorial tutorial = new Tutorial(dataSource);
@@ -36,11 +41,20 @@ public class Tutorial {
 
         // Step Three: Copy returned values into an object
 
+        Sale sale50 = saleDao.getSale(50);
+        System.out.println(sale50);
 
         // Step Four: Add a new DAO method
 
+        Customer customerForSale50 = customerDao.getCustomer(sale50.getCustomerId());
+        System.out.println("Customer for that sale was " + customerForSale50);
 
         // Step Five: Call a DAO method that returns a List
 
+        List<Customer> matchingCustomers = customerDao.findCustomersByName("Ma");
+        System.out.println("All customers with \"Ma\" in their first or last name:");
+        for (Customer customer : matchingCustomers) {
+            System.out.println(customer);
+        }
     }
 }
