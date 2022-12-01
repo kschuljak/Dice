@@ -48,9 +48,8 @@ public class JdbcEmployeeDao implements EmployeeDao {
 
 		List<Employee> employees = new ArrayList<>();
 
-		SqlRowSet row = null;
-
-		if (firstNameSearch == null && lastNameSearch == null) getAllEmployees();
+		firstNameSearch = (firstNameSearch == null) ? "%" : "%" + firstNameSearch + "%";
+		lastNameSearch = (lastNameSearch == null) ? "%" : "%" + lastNameSearch + "%";
 
 		String sql = "SELECT employee_id " +
 				"	, department_id " +
@@ -58,23 +57,11 @@ public class JdbcEmployeeDao implements EmployeeDao {
 				" 	, last_name " +
 				" 	, birth_date " +
 				"	, hire_date " +
-				"FROM employee ";
-		if (firstNameSearch == null) {
-			sql += " WHERE last_name ILIKE ?;";
-			lastNameSearch = "'%" + lastNameSearch + "%'";
-			row = jdbcTemplate.queryForRowSet(sql, lastNameSearch);
-		}
-		else if (lastNameSearch == null) {
-			sql += " WHERE first_name ILIKE ?;";
-			firstNameSearch = "'%" + firstNameSearch + "%'";
-			row = jdbcTemplate.queryForRowSet(sql, firstNameSearch);
-		}
-		else {
-			sql += " WHERE first_name ILIKE ? HAVING last_name ILIKE ?;";
-			firstNameSearch = "'%" + firstNameSearch + "%'";
-			lastNameSearch = "'%" + lastNameSearch + "%'";
-			row = jdbcTemplate.queryForRowSet(sql, firstNameSearch, lastNameSearch);
-		}
+				"FROM employee " +
+				"WHERE first_name ILIKE ? " +
+				"	AND last_name ILIKE ?;";
+
+		SqlRowSet row = jdbcTemplate.queryForRowSet(sql, firstNameSearch, lastNameSearch);
 
 		while(row.next()){
 
@@ -90,14 +77,14 @@ public class JdbcEmployeeDao implements EmployeeDao {
 
 		List<Employee> employees = new ArrayList<>();
 
-		String sql = "SELECT employee_id " +
-				"	, department_id " +
-				"	, first_name " +
-				"	, last_name " +
-				"	, birth_date " +
-				"	, hire_date " +
+		String sql = "SELECT e.employee_id " +
+				"	, e.department_id " +
+				" 	, e.first_name " +
+				" 	, e.last_name " +
+				" 	, e.birth_date " +
+				"	, e.hire_date " +
 				"FROM employee AS e " +
-				"RIGHT JOIN project_employee AS pe" +
+				"JOIN project_employee AS pe" +
 				"	ON e.employee_id = pe.employee_id " +
 				"WHERE pe.project_id = ?;"
 				;
@@ -126,7 +113,7 @@ public class JdbcEmployeeDao implements EmployeeDao {
 	@Override
 	public void removeEmployeeFromProject(int projectId, int employeeId) {
 
-		String sql = "DELETE FROM project_employee WHERE project_id = ? HAVING employee_id = ?;";
+		String sql = "DELETE FROM project_employee WHERE project_id = ? AND employee_id = ?;";
 
 		jdbcTemplate.update(sql, projectId, employeeId);
 	}
@@ -136,16 +123,16 @@ public class JdbcEmployeeDao implements EmployeeDao {
 
 		List<Employee> employees = new ArrayList<>();
 
-		String sql = "SELECT employee_id " +
-				"	, department_id " +
-				" 	, first_name " +
-				" 	, last_name " +
-				" 	, birth_date " +
-				"	, hire_date " +
-				"FROM employee AS e " +
-				"LEFT JOIN project_employee AS pe" +
+		String sql = "SELECT e.employee_id " +
+				"	, e.department_id " +
+				" 	, e.first_name " +
+				" 	, e.last_name " +
+				" 	, e.birth_date " +
+				"	, e.hire_date " +
+				"FROM employee e " +
+				"LEFT JOIN project_employee pe" +
 				"	ON e.employee_id = pe.employee_id " +
-				"WHERE pe.project_id = null;";
+				"WHERE pe.project_id IS NULL;";
 
 		SqlRowSet row = jdbcTemplate.queryForRowSet(sql);
 

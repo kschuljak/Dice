@@ -51,6 +51,8 @@ public class TestingDatabaseConfig {
     }
 
     /* Before any tests are run, this method initializes the datasource and populates the testing db. */
+    // bean = injectable (javabean)
+    // bean & autowired go hand-in-hand
     @Bean
     public DataSource dataSource() throws SQLException {
         SingleConnectionDataSource dataSource = new SingleConnectionDataSource();

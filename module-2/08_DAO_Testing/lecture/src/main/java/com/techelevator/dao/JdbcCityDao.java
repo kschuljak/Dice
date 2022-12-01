@@ -43,6 +43,8 @@ public class JdbcCityDao implements CityDao {
         return cities;
     }
 
+    // return primary key to guarantee that you're manipulating the correct record if you are further modifying the data
+    // the primary key is the only way to guarantee uniqueness
     @Override
     public City createCity(City city) {
         String sql = "INSERT INTO city (city_name, state_abbreviation, population, area) " +
