@@ -47,7 +47,7 @@ public class JdbcEmployeeDao implements EmployeeDao {
 	public List<Employee> searchEmployeesByName(String firstNameSearch, String lastNameSearch) {
 
 		List<Employee> employees = new ArrayList<>();
-		
+
 		SqlRowSet row = null;
 
 		if (firstNameSearch == null && lastNameSearch == null) getAllEmployees();
@@ -60,15 +60,19 @@ public class JdbcEmployeeDao implements EmployeeDao {
 				"	, hire_date " +
 				"FROM employee ";
 		if (firstNameSearch == null) {
-			sql += " WHERE last_name ILIKE '%?%';";
+			sql += " WHERE last_name ILIKE ?;";
+			lastNameSearch = "'%" + lastNameSearch + "%'";
 			row = jdbcTemplate.queryForRowSet(sql, lastNameSearch);
 		}
 		else if (lastNameSearch == null) {
-			sql += " WHERE first_name ILIKE '%?%';";
+			sql += " WHERE first_name ILIKE ?;";
+			firstNameSearch = "'%" + firstNameSearch + "%'";
 			row = jdbcTemplate.queryForRowSet(sql, firstNameSearch);
 		}
 		else {
-			sql += " WHERE first_name ILIKE '%?%' HAVING last_name ILIKE '%?%';";
+			sql += " WHERE first_name ILIKE ? HAVING last_name ILIKE ?;";
+			firstNameSearch = "'%" + firstNameSearch + "%'";
+			lastNameSearch = "'%" + lastNameSearch + "%'";
 			row = jdbcTemplate.queryForRowSet(sql, firstNameSearch, lastNameSearch);
 		}
 
