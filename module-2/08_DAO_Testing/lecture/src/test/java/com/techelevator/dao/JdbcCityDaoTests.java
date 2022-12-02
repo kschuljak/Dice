@@ -94,7 +94,6 @@ public class JdbcCityDaoTests extends BaseDaoTests
 
         // act
         List<City> actualCities = cityDao.getCitiesByState(state);
-
         // assert
         String message = "Because state " + state + " should have " + expectedCities.size() + " cities";
         Assert.assertEquals(message, expectedCities.size(), actualCities.size());
