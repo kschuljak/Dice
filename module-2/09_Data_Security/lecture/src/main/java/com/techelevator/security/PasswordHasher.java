@@ -48,8 +48,8 @@ public class PasswordHasher {
     /**
      * This is the function that actually generates the hash. You can see that
      * it uses a work factor to generate the hash. The work factor should be high
-     * enough that it's painful for attackers, but not for users. A good half
-     * second to one second delay should be plenty.
+     * enough that it's painful for attackers, but not for users. A good half-
+     * second to one-second delay should be plenty.
      *
      * @param password the password as given by the user
      * @param salt the random salt

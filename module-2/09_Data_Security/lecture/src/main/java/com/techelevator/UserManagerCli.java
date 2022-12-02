@@ -65,7 +65,7 @@ public class UserManagerCli {
 
     /**
      * Take a username and password from the user and check it against
-     * the DAO. We don't know what's wrong about the log in, just that it
+     * the DAO. We don't know what's wrong about the log-in, just that it
      * failed. We don't want to give an attacker any information about
      * what they got right or what they got wrong when trying this. Information
      * like that is gold to an attacker because then they know what they're
@@ -112,11 +112,11 @@ public class UserManagerCli {
 
     /**
      * Show all the users that are in the database. We can't show passwords
-     * because we don't have them! Passwords in the database are hashed and
+     * because we don't have them! Passwords in the database are hashed, and
      * you can see that by opening up the Visualizer and looking at what is
      * stored in the `users` table.
      *
-     * We only allow access to this to logged in users. If a user isn't logged
+     * We only allow access to this to logged-in users. If a user isn't logged
      * in, we give them a message and leave. Having an `if` statement like this
      * at the top of the method is a common way of handling authorization checks.
      */

@@ -34,18 +34,29 @@ public class JdbcUserDao implements UserDao {
      * salted and hashed before being saved. The original password is never
      * stored in the system. We will never have any idea what it is!
      *
-     * @param userName the user name to give the new user
+     * @param userName the username to give the new user
      * @param password the user's password
      * @return the new user
      */
     @Override
     public User saveUser(String userName, String password) {
+
+        // step 1 - create a new random salt
         byte[] salt = passwordHasher.generateRandomSalt();
+        // step 2 - hash password using new generated salt
         String hashedPassword = passwordHasher.computeHash(password, salt);
+        // step 3 = convert salt (byte array) into a string to save in the database
         String saltString = new String(Base64.encode(salt));
+
+        String sql = "INSERT INTO users(username, password, salt) " +
+                     " VALUES (?, ?, ?) RETURNING id";
         int newId = jdbcTemplate.queryForObject(
-                "INSERT INTO users(username, password, salt) VALUES (?, ?, ?) RETURNING id", int.class, userName,
-                hashedPassword, saltString);
+                sql,
+                int.class,
+                userName,
+                hashedPassword,
+                saltString
+        );
 
         User newUser = new User();
         newUser.setId(newId);
@@ -59,19 +70,24 @@ public class JdbcUserDao implements UserDao {
      * know the password, we will have to get the user's salt from the database,
      * hash the password, and compare that against the hash in the database.
      *
-     * @param userName the user name of the user we are checking
+     * @param userName the username of the user we are checking
      * @param password the password of the user we are checking
      * @return true if the user is found and their password matches
      */
     @Override
     public boolean isUsernameAndPasswordValid(String userName, String password) {
-        String sqlSearchForUser = "SELECT * FROM users WHERE UPPER(username) = '" + userName.toUpperCase() + "'";
+        // because ILIKE not using '%', it just makes the userName case-insensitive
+        String sqlSearchForUser = "SELECT * FROM users " +
+                                  " WHERE username ILIKE '" + userName + "'";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSearchForUser);
         if (results.next()) {
+            // get the salt & hashed password
             String storedSalt = results.getString("salt");
             String storedPassword = results.getString("password");
+            // hash the input password
             String hashedPassword = passwordHasher.computeHash(password, Base64.decode(storedSalt));
+            // compare stored password hash with computed input hash
             return storedPassword.equals(hashedPassword);
         } else {
             return false;
@@ -79,7 +95,7 @@ public class JdbcUserDao implements UserDao {
     }
 
     /**
-     * Get all of the users from the database.
+     * Get all the users from the database.
      * @return a List of user objects
      */
     @Override
