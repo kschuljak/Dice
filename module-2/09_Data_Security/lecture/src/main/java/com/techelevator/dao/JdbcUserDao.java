@@ -77,10 +77,13 @@ public class JdbcUserDao implements UserDao {
     @Override
     public boolean isUsernameAndPasswordValid(String userName, String password) {
         // because ILIKE not using '%', it just makes the userName case-insensitive
+        // NOT! WHERE username ILIKE '" + userName + "'"; <-- SQL INJECTION VULNERABILITY!!!
+        // SQL inject attacks are one of the most common attacks in industry, so ALWAYS SANITIZE USER INPUT
+        // use a parameterized query, which is never treated like an executable statement
+        // DO NOT concatenate strings from user input into your query
         String sqlSearchForUser = "SELECT * FROM users " +
-                                  " WHERE username ILIKE '" + userName + "'";
-
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSearchForUser);
+                                  " WHERE username ILIKE ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSearchForUser, userName);
         if (results.next()) {
             // get the salt & hashed password
             String storedSalt = results.getString("salt");
