@@ -2,6 +2,9 @@ package com.techelevator.hotels.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+// JsonProperty maps your defined property to the desired json field
+// (so you don't have to name your variables the same as they are named in the json)
+
 public class Review {
     @JsonProperty("hotelID")
     private int hotelId;
