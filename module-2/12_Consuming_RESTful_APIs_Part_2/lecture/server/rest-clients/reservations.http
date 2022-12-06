@@ -1,0 +1,38 @@
+GET http://localhost:3000/reservations
+
+
+###
+
+GET http://localhost:3000/reservations/707
+
+###
+
+POST http://localhost:3000/reservations
+Content-Type: application/json
+
+{
+    "hotelID": 1,
+    "fullName": "Gregor Dzierzon",
+    "checkinDate": "12/10/2022",
+    "checkoutDate": "12/12/2022",
+    "guests": 2
+}
+
+
+###
+
+PUT http://localhost:3000/reservations/707
+Content-Type: application/json
+
+{
+    "hotelID": 1,
+    "fullName": "Gregor Dzierzon",
+    "checkinDate": "12/09/2022",
+    "checkoutDate": "12/13/2022",
+    "guests": 2
+}
+
+
+###
+
+DELETE http://localhost:3000/reservations/707
