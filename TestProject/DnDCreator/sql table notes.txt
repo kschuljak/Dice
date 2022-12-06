@@ -1,0 +1,223 @@
+Armor
+    Light Armor
+        Padded
+            cost: 5 gp
+            ac: 11 + dex mod
+            strength: n/a
+            stealth: disadvantage
+            weight: 8 lb
+        Leather
+            cost: 10 gp
+            ac: 11 + dex mod
+            strength: n/a
+            stealth: n/a
+            weight: 10 lb
+        Studded Leather
+            cost: 45 gp
+            ac: 12 + dex mod
+            strength: n/a
+            stealth: n/a
+            weight: 13 lb
+    Medium Armor
+        Hide
+            cost: 10 gp
+            ac: 12 + dex mod (max 2)
+            strength: n/a
+            stealth: n/a
+            weight: 12 lb
+        Chain Shirt
+            cost: 50 gp
+            ac: 13 + dex mod (max 2)
+            strength: n/a
+            stealth: n/a
+            weight: 20 lb
+        Scale Mail
+            cost: 50 gp
+            ac: 14 + dex mod (max 2)
+            strength: n/a
+            stealth: disadvantage
+            weight: 45 lb
+        Breastplate
+            cost: 400 gp
+            ac: 14 + dex mod (max 2)
+            strength: n/a
+            stealth: n/a
+            weight: 20 lb
+        Half Plate
+            cost: 750 gp
+            ac: 15 + dex mod (max 2)
+            strength: n/a
+            stealth: disadvantage
+            weight: 40 lb
+    Heavy Armor
+        Ring Mail
+            cost: 30 gp
+            ac: 14
+            strength: n/a
+            stealth: disadvantage
+            weight: 40 lb
+        Chain Mail
+            cost: 75 gp
+            ac: 16
+            strength: 13
+            stealth: disadvantage
+            weight: 55 lb
+        Splint
+            cost: 200 gp
+            ac: 17
+            strength: 15
+            stealth: disadvantage
+            weight: 60 lb
+        Plate
+            cost: 1500 gp
+            ac: 18
+            strength: 15
+            stealth: disadvantage
+            weight: 65 lb
+    Shield
+        Shield
+            cost: 10 gp
+            ac: 2
+            strength: n/a
+            stealth: n/a
+            weight: 6 lb
+
+
+armor_table
+    light_armor
+        ac_mod: + dex mod
+    medium_armor
+        ac_mod: + dex mod (max 2)
+    heavy_armor
+        ac_mod: +0
+    shield
+        ac_mod: +2
+
+light_armor_table
+    name
+    armor_id
+    cost
+    ac
+    stealth
+    weight
+
+medium_armor_table
+    name
+    armor_id
+    cost
+    ac
+    stealth
+    weight
+
+heavy_armor_table
+    name
+    armor_id
+    cost
+    ac
+    strength
+    stealth
+    weight
+
+shield_table
+    name
+    armor_id
+    cost
+    weight
+
+
+--- SQL TO CREATE ARMOR TABLES ---
+
+BEGIN TRANSACTION;
+
+DROP TABLE IF EXISTS shield
+DROP TABLE IF EXISTS light_armor
+DROP TABLE IF EXISTS medium_armor
+DROP TABLE IF EXISTS heavy_armor
+DROP TABLE IF EXISTS armor
+
+CREATE TABLE armor (
+    armor_id serial,
+    name varchar(15) NOT NULL,
+    ac_mod varchar(10) NOT NULL,
+    CONSTRAINT pk_armor_armor_id PRIMARY KEY (armor_id)
+)
+
+CREATE TABLE light_armor (
+    id serial,
+    armor_id integer NOT NULL,
+    name varchar(20) NOT NULL,
+    cost integer NOT NULL,
+    ac integer NOT NULL,
+    stealth_disadvantage boolean NOT NULL,
+    weight integer NOT NULL
+    CONSTRAINT pk_light_armor_id PRIMARY KEY (id)
+)
+
+CREATE TABLE medium_armor (
+    id serial,
+    armor_id integer NOT NULL,
+    name varchar(20) NOT NULL,
+    cost integer NOT NULL,
+    ac integer NOT NULL,
+    stealth_disadvantage boolean NOT NULL,
+    weight integer NOT NULL
+    CONSTRAINT pk_medium_armor_id PRIMARY KEY (id)
+)
+
+CREATE TABLE heavy_armor (
+    id serial,
+    armor_id integer NOT NULL,
+    name varchar(20) NOT NULL,
+    cost integer NOT NULL,
+    ac integer NOT NULL,
+    strength_required integer NULL,
+    stealth_disadvantage boolean NOT NULL,
+    weight integer NOT NULL
+    CONSTRAINT pk_heavy_armor_id PRIMARY KEY (id)
+)
+
+CREATE TABLE shield (
+    id serial,
+    armor_id integer NOT NULL,
+    name varchar(20) NOT NULL,
+    cost integer NOT NULL,
+    weight integer NOT NULL,
+    CONSTRAINT pk_shield_id PRIMARY KEY (id)
+)
+
+INSERT INTO armor (name, ac_mod) VALUES ('Light Armor', '+ dex mod');
+INSERT INTO armor (name, ac_mod) VALUES ('Medium Armor', '+ dex mod (max 2)');
+INSERT INTO armor (name, ac_mod) VALUES ('Heavy Armor', '+0');
+INSERT INTO armor (name, ac_mod) VALUES ('Shield', '+2');
+
+INSERT INTO light_armor(armor_id, name, cost, ac, stealth_disadvantage, weight)
+VALUES ((SELECT armor_id FROM armor WHERE name = 'Light Armor'), 'Padded Armor', 5, 11, true, 8)
+    , ((SELECT armor_id FROM armor WHERE name = 'Light Armor'), 'Leather Armor', 10, 11, false, 10)
+    , ((SELECT armor_id FROM armor WHERE name = 'Light Armor'), 'Studded Leather Armor', 45, 12, false, 13)
+;
+
+INSERT INTO medium_armor(armor_id, name, cost, ac, stealth_disadvantage, weight)
+VALUES ((SELECT armor_id FROM armor WHERE name = 'Medium Armor'), 'Hide Armor', 10, 12, false, 12)
+    , ((SELECT armor_id FROM armor WHERE name = 'Medium Armor'), 'Chain Shirt', 50, 13, false, 20)
+    , ((SELECT armor_id FROM armor WHERE name = 'Medium Armor'), 'Scale Mail', 50, 14, true, 45)
+    , ((SELECT armor_id FROM armor WHERE name = 'Medium Armor'), 'Breastplate', 400, 14, false, 20)
+    , ((SELECT armor_id FROM armor WHERE name = 'Medium Armor'), 'Half Plate Armor', 750, 15, true, 40)
+;
+
+INSERT INTO heavy_armor(armor_id, name, cost, ac, stealth_disadvantage, weight)
+VALUES ((SELECT armor_id FROM armor WHERE name = 'Heavy Armor'), 'Ring Mail Armor', 30, 14, true, 40);
+INSERT INTO heavy_armor(armor_id, name, cost, ac, strength_required, stealth_disadvantage, weight)
+VALUES ((SELECT armor_id FROM armor WHERE name = 'Heavy Armor'), 'Chain Mail Armor', 75, 16, 13, true, 55)
+    , ((SELECT armor_id FROM armor WHERE name = 'Heavy Armor'), 'Splint Armor', 200, 17, 15, true, 60)
+    , ((SELECT armor_id FROM armor WHERE name = 'Heavy Armor'), 'Plate Armor', 1500, 18, 15, true, 65)
+;
+
+INSERT INTO shield(armor_id, name, cost, weight)
+VALUES ((SELECT armor_id FROM armor WHERE name = 'Shield), 'Shield', 10, 6);
+
+ALTER TABLE light_armor ADD CONSTRAINT fk_light_armor_armor FOREIGN KEY (armor_id) REFERENCES armor(armor_id);
+ALTER TABLE medium_armor ADD CONSTRAINT fk_medium_armor_armor FOREIGN KEY (armor_id) REFERENCES armor(armor_id);
+ALTER TABLE heavy_armor ADD CONSTRAINT fk_heavy_armor_armor FOREIGN KEY (armor_id) REFERENCES armor(armor_id);
+ALTER TABLE shield ADD CONSTRAINT fk_shield_armor FOREIGN KEY (armor_id) REFERENCES armor(armor_id);
+
+COMMIT;

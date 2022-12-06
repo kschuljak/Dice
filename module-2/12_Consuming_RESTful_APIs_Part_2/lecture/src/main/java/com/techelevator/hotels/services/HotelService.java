@@ -3,6 +3,9 @@ package com.techelevator.hotels.services;
 import com.techelevator.hotels.model.Hotel;
 import com.techelevator.hotels.model.Reservation;
 import com.techelevator.util.BasicLogger;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
@@ -11,14 +14,43 @@ import org.springframework.web.client.RestTemplate;
 public class HotelService {
 
     private static final String API_BASE_URL = "http://localhost:3000/";
+    // restTemplate is a serializer
     private final RestTemplate restTemplate = new RestTemplate();
 
     /**
      * Create a new reservation in the hotel reservation system
      */
     public Reservation addReservation(Reservation newReservation) {
-        // TODO: Implement method
-        return null;
+        // specify content type
+        // add headers and body
+        // post
+
+        // create header object in order to set content type to json
+        // - in order to add ANY header info, we need an HttpHeaders object
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        // create an entity with a body of type Reservation
+        // pass in newReservation (body) and headers (header) information
+        // HttpEntity<T> - specified data type used for us to verify we're passing the correct object type to serialize
+        HttpEntity<Reservation> entity = new HttpEntity<>(newReservation, headers);
+
+        String url = API_BASE_URL + "reservations";
+
+        Reservation reservation = null;
+        try {
+            reservation = restTemplate.postForObject(url, entity, Reservation.class);
+        } catch (RestClientResponseException ex) {
+            // 400-599 range error
+            BasicLogger.log("[addReservation] Rest Client Response Exception: " + ex.getRawStatusCode() + ": " + ex.getStatusText());
+        } catch (ResourceAccessException ex) {
+            // no server response
+            BasicLogger.log("[addReservation] Resource Access Exception: " + ex.getMessage());
+        } catch (Exception ex) {
+            // generic error
+            BasicLogger.log("[addReservation] Generic Exception: " + ex.getMessage());
+        }
+        return reservation;
     }
 
     /**
@@ -26,16 +58,56 @@ public class HotelService {
      * reservation
      */
     public boolean updateReservation(Reservation updatedReservation) {
-        // TODO: Implement method
-        return false;
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        // entity - our request object
+        HttpEntity<Reservation> entity = new HttpEntity<>(updatedReservation, headers);
+
+        String url = API_BASE_URL + "reservations/" + updatedReservation.getId();
+
+        boolean put_request_executed = false;
+        try {
+            // restTemplate.put does not return any data
+            restTemplate.put(url, entity, Reservation.class);
+            put_request_executed = true;
+        } catch (RestClientResponseException ex) {
+            // 400-599 range error
+            BasicLogger.log("[updateReservation] Rest Client Response Exception: " + ex.getRawStatusCode() + ": " + ex.getStatusText());
+        } catch (ResourceAccessException ex) {
+            // no server response
+            BasicLogger.log("[updateReservation] Resource Access Exception: " + ex.getMessage());
+        } catch (Exception ex) {
+            // generic error
+            BasicLogger.log("[updateReservation] Generic Exception: " + ex.getMessage());
+        }
+        return put_request_executed;
+
     }
 
     /**
      * Delete an existing reservation
      */
     public boolean deleteReservation(int id) {
-        // TODO: Implement method
-        return false;
+
+        String url = API_BASE_URL + "reservations/" + id;
+
+        boolean delete_request_executed = false;
+        try {
+            restTemplate.delete(url);
+            delete_request_executed = true;
+        } catch (RestClientResponseException ex) {
+            // 400-599 range error
+            BasicLogger.log("[deleteReservation] Rest Client Response Exception: " + ex.getRawStatusCode() + ": " + ex.getStatusText());
+        } catch (ResourceAccessException ex) {
+            // no server response
+            BasicLogger.log("[deleteReservation] Resource Access Exception: " + ex.getMessage());
+        } catch (Exception ex) {
+            // generic error
+            BasicLogger.log("[deleteReservation] Generic Exception: " + ex.getMessage());
+        }
+        return delete_request_executed;
     }
 
     /* DON'T MODIFY ANY METHODS BELOW */
