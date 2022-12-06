@@ -17,18 +17,59 @@ public class AuctionService {
 
 
     public Auction add(Auction newAuction) {
-        // place code here
-        return null;
+
+        HttpEntity<Auction> entity = makeEntity(newAuction);
+
+        Auction auction = null;
+        try {
+            auction = restTemplate.postForObject(API_BASE_URL, entity, Auction.class);
+        } catch (RestClientResponseException ex) {
+            BasicLogger.log("[add] Rest Client Response Exception: " + ex.getRawStatusCode() + ": " + ex.getStatusText());
+        } catch (ResourceAccessException ex) {
+            BasicLogger.log("[add] Resource Access Exception: " + ex.getMessage());
+        } catch (Exception ex) {
+            BasicLogger.log("[add] Generic Exception: " + ex.getMessage());
+        }
+        return auction;
     }
 
+
     public boolean update(Auction updatedAuction) {
-        // place code here
-        return false;
+
+        HttpEntity<Auction> entity = makeEntity(updatedAuction);
+
+        String url = API_BASE_URL + updatedAuction.getId();
+
+        boolean isUpdated = false;
+        try {
+            restTemplate.put(url, entity, Auction.class);
+            isUpdated = true;
+        } catch (RestClientResponseException ex) {
+            BasicLogger.log("[update] Rest Client Response Exception: " + ex.getRawStatusCode() + ": " + ex.getStatusText());
+        } catch (ResourceAccessException ex) {
+            BasicLogger.log("[update] Resource Access Exception: " + ex.getMessage());
+        } catch (Exception ex) {
+            BasicLogger.log("[update] Generic Exception: " + ex.getMessage());
+        }
+        return isUpdated;
     }
 
     public boolean delete(int auctionId) {
-        // place code here
-        return false;
+
+        String url = API_BASE_URL + auctionId;
+
+        boolean isDeleted = false;
+        try {
+            restTemplate.delete(url);
+            isDeleted = true;
+        } catch (RestClientResponseException ex) {
+            BasicLogger.log("[delete] Rest Client Response Exception: " + ex.getRawStatusCode() + ": " + ex.getStatusText());
+        } catch (ResourceAccessException ex) {
+            BasicLogger.log("[delete] Resource Access Exception: " + ex.getMessage());
+        } catch (Exception ex) {
+            BasicLogger.log("[delete] Generic Exception: " + ex.getMessage());
+        }
+        return isDeleted;
     }
 
     public Auction[] getAllAuctions() {
