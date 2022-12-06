@@ -7,14 +7,16 @@ public class LocationService {
 
     private static final String API_BASE_URL = "http://localhost:3000/locations/";
 
+    private final RestTemplate restTemplate = new RestTemplate();
+
     public Location[] getAll() {
-        //Step Five: List all locations
-        return null;
+
+        return restTemplate.getForObject(API_BASE_URL, Location[].class);
     }
 
     public Location getOne(int id) {
-        //Step Six: Get location details
-        return null;
+
+        return restTemplate.getForObject(API_BASE_URL+id, Location.class);
     }
 
 }
