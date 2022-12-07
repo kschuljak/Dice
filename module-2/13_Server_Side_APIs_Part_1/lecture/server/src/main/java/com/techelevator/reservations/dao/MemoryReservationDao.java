@@ -60,6 +60,8 @@ public class MemoryReservationDao implements ReservationDao {
     @Override
     public Reservation create(Reservation reservation, int hotelID) {
         reservation.setId(getMaxIdPlusOne());
+        // dao should have the logic to make sure id is setting correctly (rather than passing id in the body of a POST request)
+        reservation.setHotelID(hotelID);
         this.reservations.add(reservation);
         return reservation;
     }

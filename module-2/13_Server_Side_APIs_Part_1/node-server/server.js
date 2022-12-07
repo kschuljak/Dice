@@ -1,3 +1,9 @@
+// JavaScript - but the logic is the same in all languages
+// can do everything in a single file (as seen below)
+// BUT using the Model-View-Controller, you create one controller for each thing
+// ex - movie controller, character controller, etc
+// functionality stays the same, but code is more modular
+
 // needed to host web server
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -41,7 +47,15 @@ const server = app.listen(3000, () =>{
 // root endpoint
 function getRoot(request, response) 
 {
-    response.send('Welcome to the Marvel Miniverse')
+    <html>
+        <head>
+        </head>
+        <body>
+            <h1>Welcome to the Marvel Miniverse</h1>
+        </body>
+    </html>
+    response.send(page)
+    //response.send('Welcome to the Marvel Miniverse')
 }
 
 
