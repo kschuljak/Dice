@@ -1,0 +1,55 @@
+[
+    {
+        "id": 1,
+        "character": "Captain America",
+        "movies":[
+            "/movies/1",
+            "/movies/6",
+            "/movies/9"
+        ]
+    },
+    {
+        "id": 2,
+        "character": "Captain Marvel",
+        "movies": [
+            "/movies/2"
+        ]
+    },
+    {
+        "id": 3,
+        "character": "Nick Fury",
+        "movies": [
+            "/movies/1",
+            "/movies/2",
+            "/movies/3",
+            "/movies/4",
+            "/movies/6",
+            "/movies/9"
+        ]
+    },
+    {
+        "id": 4,
+        "character": "Iron Man",
+        "movies": [
+            "/movies/3",
+            "/movies/4",
+            "/movies/6",
+            "/movies/8"            
+        ]
+    },
+    {
+        "id": 5,
+        "character": "Black Widow",
+        "movies": [
+            "/movies/4",
+            "/movies/6"
+        ]
+    },
+    {
+        "id": 6,
+        "character": "Hulk",
+        "movies": [
+            "/movies/6"
+        ]
+    }
+]
