@@ -15,7 +15,8 @@ public class HotelSearchFilter
 
     public void setName(String name)
     {
-        this.name = name.toLowerCase();
+        // cannot call .toLowerCase() on a null value
+        if (name != null) this.name = name.toLowerCase();
     }
 
     public boolean hasName()
@@ -60,7 +61,7 @@ public class HotelSearchFilter
 
     public void setCity(String city)
     {
-        this.city = city.toLowerCase();
+        if (city != null) this.city = city.toLowerCase();
     }
 
     public boolean hasCity()
@@ -75,7 +76,7 @@ public class HotelSearchFilter
 
     public void setState(String state)
     {
-        this.state = state.toLowerCase();
+        if (state != null) this.state = state.toLowerCase();
     }
 
     public boolean hasState()

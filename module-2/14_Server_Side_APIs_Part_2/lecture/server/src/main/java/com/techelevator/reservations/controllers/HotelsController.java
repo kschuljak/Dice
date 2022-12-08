@@ -67,32 +67,52 @@ public class HotelsController
         return newReservation;
     }
 
+    // this is not RESTful
+//    @GetMapping("filter")
+//    public List<Hotel> searchForHotels(@RequestParam String state, @RequestParam(required = false) String city)
+//    {
+//        List<Hotel> filteredHotels = new ArrayList<>();
+//        List<Hotel> list = hotelDao.list();
+//
+//        for (Hotel hotel : list)
+//        {
+//            if (city != null)
+//            {
+//                if (hotel.getAddress().getCity().toLowerCase().equals(city.toLowerCase())
+//                        && hotel.getAddress().getState().toLowerCase().equals(state.toLowerCase()))
+//                {
+//                    filteredHotels.add(hotel);
+//                }
+//            }
+//            else
+//            {
+//                if (hotel.getAddress().getState().toLowerCase().equals(state.toLowerCase()))
+//                {
+//                    filteredHotels.add(hotel);
+//                }
+//            }
+//        }
+//
+//        return filteredHotels;
+//    }
+
+    // instead, if you have a lot of parameters, consider creating a new object to hold the parameters (makes code more readable)
     @GetMapping("filter")
-    public List<Hotel> searchForHotels(@RequestParam String state, @RequestParam(required = false) String city)
+    public List<Hotel> searchForHotels(@RequestParam(required = false) String state,
+                                       @RequestParam(required = false) String city,
+                                       @RequestParam(required = false) Integer stars,
+                                       @RequestParam(required = false) String name,
+                                       @RequestParam(required = false) Double cost)
     {
-        List<Hotel> filteredHotels = new ArrayList<>();
-        List<Hotel> list = hotelDao.list();
+     HotelSearchFilter filter = new HotelSearchFilter();
+     filter.setCity(city);
+     filter.setState(state);
+     filter.setCost(cost);
+     filter.setStars(stars);
+     filter.setName(name);
 
-        for (Hotel hotel : list)
-        {
-            if (city != null)
-            {
-                if (hotel.getAddress().getCity().toLowerCase().equals(city.toLowerCase())
-                        && hotel.getAddress().getState().toLowerCase().equals(state.toLowerCase()))
-                {
-                    filteredHotels.add(hotel);
-                }
-            }
-            else
-            {
-                if (hotel.getAddress().getState().toLowerCase().equals(state.toLowerCase()))
-                {
-                    filteredHotels.add(hotel);
-                }
-            }
-        }
-
-        return filteredHotels;
+     List<Hotel> filteredHotels = hotelDao.search(filter);
+     return filteredHotels;
     }
 
 

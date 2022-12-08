@@ -41,6 +41,7 @@ public class MemoryHotelDao implements HotelDao {
 
     @Override public List<Hotel> search(HotelSearchFilter filter)
     {
+        // apply the filter if value is not null
         var filteredList = hotels.stream()
                                  .filter(h -> !filter.hasName() || h.getName().toLowerCase().contains(filter.getName()))
                                  .filter(h -> !filter.hasStars() || h.getStars() >= filter.getStars())
