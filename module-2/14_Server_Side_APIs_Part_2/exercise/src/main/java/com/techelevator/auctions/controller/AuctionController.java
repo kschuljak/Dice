@@ -16,6 +16,8 @@ import com.techelevator.auctions.dao.AuctionDao;
 import com.techelevator.auctions.model.Auction;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/auctions")
 public class AuctionController {
@@ -39,6 +41,7 @@ public class AuctionController {
         return dao.list();
     }
 
+    @ResponseStatus(HttpStatus.FOUND)
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public Auction get(@PathVariable int id) {
         Auction auction = dao.get(id);
@@ -49,9 +52,31 @@ public class AuctionController {
         }
     }
 
-    @RequestMapping( path = "", method = RequestMethod.POST)
-    public Auction create(@RequestBody Auction auction) {
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path = "", method = RequestMethod.POST)
+    public Auction create(@Valid @RequestBody Auction auction) {
         return dao.create(auction);
+    }
+
+    @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
+    public Auction update(@Valid @RequestBody Auction auction, @PathVariable Integer id) {
+
+        Auction currentAuction = dao.get(id);
+        if(currentAuction == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Auction id " + id + " was not found.");
+        }
+        Auction newAuction = dao.update(auction, id);
+        return newAuction;
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable int id) {
+        Auction currentAuction = dao.get(id);
+        if (currentAuction == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Auction id " + id + " was not found.");
+        }
+        dao.delete(id);
     }
 
 
