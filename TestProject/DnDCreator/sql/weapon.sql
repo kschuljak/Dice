@@ -13,9 +13,9 @@ CREATE TABLE weapon
     weapon_name VARCHAR(30) NOT NULL,
     cost INT NOT NULL,
     coin CHAR(2) NOT NULL,
-    weight DECIMAL(2,4) NOT NULL,
-    damage_amount_id INT NOT NULL,
-    damage_type_id INT NOT NULL
+    weight DECIMAL(4,2) NOT NULL,
+    damage_amount_id INT NULL,
+    damage_type_id INT NULL
 );
 
 CREATE TABLE property
@@ -34,20 +34,20 @@ CREATE TABLE range
 
 CREATE TABLE weapon_property
 (
-    weapon_id INT NOT NULL PRIMARY KEY,
-    property_id INT NOT NULL PRIMARY KEY
+    weapon_id INT NOT NULL,
+    property_id INT NOT NULL
 );
 
 CREATE TABLE damage_amount
 (
-    amount_id SERIAL NOT NULL PRIMARY KEY,
+    damage_amount_id SERIAL NOT NULL PRIMARY KEY,
     number_rolls INT NOT NULL,
     dice_sides INT NOT NULL
 );
 
 CREATE TABLE damage_type
 (
-    damage_id SERIAL NOT NULL PRIMARY KEY,
+    damage_type_id SERIAL NOT NULL PRIMARY KEY,
     damage_name VARCHAR(25) NOT NULL
 );
 
@@ -329,6 +329,7 @@ ALTER TABLE weapon_property
 ADD CONSTRAINT FK_weapon_property_property
 FOREIGN KEY (property_id)
 REFERENCES property(property_id);
+
 
 
 
