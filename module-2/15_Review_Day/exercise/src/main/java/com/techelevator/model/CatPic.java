@@ -1,8 +1,10 @@
 package com.techelevator.model;
 
 public class CatPic {
+
 	private String file;
-	
+
+
 	public String getFile() {
 		return this.file;
 	}
