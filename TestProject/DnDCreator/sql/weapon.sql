@@ -84,7 +84,6 @@ INSERT INTO property(property_name) VALUES ('versatile - 1d8');
 INSERT INTO property(property_name) VALUES ('versatile - 1d10');
 INSERT INTO property(property_name) VALUES ('heavy');
 INSERT INTO property(property_name) VALUES ('reach');
-INSERT INTO property(property_name) VALUES ('finesse');
 INSERT INTO property(property_name) VALUES ('loading');
 INSERT INTO property(property_name) VALUES ('special');
 INSERT INTO property(range_id, property_name) VALUES ((SELECT range_id FROM range WHERE normal_range = 5 AND long_range = 15), 'thrown');
