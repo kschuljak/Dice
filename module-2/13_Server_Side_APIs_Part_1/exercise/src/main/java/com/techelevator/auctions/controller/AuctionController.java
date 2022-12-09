@@ -23,12 +23,13 @@ public class AuctionController {
     @GetMapping(path="")
     public List<Auction> list(@RequestParam(defaultValue = "") String title_like, @RequestParam(defaultValue = "0") double currentBid_lte)
     {
-        List<Auction> auctions = dao.list();
+        List<Auction> auctions;
 
         if (title_like.length() > 0 && currentBid_lte == 0) auctions = dao.searchByTitle(title_like);
-        if (title_like.length() == 0 && currentBid_lte > 0) auctions = dao.searchByPrice(currentBid_lte);
-        if (title_like.length() > 0 && currentBid_lte > 0) auctions = dao.searchByTitleAndPrice(title_like, currentBid_lte);
-
+        else if (title_like.length() == 0 && currentBid_lte > 0) auctions = dao.searchByPrice(currentBid_lte);
+        else if (title_like.length() > 0 && currentBid_lte > 0) auctions = dao.searchByTitleAndPrice(title_like, currentBid_lte);
+        else auctions = dao.list();
+        
         return auctions;
     }
 
