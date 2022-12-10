@@ -52,11 +52,13 @@ public class AuctionController {
         }
     }
 
+    
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "", method = RequestMethod.POST)
     public Auction create(@Valid @RequestBody Auction auction) {
         return dao.create(auction);
     }
+
 
     @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
     public Auction update(@Valid @RequestBody Auction auction, @PathVariable Integer id) {
@@ -68,6 +70,7 @@ public class AuctionController {
         Auction newAuction = dao.update(auction, id);
         return newAuction;
     }
+
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)

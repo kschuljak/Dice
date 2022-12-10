@@ -2,37 +2,36 @@ package controller;
 
 import java.util.Scanner;
 import model.Dice;
-import view.Out;
+import view.UserInput;
+import view.UserOutput;
 
 public class DiceApp {
 
     public void run() {
 
-        Scanner input = new Scanner(System.in);
-
-        Out.printHeader();
+        UserOutput.printHeader();
 
         while (true) {
-            Out.printDoNext();
+            UserOutput.printDoNext();
 
-            int choice = Integer.parseInt(input.nextLine().strip());
+            int choice = Integer.parseInt(UserInput.getInput());
 
             try {
                 if (choice == 1)
                 {
-                    Out.printDiceSelectionIntro();
-                    int diceSelection = Integer.parseInt(input.nextLine().strip());
+                    UserOutput.printDiceSelectionIntro();
+                    int diceSelection = Integer.parseInt(UserInput.getInput());
 
-                    Out.printHowManyTimesToRollSelectionIntro();
-                    int numberOfTimesToRollDice = Integer.parseInt(input.nextLine().strip());
+                    UserOutput.printHowManyTimesToRollSelectionIntro();
+                    int numberOfTimesToRollDice = Integer.parseInt(UserInput.getInput());
 
                     if (numberOfTimesToRollDice == 1) Dice.rollOne(diceSelection);
                     if (numberOfTimesToRollDice > 1) Dice.rollMany(diceSelection, numberOfTimesToRollDice);
                 }
                 else if (choice == 2)
                 {
-                    Out.printHowManyTimesToFlipCoinSelectionIntro();
-                    int coinFlips = Integer.parseInt(input.nextLine().strip());
+                    UserOutput.printHowManyTimesToFlipSelectionIntro();
+                    int coinFlips = Integer.parseInt(UserInput.getInput());
 
                     if (coinFlips == 1) Dice.flipOne();
                     if (coinFlips > 1) Dice.flipMany(coinFlips);
@@ -42,7 +41,7 @@ public class DiceApp {
                 else throw new RuntimeException("You have not made a valid choice.");
 
             } catch (Exception ex) {
-                Out.printException(ex.getMessage());
+                UserOutput.printException(ex.getMessage());
             }
         }
     }
