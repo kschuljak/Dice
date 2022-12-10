@@ -156,7 +156,6 @@ public class CharacterSheet {
     public CharacterSheet() {
     }
 
-
     // getters & setters
 
     public String getCharacterName() {
