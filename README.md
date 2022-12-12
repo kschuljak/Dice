@@ -130,5 +130,4 @@ public class UserInput {
 -----
 # User Output
 Contains all the print statements used to display information to the console.    
-Final values set in the `FontColor` class are used to change the font color of printed text.     
-Java's `String.format()` is also used to format printed text.
+Text printed to the console is formatted using Java's `String.format()` as well as final values set in the `FontColor` class.
