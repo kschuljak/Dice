@@ -2,8 +2,7 @@
    
 ## DiceApp 
 ### Rolling Dice
-Users can choose to roll one or multiple dice, of types D4, D6, D8, D10, D12, D20, & D100.    
-```java
+Users can choose to roll one or multiple dice (from the standard TTRPG dice types).
 if (numberOfTimesToRollDice == 1) Dice.rollOne(diceSelection);
 if (numberOfTimesToRollDice > 1) Dice.rollMany(diceSelection, numberOfTimesToRollDice);
 ```   
