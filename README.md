@@ -111,7 +111,8 @@ public static boolean validateIncrement(int type, int i){
    
 -----
 # User Input
-Uses Java Scanner to take in user input from the console.  Input string is stripped of leading and trailing whitespace and returned.
+Uses Java Scanner to take in user input from the console.   
+Input string is stripped of leading and trailing whitespace and returned.
 ```java
 import java.util.Scanner;
 
@@ -128,4 +129,6 @@ public class UserInput {
     
 -----
 # User Output
-Contains all the print statements used to display information to the console.  Uses final values set in the `FontColor` class to change the font color of printed text.
+Contains all the print statements used to display information to the console.    
+Final values set in the `FontColor` class are used to change the font color of printed text.     
+Java's `String.format()` is also used to format printed text.
