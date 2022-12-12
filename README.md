@@ -108,3 +108,20 @@ public static boolean validateIncrement(int type, int i){
       return isValid;
 }
 ```
+   
+-----
+# User Input
+Uses Java Scanner to take in user input from the console.  Input string is stripped of leading and trailing whitespace and returned.
+```java
+import java.util.Scanner;
+
+public class UserInput {
+
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static String getInput() {
+        String input = scanner.nextLine().strip();
+        return input;
+    }
+}
+```
