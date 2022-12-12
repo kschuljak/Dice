@@ -75,4 +75,27 @@ public static void flipMany(int increment){
       UserOutput.printFlipTotals(headsTotal, tailsTotal);
  }
  ```
- 
+     
+### Validating User Input
+The entered dice type must be a dice type commonly used used in tabletop RPG games (D4, D8, D10, D12, D20, & D100).
+```java
+// static finals created for each dice type
+public static boolean validateDice(int dice){
+      boolean isValid = (dice == D4 || dice == D6 || dice == D8 || dice == D10 || dice == D12 || dice == D20 || dice == D100);
+      if (!isValid) UserOutput.printDiceTypeError(dice);
+      return isValid;
+}
+```
+If rolling multiple dice or flipping multiple coins, the entered number of times to roll dice or flip coins must be between 1 and 20.
+```java
+public static boolean validateIncrement(int type, int i){
+      // set minimum and maximum values for increment
+      int minimumIncrement = 1;
+      int maximumIncrement = 20;
+
+      boolean isValid = (i >= minimumIncrement && i <= maximumIncrement);
+      if (!isValid && type == COIN) UserOutput.printFlipTimesError();
+      if (!isValid && type != COIN) UserOutput.printRollTimesError();
+      return isValid;
+}
+```
