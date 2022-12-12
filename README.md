@@ -1,6 +1,6 @@
 # Dice - ***Java Console App to roll dice and flip coins***
    
-## Controller - DiceApp 
+## DiceApp 
 Users can choose to roll one or multiple dice, of types D4, D6, D8, D10, D12, D20, & D100.   
 (*If rolling multiple, the sum total of all rolls is displayed.*)   
 ```java
@@ -15,7 +15,7 @@ if (coinFlips == 1) Dice.flipOne();
 if (coinFlips > 1) Dice.flipMany(coinFlips);
 ```   
    
-## Service - Dice
+## Dice
 ### Rolling Dice
 Uses Java's `ThreadLocalRandom` to get a random number between 1 and given value for dice type.   
 ```java
