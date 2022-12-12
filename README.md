@@ -1,6 +1,4 @@
-# Dice
-## Java Console App 
-### for simulating dice rolls and coin flips
+# Dice - Java Console App for simulating dice rolls and coin flips
 -----
    
 
