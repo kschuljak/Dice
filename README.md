@@ -2,7 +2,7 @@
    
 ## DiceApp 
 ### Rolling Dice
-Users can choose to roll one or multiple dice (from the standard TTRPG dice types).
+Users can choose to roll one or multiple dice.
 ```java
 if (numberOfTimesToRollDice == 1) Dice.rollOne(diceSelection);
 if (numberOfTimesToRollDice > 1) Dice.rollMany(diceSelection, numberOfTimesToRollDice);
@@ -80,7 +80,13 @@ The entered dice type must be a dice type commonly used used in tabletop RPG gam
 ```java
 // static finals created for each dice type
 public static boolean validateDice(int dice){
-      boolean isValid = (dice == D4 || dice == D6 || dice == D8 || dice == D10 || dice == D12 || dice == D20 || dice == D100);
+      boolean isValid = (dice == D4 || 
+                         dice == D6 || 
+                         dice == D8 || 
+                         dice == D10 || 
+                         dice == D12 || 
+                         dice == D20 || 
+                         dice == D100);
       if (!isValid) UserOutput.printDiceTypeError(dice);
       return isValid;
 }
