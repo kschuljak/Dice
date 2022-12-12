@@ -16,12 +16,16 @@ if (coinFlips > 1) Dice.flipMany(coinFlips);
 ```   
    
 ## Model - Dice
+### Rolling Dice
 Uses Java's `ThreadLocalRandom` to get a random number between 1 and given value for dice type.   
 ```java
 public static int getRoll(int diceType){
       return ThreadLocalRandom.current().nextInt(1, diceType + 1);
 }
 ```  
+
+### Flipping Coin
+Uses the `flipCoin` function to get a random number between 1 and 2 and assigns 'heads' or 'tails' based on the return.
 ```java
 static final int COIN = 2;
 public static String flipCoin( ){
