@@ -1,21 +1,21 @@
 # Dice - ***Java Console App to roll dice and flip coins***
    
-## DiceApp 
-### Rolling Dice
+# DiceApp 
+## Rolling Dice
 Users can choose to roll one or multiple dice.
 ```java
 if (numberOfTimesToRollDice == 1) Dice.rollOne(diceSelection);
 if (numberOfTimesToRollDice > 1) Dice.rollMany(diceSelection, numberOfTimesToRollDice);
 ```   
-### Flipping Coin
+## Flipping Coin
 Users can also choose to flip one or multiple coins.   
 ```java
 if (coinFlips == 1) Dice.flipOne();
 if (coinFlips > 1) Dice.flipMany(coinFlips);
 ```   
    
-## Dice
-### Rolling Dice
+# Dice
+## Rolling Dice
 Uses Java's `ThreadLocalRandom` to get a random number between 1 and given value for dice type.   
 ```java
 public static int getRoll(int diceType){
@@ -43,7 +43,7 @@ public static void rollMany(int dice, int increment){
 }
 ```
 
-### Flipping Coin
+## Flipping Coin
 Calls the `getRoll` function to get a random number between 1 and 2 and assigns 'Heads' or 'Tails' based on the return.
 ```java
 static final int COIN = 2;
@@ -75,7 +75,7 @@ public static void flipMany(int increment){
  }
  ```
      
-### Validating User Input
+## Validating User Input
 The entered dice type must be a dice type commonly used used in tabletop RPG games (D4, D8, D10, D12, D20, & D100).
 ```java
 // static finals created for each dice type
