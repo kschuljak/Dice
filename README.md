@@ -125,3 +125,7 @@ public class UserInput {
     }
 }
 ```
+    
+-----
+# User Output
+Contains all the print statements used to display information to the console.  Uses final values set in the `FontColor` class to change the font color of printed text.
