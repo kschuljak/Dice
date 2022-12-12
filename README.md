@@ -15,7 +15,7 @@ if (coinFlips == 1) Dice.flipOne();
 if (coinFlips > 1) Dice.flipMany(coinFlips);
 ```   
    
-## Model - Dice
+## Service - Dice
 ### Rolling Dice
 Uses Java's `ThreadLocalRandom` to get a random number between 1 and given value for dice type.   
 ```java
