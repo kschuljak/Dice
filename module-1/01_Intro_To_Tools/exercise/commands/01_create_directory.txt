@@ -1,2 +1,0 @@
-# How do you create a new directory called "notes" in your current directory?
-mkdir notes

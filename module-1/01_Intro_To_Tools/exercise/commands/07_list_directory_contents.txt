@@ -1,2 +1,0 @@
-# How do you list the contents of the current directory?
-ls
