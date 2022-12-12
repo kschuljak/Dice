@@ -1,7 +1,7 @@
 # Dice - ***Java Console App to roll dice and flip coins***
-------
 
-   
+
+-----  
 # DiceApp 
 ## Rolling Dice
 Users can choose to roll one or multiple dice.
@@ -16,6 +16,7 @@ if (coinFlips == 1) Dice.flipOne();
 if (coinFlips > 1) Dice.flipMany(coinFlips);
 ```   
    
+-----
 # Dice
 ## Rolling Dice
 Uses Java's `ThreadLocalRandom` to get a random number between 1 and given value for dice type.   
