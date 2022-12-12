@@ -1,3 +1,0 @@
-{
-  "/hotels/:id/reservations": "/reservations?hotelID=:id"
-}
