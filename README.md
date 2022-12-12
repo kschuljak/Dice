@@ -131,3 +131,24 @@ public class UserInput {
 # User Output
 Contains all the print statements used to display information to the console.    
 Text printed to the console is formatted using Java's `String.format()` as well as final values set in the `FontColor` class.
+```java
+public static void printRoll(int roll, int i) {
+      String increment = String.format("%2s", String.valueOf(i));
+      String formattedRoll = String.format("%3s", String.valueOf(roll));
+      if (i%2!=0) {
+            System.out.println(FontColor.PURPLE + 
+                               "Roll " + 
+                               increment + 
+                               ":   " + 
+                               FontColor.RESET + 
+                               formattedRoll);
+      } else {
+            System.out.println(FontColor.PURPLE + 
+                               "Roll " + 
+                               increment + 
+                               ":   " + 
+                               FontColor.WHITE + 
+                               formattedRoll + 
+                               FontColor.RESET);
+}
+```
