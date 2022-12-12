@@ -52,4 +52,27 @@ public static String flipCoin( ){
       int randomNum = Dice.getRoll(COIN);
       return (randomNum == 1) ? "Heads" : "Tails";
 }
-```
+``` 
+If only flipping a single coin, the result is displayed.
+```java
+public static void flipOne(){
+      // ...
+      UserOutput.printFlip(flipCoin());
+}
+```   
+If flipping multiple coins, each coin flip is printed on a new line, and the total for 'Heads' and 'Tails' is displayed. 
+```java
+public static void flipMany(int increment){
+      // ... validation for number of times to flip coin
+      int headsTotal = 0;
+      int tailsTotal = 0;
+      for (int i = 1; i <= increment; i++) {
+            String flip = flipCoin();
+            UserOutput.printFlip(flip, i);
+            if (flip.equals("Heads")) headsTotal++;
+            if (flip.equals("Tails")) tailsTotal++;
+      }
+      UserOutput.printFlipTotals(headsTotal, tailsTotal);
+ }
+ ```
+ 
