@@ -16,6 +16,7 @@ public class DiceApp {
 
             int choice = Integer.parseInt(UserInput.getInput());
 
+            // TO DO: make custom exceptions for error handling
             try {
                 if (choice == 1)
                 {
