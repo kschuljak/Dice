@@ -3,6 +3,7 @@
 ## DiceApp 
 ### Rolling Dice
 Users can choose to roll one or multiple dice (from the standard TTRPG dice types).
+```java
 if (numberOfTimesToRollDice == 1) Dice.rollOne(diceSelection);
 if (numberOfTimesToRollDice > 1) Dice.rollMany(diceSelection, numberOfTimesToRollDice);
 ```   
