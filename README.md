@@ -17,7 +17,7 @@ Users can also choose to flip one or multiple coins.
 ```java
 if (coinFlips == 1) Dice.flipOne();
 if (coinFlips > 1) Dice.flipMany(coinFlips);
-```
+```   
 ![flipcoin](https://user-images.githubusercontent.com/47723396/207471035-8c2b104c-49da-4ad8-bf20-573677cfde41.png)
    
 
