@@ -70,7 +70,8 @@ public class Dice{
                 UserOutput.printRoll(roll, i);
                 total += roll;
             }
-            UserOutput.printRollTotal(total);
+            int average = total/increment;
+            UserOutput.printRollTotal(total, average);
             UserOutput.printEndBreak();
         }
     }
