@@ -65,9 +65,10 @@ public class UserOutput {
         else System.out.println(FontColor.PURPLE + "Roll " + increment + ":   " + FontColor.WHITE + formattedRoll + FontColor.RESET);
     }
 
-    public static void printRollTotal(int total) {
+    public static void printRollTotal(int total, int average) {
         printBreak();
         System.out.println("Roll Total: " + total);
+        System.out.println("Average Roll: " + average);
         printBreak();
     }
 
