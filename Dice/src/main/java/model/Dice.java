@@ -40,25 +40,27 @@ public class Dice{
         int maximumIncrement = 20;
 
         boolean isValid = (i >= minimumIncrement && i <= maximumIncrement);
-        if (!isValid && type == COIN) UserOutput.printFlipTimesError();
-        if (!isValid && type != COIN) UserOutput.printRollTimesError();
+
+        if (i < minimumIncrement && type == COIN) UserOutput.printNegativeFlipError();
+        if (i < minimumIncrement && type != COIN) UserOutput.printNegativeRollError();
+
+        if (i > maximumIncrement && type == COIN) UserOutput.printFlipTimesError();
+        if (i > maximumIncrement && type != COIN) UserOutput.printRollTimesError();
+
         return isValid;
     }
 
     public static void rollOne(int dice)
     {
-        boolean isValid = validateDice(dice);
         UserOutput.printStartBreak();
-        if (isValid) {
-            UserOutput.printRollingDiceIntro(dice);
-            UserOutput.printRoll(getRoll(dice));
-        }
+        UserOutput.printRollingDiceIntro(dice);
+        UserOutput.printRoll(getRoll(dice));
         UserOutput.printEndBreak();
     }
 
     public static void rollMany(int dice, int increment)
     {
-        boolean isValid = (validateDice(dice) && validateIncrement(dice, increment));
+        boolean isValid = validateIncrement(dice, increment);
         if (isValid) {
             UserOutput.printStartBreak();
             UserOutput.printRollingDiceIntro(dice);
