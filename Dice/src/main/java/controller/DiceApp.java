@@ -1,6 +1,5 @@
 package controller;
 
-import java.util.Scanner;
 import model.Dice;
 import view.UserInput;
 import view.UserOutput;
@@ -22,12 +21,14 @@ public class DiceApp {
                 {
                     UserOutput.printDiceSelectionIntro();
                     int diceSelection = Integer.parseInt(UserInput.getInput());
+                    if (Dice.validateDice(diceSelection)) {
 
-                    UserOutput.printHowManyTimesToRollSelectionIntro();
-                    int numberOfTimesToRollDice = Integer.parseInt(UserInput.getInput());
+                        UserOutput.printHowManyTimesToRollSelectionIntro();
+                        int numberOfTimesToRollDice = Integer.parseInt(UserInput.getInput());
 
-                    if (numberOfTimesToRollDice == 1) Dice.rollOne(diceSelection);
-                    if (numberOfTimesToRollDice > 1) Dice.rollMany(diceSelection, numberOfTimesToRollDice);
+                        if (numberOfTimesToRollDice == 1) Dice.rollOne(diceSelection);
+                        if (numberOfTimesToRollDice > 1) Dice.rollMany(diceSelection, numberOfTimesToRollDice);
+                    }
                 }
                 else if (choice == 2)
                 {
@@ -46,7 +47,4 @@ public class DiceApp {
             }
         }
     }
-
-
-
 }
