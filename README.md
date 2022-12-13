@@ -20,7 +20,7 @@ if (coinFlips > 1) Dice.flipMany(coinFlips);
 -----
 # Dice
 ## Rolling Dice
-Uses Java's `ThreadLocalRandom` to get a random number between 1 and given value for dice type.   
+Uses Java's `ThreadLocalRandom` to get a random number between 1 and max roll for dice type.   
 ```java
 public static int getRoll(int diceType){
       return ThreadLocalRandom.current().nextInt(1, diceType + 1);
