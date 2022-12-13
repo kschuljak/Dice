@@ -109,20 +109,33 @@ public class UserOutput {
 
     public static void printDiceTypeError(int diceType) {
         System.out.println(FontColor.RED + "D" + diceType + " is not a valid selection" + FontColor.RESET);
+        System.out.println();
+    }
+
+    public static void printNegativeRollError() {
+        System.out.println(FontColor.RED + "Cannot roll negative dice" + FontColor.RESET);
+        System.out.println();
+    }
+
+    public static void printNegativeFlipError() {
+        System.out.println(FontColor.RED + "Cannot flip negative coins" + FontColor.RESET);
+        System.out.println();
     }
 
     public static void printRollTimesError() {
         System.out.println(FontColor.RED + "Exceeds maximum allowed dice rolls" + FontColor.RESET);
+        System.out.println();
     }
 
     public static void printFlipTimesError() {
         System.out.println(FontColor.RED + "Exceeds maximum allowed coin flips" + FontColor.RESET);
+        System.out.println();
     }
 
     public static void printException(String message) {
         printBreak();
         printBreak();
-        System.out.println(message);
+        System.out.println(FontColor.RED + message + FontColor.RESET);
         System.out.println("Please try again.");
         printBreak();
         printBreak();
