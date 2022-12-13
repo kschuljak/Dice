@@ -10,12 +10,16 @@ Users can choose to roll one or multiple dice.
 if (numberOfTimesToRollDice == 1) Dice.rollOne(diceSelection);
 if (numberOfTimesToRollDice > 1) Dice.rollMany(diceSelection, numberOfTimesToRollDice);
 ```   
+![rolldice](https://user-images.githubusercontent.com/47723396/207470681-ed8940c3-749f-4bf6-bd9a-ad13c9402ba2.png)
+    
 ## Flipping Coin
 Users can also choose to flip one or multiple coins.   
 ```java
 if (coinFlips == 1) Dice.flipOne();
 if (coinFlips > 1) Dice.flipMany(coinFlips);
-```   
+```![flipcoin](https://user-images.githubusercontent.com/47723396/207471035-8c2b104c-49da-4ad8-bf20-573677cfde41.png)
+   
+
    
 -----
 # Dice
