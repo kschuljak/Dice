@@ -82,7 +82,7 @@ public static void flipMany(int increment){
  ```
      
 ## Validating User Input
-The entered dice type must be a dice type commonly used used in tabletop RPG games (D4, D8, D10, D12, D20, & D100).
+The entered dice type must be a dice type commonly used used in tabletop RPG games (D4, D6, D8, D10, D12, D20, & D100).
 ```java
 // static finals created for each dice type
 public static boolean validateDice(int dice){
