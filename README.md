@@ -1,6 +1,7 @@
 # Dice
 ### ***Java Console App to roll dice and flip coins***
 
+![Untitled design (5)](https://user-images.githubusercontent.com/47723396/207472065-5bf7df9c-1126-4d6b-bad0-73658bfd97e8.png)
 
 -----  
 # DiceApp 
@@ -10,7 +11,6 @@ Users can choose to roll one or multiple dice.
 if (numberOfTimesToRollDice == 1) Dice.rollOne(diceSelection);
 if (numberOfTimesToRollDice > 1) Dice.rollMany(diceSelection, numberOfTimesToRollDice);
 ```   
-![rolldice](https://user-images.githubusercontent.com/47723396/207470681-ed8940c3-749f-4bf6-bd9a-ad13c9402ba2.png)
     
 ## Flipping Coin
 Users can also choose to flip one or multiple coins.   
@@ -18,9 +18,6 @@ Users can also choose to flip one or multiple coins.
 if (coinFlips == 1) Dice.flipOne();
 if (coinFlips > 1) Dice.flipMany(coinFlips);
 ```   
-![flipcoin](https://user-images.githubusercontent.com/47723396/207471035-8c2b104c-49da-4ad8-bf20-573677cfde41.png)
-   
-
    
 -----
 # Dice
