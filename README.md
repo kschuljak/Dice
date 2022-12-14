@@ -136,9 +136,10 @@ public class UserInput {
 # User Output
 Contains all the print statements used to display information to the console.    
 Text printed to the console is formatted using Java's `String.format()` as well as final values set in the `FontColor` class.     
-When rolling multiple dice, rolls are printed out in alternating white-grey-white pattern for easier reading.
-When flipping multiple coins, 'Heads' is printed out in white and 'Tails' in grey for easier reading.
-```java
+When rolling multiple dice, rolls are printed out in alternating white-grey-white pattern for easier reading.     
+When flipping multiple coins, 'Heads' is printed out in white and 'Tails' in grey for easier reading.     
+```java 
+// FontColor.WHITE is dull white, FontColor.RESET is bright white
 public static void printRoll(int roll, int i) {
       String increment = String.format("%2s", String.valueOf(i));
       String formattedRoll = String.format("%3s", String.valueOf(roll));
@@ -157,5 +158,26 @@ public static void printRoll(int roll, int i) {
                                FontColor.WHITE + 
                                formattedRoll + 
                                FontColor.RESET);
+}
+```
+```java
+public static void printFlip(String flip, int i) {
+      String increment = String.format("%2s", i);
+      if (flip.equals("Heads")) {
+            System.out.println(FontColor.PURPLE + 
+                               "Flip " + 
+                               increment + 
+                               ":   " + 
+                               FontColor.RESET + 
+                               flip);
+      } else {
+            System.out.println(FontColor.PURPLE + 
+                              "Flip " + 
+                              increment + 
+                              ":   " + 
+                              FontColor.WHITE + 
+                              flip + 
+                              FontColor.RESET);
+      }
 }
 ```
