@@ -158,6 +158,7 @@ public static void printRoll(int roll, int i) {
                                FontColor.WHITE + 
                                formattedRoll + 
                                FontColor.RESET);
+      }
 }
 ```
 ```java
