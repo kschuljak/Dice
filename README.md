@@ -139,7 +139,7 @@ Text printed to the console is formatted using Java's `String.format()` as well 
 When rolling multiple dice, rolls are printed out in alternating white-grey-white pattern for easier reading.     
 When flipping multiple coins, 'Heads' is printed out in white and 'Tails' in grey for easier reading.     
 ```java 
-// FontColor.WHITE is dull white, FontColor.RESET is bright white
+// FontColor.WHITE is dull white (grey), FontColor.RESET is bright white (white)
 public static void printRoll(int roll, int i) {
       String increment = String.format("%2s", String.valueOf(i));
       String formattedRoll = String.format("%3s", String.valueOf(roll));
@@ -162,6 +162,7 @@ public static void printRoll(int roll, int i) {
 }
 ```
 ```java
+// FontColor.WHITE is dull white (grey), FontColor.RESET is bright white (white)
 public static void printFlip(String flip, int i) {
       String increment = String.format("%2s", i);
       if (flip.equals("Heads")) {
