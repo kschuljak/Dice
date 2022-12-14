@@ -109,7 +109,10 @@ public static boolean validateIncrement(int type, int i){
       if (!isValid && type != COIN) UserOutput.printRollTimesError();
       return isValid;
 }
-```
+```   
+     
+![Untitled design (6)](https://user-images.githubusercontent.com/47723396/207473115-b1cf008e-8d58-4573-bd69-c7d6bd33622a.png)
+     
    
 -----
 # User Input
