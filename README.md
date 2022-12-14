@@ -135,7 +135,9 @@ public class UserInput {
 -----
 # User Output
 Contains all the print statements used to display information to the console.    
-Text printed to the console is formatted using Java's `String.format()` as well as final values set in the `FontColor` class.
+Text printed to the console is formatted using Java's `String.format()` as well as final values set in the `FontColor` class.     
+When rolling multiple dice, rolls are printed out in alternating white-grey-white pattern for easier reading.
+When flipping multiple coins, 'Heads' is printed out in white and 'Tails' in grey for easier reading.
 ```java
 public static void printRoll(int roll, int i) {
       String increment = String.format("%2s", String.valueOf(i));
